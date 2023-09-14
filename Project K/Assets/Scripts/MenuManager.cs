@@ -21,5 +21,7 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("QU/IT");
+
     }
 }
+;
