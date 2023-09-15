@@ -21,6 +21,9 @@ public class Item : MonoBehaviour
         if(collision.collider.tag == "BaseFlavor")
         {
             baseFlavor = collision.gameObject;
+            Debug.Log("Base Flavor Found");
+            Destroy(collision.gameObject);
+
         }
         else if (collision.collider.tag == "Flavor")
         {
@@ -32,8 +35,9 @@ public class Item : MonoBehaviour
         }
         else
         {
-            Instantiate(collision.gameObject, this.transform, true);
-            Destroy(collision.gameObject);
+            // Instantiate(collision.gameObject, this.transform, true);
+            //Destroy(collision.gameObject);
+            Debug.Log("Incorrect item Type");
         }
 
     }
