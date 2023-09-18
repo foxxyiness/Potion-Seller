@@ -7,7 +7,14 @@ public class Item : MonoBehaviour
 {
     [SerializeField]
     private GameObject baseFlavor, flavor, strength;
-
+    [SerializeField]
+    private bool allowBase, allowFlavor, allowStrength;
+    private void Start()
+    {
+        allowBase = true;
+        allowFlavor = true;
+        allowStrength = true;
+    }
     private void Update()
     {
         CheckForBaseFlavor(baseFlavor);
@@ -18,11 +25,12 @@ public class Item : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "BaseFlavor")
+        if(collision.collider.tag == "BaseFlavor" && allowBase)
         {
             baseFlavor = collision.gameObject;
             Debug.Log("Base Flavor Found");
-            Destroy(collision.gameObject);
+            collision.gameObject.transform.localScale = Vector3.zero;
+            allowBase = false;
 
         }
         else if (collision.collider.tag == "Flavor")
@@ -36,7 +44,7 @@ public class Item : MonoBehaviour
         else
         {
             // Instantiate(collision.gameObject, this.transform, true);
-            //Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
             Debug.Log("Incorrect item Type");
         }
 
