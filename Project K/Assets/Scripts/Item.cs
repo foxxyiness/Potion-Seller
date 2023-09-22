@@ -12,4 +12,9 @@ public class Item : MonoBehaviour
     [SerializeField]
     private string Description;
 
+    public string getName()
+    {
+        return Name;
+    }
+
 }
