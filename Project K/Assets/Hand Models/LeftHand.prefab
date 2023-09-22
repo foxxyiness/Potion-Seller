@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3530917834fd235478d405e7d5ada8e9, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.07
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3530917834fd235478d405e7d5ada8e9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.07
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3530917834fd235478d405e7d5ada8e9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.07
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3530917834fd235478d405e7d5ada8e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9adb0d90c1e9a54ca41d7c1d8068947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripInput: {fileID: 2194872154671651059, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
-  triggerInput: {fileID: 2961414745045175265, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
-  indexInput: {fileID: 1025676128428402736, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
-  thumbInput: {fileID: 4842579585269834285, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
+  gripInput: {fileID: 4079960729158004294, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
+  triggerInput: {fileID: 6311240494591329548, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
+  indexInput: {fileID: -375094990411393013, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
+  thumbInput: {fileID: -7114514897946015631, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
