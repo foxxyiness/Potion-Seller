@@ -26,7 +26,7 @@ public class Cualdron : MonoBehaviour
     private void Update()
     {
         /*CheckForBaseFlavor(baseFlavor);*/
-        CheckForItemCount();
+        //CheckForItemCount();
     }
     /* void CheckForBaseFlavor(GameObject b)
      {
