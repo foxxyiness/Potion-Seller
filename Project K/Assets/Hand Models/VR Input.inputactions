@@ -145,7 +145,7 @@
                 {
                     "name": "",
                     "id": "d6cc8f7b-5831-49a6-8746-76aec4fa9d9d",
-                    "path": "<XRController>{RightHand}/grip",
+                    "path": "<XRController>{LeftHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -156,7 +156,7 @@
                 {
                     "name": "",
                     "id": "22544608-b91b-4ee3-8ab9-4628031dfa49",
-                    "path": "<XRController>{RightHand}/trigger",
+                    "path": "<XRController>{LeftHand}/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -167,7 +167,7 @@
                 {
                     "name": "",
                     "id": "0eeb71e9-e583-4044-ad6c-30beca66ed22",
-                    "path": "<XRController>{RightHand}/triggerTouched",
+                    "path": "<XRController>{LeftHand}/triggerTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -178,7 +178,7 @@
                 {
                     "name": "",
                     "id": "1d9cf0cb-9695-441f-9cd5-c14867a0b893",
-                    "path": "<XRController>{RightHand}/primaryTouched",
+                    "path": "<XRController>{LeftHand}/primaryTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -189,7 +189,7 @@
                 {
                     "name": "",
                     "id": "9c439276-0a4b-4bb9-8daf-6748416361b2",
-                    "path": "<XRController>{RightHand}/secondaryTouched",
+                    "path": "<XRController>{LeftHand}/secondaryTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
