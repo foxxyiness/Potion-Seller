@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - BaseFlavor
+  - Strength
+  - Flavor
   layers:
   - Default
   - TransparentFX

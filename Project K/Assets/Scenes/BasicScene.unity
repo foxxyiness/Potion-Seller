@@ -1118,9 +1118,10 @@ GameObject:
   - component: {fileID: 585208795}
   - component: {fileID: 585208794}
   - component: {fileID: 585208793}
+  - component: {fileID: 585208799}
   m_Layer: 0
-  m_Name: Sphere (3)
-  m_TagString: BaseFlavor
+  m_Name: Sun_Orb
+  m_TagString: Strength
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1386,6 +1387,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585208799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585208792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 
+  Name: sun
+  Description: 
 --- !u!1 &697070392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,8 +3758,9 @@ GameObject:
   - component: {fileID: 1484541892}
   - component: {fileID: 1484541891}
   - component: {fileID: 1484541890}
+  - component: {fileID: 1484541896}
   m_Layer: 0
-  m_Name: Sphere (6)
+  m_Name: Water_Orb
   m_TagString: BaseFlavor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4010,6 +4027,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484541896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484541889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 
+  Name: water
+  Description: 
 --- !u!1 &1578561032
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,12 +4074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFlavor: {fileID: 0}
-  flavor: {fileID: 0}
-  strength: {fileID: 0}
-  allowBase: 0
-  allowFlavor: 0
-  allowStrength: 0
+  Type: 
+  Name: 
+  Description: 
 --- !u!65 &1578561034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4504,12 +4533,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFlavor: {fileID: 0}
-  flavor: {fileID: 0}
-  strength: {fileID: 0}
-  allowBase: 0
-  allowFlavor: 0
-  allowStrength: 0
+  Type: 
+  Name: 
+  Description: 
 --- !u!64 &1715282456
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5061,9 +5087,10 @@ GameObject:
   - component: {fileID: 1898325807}
   - component: {fileID: 1898325806}
   - component: {fileID: 1898325805}
+  - component: {fileID: 1898325811}
   m_Layer: 0
-  m_Name: Sphere (5)
-  m_TagString: BaseFlavor
+  m_Name: Hair_Orb
+  m_TagString: Flavor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5329,6 +5356,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898325811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898325804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 
+  Name: hair
+  Description: 
 --- !u!1001 &1969504051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5436,7 +5478,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000015258789, y: -0.000004629139}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 74}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &459033069189531575
 CanvasRenderer:
@@ -6131,6 +6173,7 @@ GameObject:
   - component: {fileID: 6507798074337164256}
   - component: {fileID: 7866553017347011725}
   - component: {fileID: 7866553017347011728}
+  - component: {fileID: 7866553017347011729}
   m_Layer: 0
   m_Name: Cauldren
   m_TagString: Untagged
@@ -7634,10 +7677,10 @@ RectTransform:
   - {fileID: 6327183373324269479}
   m_Father: {fileID: 182042061554917721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -44}
+  m_SizeDelta: {x: 352, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7482976447421618213
 GameObject:
@@ -8008,6 +8051,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8413649733483253682, guid: 5f2a84dd197ff914dbc4c7ff08168d9f, type: 3}
+--- !u!114 &7866553017347011729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911140348508416301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d19fa31fc72f6419d484a48e5b9635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowBase: 0
+  allowFlavor: 0
+  allowStrength: 0
+  itemList: []
+  recipes:
+  - waterhairsun
+  recipeResults: []
 --- !u!1 &7889555932551191633
 GameObject:
   m_ObjectHideFlags: 0
