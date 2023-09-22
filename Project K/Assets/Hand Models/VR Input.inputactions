@@ -97,6 +97,17 @@
                     "action": "ThumbTouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a53e1cb-15e9-4d85-848c-9241fe55008c",
+                    "path": "<OculusTouchController>{RightHand}/thumbrestTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThumbTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -190,6 +201,17 @@
                     "name": "",
                     "id": "9c439276-0a4b-4bb9-8daf-6748416361b2",
                     "path": "<XRController>{LeftHand}/secondaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThumbTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b1daff0-abca-4b62-8e15-e6422b4fa0c1",
+                    "path": "<OculusTouchController>{LeftHand}/thumbrestTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
