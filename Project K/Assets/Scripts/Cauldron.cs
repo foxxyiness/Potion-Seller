@@ -56,6 +56,7 @@ public class Cualdron : MonoBehaviour
             {
                 Debug.Log("Potion of Light Created");
                 itemList.RemoveAll(HasItemName);
+                break;
             }
             else
             {
@@ -84,7 +85,7 @@ public class Cualdron : MonoBehaviour
             CheckForItemCount();
 
         }
-        else if (collision.collider.tag == "Flavor")
+        else if (collision.collider.tag == "Flavor" && allowFlavor)
         {
             //flavor = collision.gameObject;
             Debug.Log("Flavor Found");
@@ -93,7 +94,7 @@ public class Cualdron : MonoBehaviour
             allowFlavor = false;
             CheckForItemCount();
         }
-        else if (collision.collider.tag == "Strength")
+        else if (collision.collider.tag == "Strength" && allowStrength)
         {
             //strength = collision.gameObject;
             Debug.Log("Strength Found");
@@ -104,6 +105,7 @@ public class Cualdron : MonoBehaviour
         }
         else
         {
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(0, 5, 3, ForceMode.Impulse);
             // Instantiate(collision.gameObject, this.transform, true);
             //Destroy(collision.gameObject);
             //CheckForCompleteRecipe();
