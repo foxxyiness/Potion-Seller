@@ -11,7 +11,7 @@ public class Cualdron : MonoBehaviour
     [SerializeField]
     private bool allowBase, allowFlavor, allowStrength;
     [SerializeField]
-    private List<Item> itemList;
+    private List<Item> itemList = new List<Item>();
     [SerializeField]
     private string[] recipes;
     [SerializeField]
@@ -21,6 +21,7 @@ public class Cualdron : MonoBehaviour
         allowBase = true;
         allowFlavor = true;
         allowStrength = true;
+
     }
     private void Update()
     {
