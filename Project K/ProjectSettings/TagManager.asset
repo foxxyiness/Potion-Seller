@@ -7,6 +7,7 @@ TagManager:
   - BaseFlavor
   - Strength
   - Flavor
+  - Potion_Spawner
   layers:
   - Default
   - TransparentFX

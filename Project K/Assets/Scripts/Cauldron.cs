@@ -16,6 +16,8 @@ public class Cualdron : MonoBehaviour
     private string[] recipes;
     [SerializeField]
     private Item[] recipeResults;
+    [SerializeField]
+    private Transform potionSpawnPoint;
     private void Start()
     {
         allowBase = true;
@@ -54,9 +56,7 @@ public class Cualdron : MonoBehaviour
         {
             if (recipes[i] == currentRecipe) 
             {
-                Debug.Log("Potion of Light Created");
-                itemList.RemoveAll(HasItemName);
-                break;
+                SpawnPotion(i);
             }
             else
             {
@@ -65,7 +65,16 @@ public class Cualdron : MonoBehaviour
             }
         }
     }
-
+    void SpawnPotion(int recipeindex)
+    {
+        if(recipeindex <= 5)
+        {
+            Instantiate(recipeResults[0], potionSpawnPoint);
+            Debug.Log("Potion of Light Created");
+            itemList.RemoveAll(HasItemName);
+            return;
+        }
+    }
     void CheckForItemCount()
     {
         if (itemList.Count == 3)
@@ -83,6 +92,7 @@ public class Cualdron : MonoBehaviour
             itemList.Add(collision.gameObject.GetComponent<Item>());
             allowBase = false;
             CheckForItemCount();
+            
 
         }
         else if (collision.collider.tag == "Flavor" && allowFlavor)
