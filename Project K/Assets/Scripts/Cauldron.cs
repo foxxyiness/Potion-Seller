@@ -57,6 +57,7 @@ public class Cualdron : MonoBehaviour
             if (recipes[i] == currentRecipe) 
             {
                 SpawnPotion(i);
+                break;
             }
             else
             {
