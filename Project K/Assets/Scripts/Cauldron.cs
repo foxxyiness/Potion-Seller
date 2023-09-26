@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cualdron : MonoBehaviour
+public class Cauldron : MonoBehaviour
 {
-    private Item currentItem;
+    //private Item currentItem;
     /*[SerializeField]
     private GameObject baseFlavor, flavor, strength;*/
     [SerializeField]
     private bool allowBase, allowFlavor, allowStrength;
-    [SerializeField]
-    private List<Item> itemList = new List<Item>();
+
+    [SerializeField] 
+    private List<Item> itemList;
     [SerializeField]
     private string[] recipes;
     [SerializeField]
@@ -66,14 +67,13 @@ public class Cualdron : MonoBehaviour
             }
         }
     }
-    void SpawnPotion(int recipeindex)
+    void SpawnPotion(int recipeIndex)
     {
-        if(recipeindex <= 5)
+        if(recipeIndex <= 5)
         {
             Instantiate(recipeResults[0], potionSpawnPoint);
             Debug.Log("Potion of Light Created");
             itemList.RemoveAll(HasItemName);
-            return;
         }
     }
     void CheckForItemCount()
@@ -85,7 +85,7 @@ public class Cualdron : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "BaseFlavor" && allowBase)
+        if (collision.collider.CompareTag("BaseFlavor") && allowBase)
         {
             //baseFlavor = collision.gameObject;
             Debug.Log("Base Flavor Found");
@@ -96,7 +96,7 @@ public class Cualdron : MonoBehaviour
             
 
         }
-        else if (collision.collider.tag == "Flavor" && allowFlavor)
+        else if (collision.collider.CompareTag("Flavor") && allowFlavor)
         {
             //flavor = collision.gameObject;
             Debug.Log("Flavor Found");
@@ -105,7 +105,7 @@ public class Cualdron : MonoBehaviour
             allowFlavor = false;
             CheckForItemCount();
         }
-        else if (collision.collider.tag == "Strength" && allowStrength)
+        else if (collision.collider.CompareTag("Strength") && allowStrength)
         {
             //strength = collision.gameObject;
             Debug.Log("Strength Found");
