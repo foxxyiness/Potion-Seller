@@ -46,7 +46,7 @@ public class Cauldron : MonoBehaviour
         {
             if(item != null)
             {
-                currentRecipe += item.getName();
+                currentRecipe += item.GetName();
             }
             else
             {

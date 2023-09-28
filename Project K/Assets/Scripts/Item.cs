@@ -6,13 +6,13 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField]
-    private string Type;
+    private string type;
     [SerializeField]
     private string Name;
     [SerializeField]
-    private string Description;
+    private string description;
 
-    public string getName()
+    public string GetName()
     {
         return Name;
     }

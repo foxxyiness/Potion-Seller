@@ -12,5 +12,4 @@ public class MenuManager : MonoBehaviour
         Debug.Log("QU/IT");
 
     }
-}
-;
+};
