@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18306622, g: 0.2287434, b: 0.30669293, a: 1}
+  m_IndirectSpecularColor: {r: 0.18306571, g: 0.22874258, b: 0.30669147, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1022,9 +1022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 
-  Name: sun
-  Description: 
+  type: 0
+  name: 
+  description: 
 --- !u!1 &691753402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 356535bce7df9a04ab240bf57a7ec78a, type: 3}
@@ -3152,9 +3152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 
-  Name: water
-  Description: 
+  type: 0
+  name: 
+  description: 
 --- !u!1 &1578561032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,9 +3187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 
-  Name: 
-  Description: 
+  type: 0
+  name: 
+  description: 
 --- !u!65 &1578561034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4571,9 +4571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 
-  Name: hair
-  Description: 
+  type: 0
+  name: 
+  description: 
 --- !u!1001 &1969504051
 PrefabInstance:
   m_ObjectHideFlags: 0
