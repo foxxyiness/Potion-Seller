@@ -2204,7 +2204,7 @@
             "actions": [
                 {
                     "name": "Fire_Power",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "0fcbd540-cdc5-49f0-a891-1601f19930e2",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -2248,6 +2248,39 @@
                     "name": "binding",
                     "id": "845579d0-f17a-4a53-b02d-5bc05c7ab4ad",
                     "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Keyboard_Test",
+                    "id": "17bea499-9126-4879-a955-ead1afee9fcf",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire_Power",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "button",
+                    "id": "6b49fa86-7bfb-453a-81e1-3d1bddc4cc9e",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button",
+                    "id": "76a2fbaf-fa18-43ea-a175-559cc7340b5d",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
