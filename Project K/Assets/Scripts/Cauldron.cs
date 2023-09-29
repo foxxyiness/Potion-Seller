@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Cauldron : MonoBehaviour
 {
-    //private Item currentItem;
-    /*[SerializeField]
-    private GameObject baseFlavor, flavor, strength;*/
     [SerializeField]
     private bool allowBase, allowFlavor, allowStrength;
 
@@ -26,22 +23,17 @@ public class Cauldron : MonoBehaviour
         allowStrength = true;
 
     }
-    private void Update()
-    {
-        /*CheckForBaseFlavor(baseFlavor);*/
-        //CheckForItemCount();
-    }
     /* void CheckForBaseFlavor(GameObject b)
      {
 
      }*/
-    static bool HasItemName(Item item)
+    private static bool HasItemName(Item item)
     {
         return item;
     }
-    void CheckForCompleteRecipe()
+    private void CheckForCompleteRecipe()
     {
-        string currentRecipe = "";
+        var currentRecipe = "";
         foreach(Item item in itemList)
         {
             if(item != null)
@@ -53,7 +45,7 @@ public class Cauldron : MonoBehaviour
                 currentRecipe += "null";
             }
         }
-        for(int i = 0; i < recipes.Length; i++)
+        for(var i = 0; i < recipes.Length; i++)
         {
             if (recipes[i] == currentRecipe) 
             {
@@ -67,21 +59,17 @@ public class Cauldron : MonoBehaviour
             }
         }
     }
-    void SpawnPotion(int recipeIndex)
+    private void SpawnPotion(int recipeIndex)
     {
-        if(recipeIndex <= 5)
-        {
-            Instantiate(recipeResults[0], potionSpawnPoint);
-            Debug.Log("Potion of Light Created");
-            itemList.RemoveAll(HasItemName);
-        }
+        if (recipeIndex > 5) return;
+        Instantiate(recipeResults[0], potionSpawnPoint);
+        Debug.Log("Potion of Light Created");
+        itemList.RemoveAll(HasItemName);
     }
-    void CheckForItemCount()
+    private void CheckForItemCount()
     {
-        if (itemList.Count == 3)
-        {
-            CheckForCompleteRecipe();
-        }
+        if (itemList.Count != 3) return;
+        CheckForCompleteRecipe();
     }
     private void OnCollisionEnter(Collision collision)
     {
