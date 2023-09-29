@@ -18,6 +18,7 @@ public class PowerManager : MonoBehaviour
    [SerializeField] private Transform rightPowerSpawnpoint;
    [SerializeField] private float shootForce = 10f;
    private bool _itemGrabbed = false;
+   private bool _canFire = true;
 
    public void SetItemGrabTrue()
    { _itemGrabbed = true; Debug.Log("ITEM GRABBED");}
@@ -54,14 +55,16 @@ public class PowerManager : MonoBehaviour
 
    private IEnumerator Fire()
    {
-      if (inputActionReference.action.triggered && _itemGrabbed == false)
+      if (inputActionReference.action.triggered && _itemGrabbed == false && _canFire == true)
       {
+         _canFire = false;
          Debug.Log("FIRE");
          TriggerHaptic(rightController);
          GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnpoint.position, quaternion.identity);
          //Vector3 shootDir = (this.transform.position - rightPowerSpawnpoint.position).normalized;
          fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnpoint.transform.forward * shootForce, ForceMode.Impulse);
          yield return new WaitForSeconds(1);
+         _canFire = true;
       }
    }
    private void TriggerHaptic(XRBaseController controller)
