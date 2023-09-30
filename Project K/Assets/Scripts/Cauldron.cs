@@ -65,11 +65,19 @@ public class Cauldron : MonoBehaviour
         Instantiate(recipeResults[0], potionSpawnPoint);
         Debug.Log("Potion of Light Created");
         itemList.RemoveAll(HasItemName);
+        SetBoolFalse();
     }
     private void CheckForItemCount()
     {
         if (itemList.Count != 3) return;
         CheckForCompleteRecipe();
+    }
+
+    private void SetBoolFalse()
+    {
+        allowBase = true;
+        allowStrength = true;
+        allowFlavor = true;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -104,7 +112,7 @@ public class Cauldron : MonoBehaviour
         }
         else
         {
-          //  collision.gameObject.GetComponent<Rigidbody>().AddForce(0, 5, 3, ForceMode.Impulse);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(0, 5, 3, ForceMode.Impulse);
             // Instantiate(collision.gameObject, this.transform, true);
             //Destroy(collision.gameObject);
             //CheckForCompleteRecipe();
