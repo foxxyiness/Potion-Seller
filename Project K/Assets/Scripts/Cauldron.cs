@@ -23,10 +23,6 @@ public class Cauldron : MonoBehaviour
         allowStrength = true;
 
     }
-    /* void CheckForBaseFlavor(GameObject b)
-     {
-
-     }*/
     private static bool HasItemName(Item item)
     {
         return item;
@@ -64,8 +60,14 @@ public class Cauldron : MonoBehaviour
         if (recipeIndex > 5) return;
         Instantiate(recipeResults[0], potionSpawnPoint);
         Debug.Log("Potion of Light Created");
-        itemList.RemoveAll(HasItemName);
+        StartCoroutine(ClearList());
         SetBoolFalse();
+    }
+
+    private IEnumerator ClearList()
+    {
+        yield return new WaitForSeconds(1.5F);
+        itemList.RemoveAll(HasItemName);
     }
     private void CheckForItemCount()
     {
