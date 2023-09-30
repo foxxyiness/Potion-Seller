@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2815507, g: 0.4949973, b: 0.7395134, a: 1}
+  m_IndirectSpecularColor: {r: 0.28146088, g: 0.49500346, b: 0.73919654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3694,7 +3694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGrounded: 0
   type: 0
   name: 
   description: 
@@ -11686,7 +11685,7 @@ MonoBehaviour:
   duration: 1
   rightController: {fileID: 9014170783538599046}
   fireBall: {fileID: 4271625861835170951, guid: a8927576060d0d640b877bf41d68aad4, type: 3}
-  rightPowerSpawnpoint: {fileID: 324670783}
+  rightPowerSpawnPoint: {fileID: 0}
   shootForce: 10
 --- !u!1 &7889555932551191633
 GameObject:
