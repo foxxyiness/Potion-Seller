@@ -10,11 +10,11 @@ using Random = System.Random;
 public class OrderManager : MonoBehaviour
 {
     private static Orders.Orders _orders;
-    private int[] _levelState = { 1, 2, 3, 4, 5 };
+    private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
     private int _currentState;
     private List<Item> _itemsOnOrder;
 
-    void awake()
+    void Awake()
     {
         _currentState = _levelState[0];
 
