@@ -27,6 +27,12 @@ public class Item : MonoBehaviour
         }
     }
 
+    private enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
     private enum Type
     {
         Light,
@@ -35,13 +41,15 @@ public class Item : MonoBehaviour
         Death
     }
 
+  
     [SerializeField]
     private Type type = Type.Light;
     [SerializeField]
     private string name;
     [SerializeField]
     private string description;
-
+    [SerializeField] 
+    private Difficulty difficulty = Difficulty.Easy;
     public string GetName()
     {
         return name;
