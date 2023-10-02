@@ -1,26 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private bool _isGrounded;
-    private Rigidbody rb;
+    public bool isGrounded { get; private set; }
+    private Rigidbody _rb;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
-            rb.velocity = Vector3.zero;
-            _isGrounded = true;
+            _rb.velocity = Vector3.zero;
+            isGrounded = true;
         }
     }
 
@@ -28,10 +23,16 @@ public class Item : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ground"))
         {
-            _isGrounded = false;
+            isGrounded = false;
         }
     }
 
+    private enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
     private enum Type
     {
         Light,
@@ -40,13 +41,15 @@ public class Item : MonoBehaviour
         Death
     }
 
+  
     [SerializeField]
     private Type type = Type.Light;
     [SerializeField]
     private string name;
     [SerializeField]
     private string description;
-
+    [SerializeField] 
+    private Difficulty difficulty = Difficulty.Easy;
     public string GetName()
     {
         return name;

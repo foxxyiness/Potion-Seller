@@ -1,13 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class PowerManager : MonoBehaviour
 {
@@ -15,10 +9,10 @@ public class PowerManager : MonoBehaviour
    [SerializeField] private float intensity, duration = 0.5F;
    [SerializeField] private XRBaseController rightController;
    [SerializeField] private GameObject fireBall;
-   [SerializeField] private Transform rightPowerSpawnpoint;
+   [SerializeField] private Transform rightPowerSpawnPoint;
    [SerializeField] private float shootForce = 10f;
-   private bool _itemGrabbed = false;
-   private bool _canFire = true;
+   private bool _itemGrabbed;
+   private bool _canFire;
 
    public void SetItemGrabTrue()
    { _itemGrabbed = true; Debug.Log("ITEM GRABBED");}
@@ -35,19 +29,7 @@ public class PowerManager : MonoBehaviour
    {
       inputActionReference.action.Disable();
    }
-
-   private void Start()
-   {
-      /*inputActionReference.action.triggered += _ =>
-      {
-         Debug.Log("Shift + W Performed");
-      };*/
-      /*inputActionReference.action.performed += _ =>
-      {
-         Debug.Log("Shift + W Performed");
-      };*/
-   }
-
+   
    private void Update()
    {
       StartCoroutine(nameof(Fire));
@@ -55,14 +37,13 @@ public class PowerManager : MonoBehaviour
 
    private IEnumerator Fire()
    {
-      if (inputActionReference.action.triggered && _itemGrabbed == false && _canFire == true)
+      if (inputActionReference.action.triggered && !_itemGrabbed && _canFire)
       {
          _canFire = false;
          Debug.Log("FIRE");
          TriggerHaptic(rightController);
-         GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnpoint.position, quaternion.identity);
-         //Vector3 shootDir = (this.transform.position - rightPowerSpawnpoint.position).normalized;
-         fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnpoint.transform.forward * shootForce, ForceMode.Impulse);
+         GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
+         fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
          yield return new WaitForSeconds(1);
          _canFire = true;
       }
