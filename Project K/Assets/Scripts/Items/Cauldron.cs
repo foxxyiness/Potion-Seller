@@ -68,7 +68,7 @@ public class Cauldron : MonoBehaviour
     private IEnumerator ClearList()
     {
         yield return new WaitForSeconds(1.5F);
-        itemList.RemoveAll(HasItemName);
+        itemList.Clear();
     }
     private void CheckForItemCount()
     {
