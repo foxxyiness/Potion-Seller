@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -9,6 +10,7 @@ public class Item : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
+    
 
     private void OnCollisionEnter(Collision collision)
     {

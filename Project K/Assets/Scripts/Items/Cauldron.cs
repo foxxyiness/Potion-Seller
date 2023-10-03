@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Orders;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour
 {
+    private OrderManager _orderManager;
     [SerializeField]
     private bool allowBase, allowFlavor, allowStrength;
 
@@ -21,7 +23,6 @@ public class Cauldron : MonoBehaviour
         allowBase = true;
         allowFlavor = true;
         allowStrength = true;
-
     }
     private static bool HasItemName(Item item)
     {
