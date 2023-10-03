@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Orders
@@ -9,35 +11,41 @@ namespace Orders
     {
         private static Orders _orders;
         private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
-        private int _currentState;
+
+        private enum Difficulty
+        {
+            VeryEasy,
+            Easy,
+            Medium,
+            Hard,
+            VeryHard
+        }
+        [SerializeField]
+        private Difficulty currentState = Difficulty.VeryEasy;
         private List<Item> _itemsOnOrder;
 
-
-        private void Awake()
-        {
-            _currentState = _levelState[0];
-        }
+        
 
         internal IEnumerator StartOfDay()
         {
             _itemsOnOrder.Clear();
             yield return new WaitForSeconds(2);
-            GetOrders(_currentState);
+            GetOrders(currentState);
         }
-        private void GetOrders(int currentState)
+        private void GetOrders(Difficulty difficulty)
         {
             var rand = new Random();
-            switch (currentState)
+            switch (difficulty)
             {
                 //Level 1 has all Easy items **************************************************************************
-                case 1:
+                case Difficulty.VeryEasy:
                     for (var i = 0; i <= 5; i++)
                     {
                         _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
                     }
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
-                case 2:
+                case Difficulty.Easy:
                     for (var i = 0; i <= rand.Next(5, 7); i++)
                     {
                         var probability = rand.Next(1, 101);
@@ -45,7 +53,7 @@ namespace Orders
                     }
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
-                case 3:
+                case Difficulty.Medium:
                     for (var i = 0; i <= rand.Next(7, 10); i++)
                     {
                         var probability = rand.Next(1, 101);
@@ -63,9 +71,47 @@ namespace Orders
                         }
                     }
                     break;
+                //Adds Probability of having medium to 35%, easy 45%, hard to 20%
+                case Difficulty.Hard:
+                    for (var i = 0; i <= rand.Next(10, 12); i++)
+                    {
+                        var probability = rand.Next(1, 101);
+                        if (probability <= 35)
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleMediumOrder());
+                        }
+                        else if (probability is >= 36 and <= 80)
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                        }
+                        else
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleHardOrder());
+                        }
+                    }
+                    break;
+                //Easy, Med, Hard 33%
+                case Difficulty.VeryHard:
+                    for (var i = 0; i <= rand.Next(12, 15); i++)
+                    {
+                        var probability = rand.Next(1, 101);
+                        if (probability <= 33)
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleMediumOrder());
+                        }
+                        else if (probability is >= 34 and <= 67)
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                        }
+                        else
+                        {
+                            _itemsOnOrder.Add(_orders.GetSingleHardOrder());
+                        }
+                    }
+                    break;
                 default:
                     Debug.LogWarning("State Difficulty not equal 1-5, defaulting to easy.");
-                    goto case 1;
+                    goto case Difficulty.VeryEasy;
             }
             Debug.Log(_itemsOnOrder);
         }

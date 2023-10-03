@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 using Random = System.Random;
 namespace Orders
 {
-   [CreateAssetMenu]
-   public class Orders : ScriptableObject
+   public class Orders : MonoBehaviour
    {
       [SerializeField]
       private List<Item> easyItems;

@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+namespace UI___Menu
 {
-    public void QuitGame()
+    public class MenuManager : MonoBehaviour
     {
-        Application.Quit();
-        Debug.Log("QU/IT");
+        public void QuitGame()
+        {
+            Application.Quit();
+            Debug.Log("QU/IT");
 
-    }
-};
+        }
+    };
+}
