@@ -48,14 +48,14 @@ namespace Items
         [SerializeField]
         private Type type = Type.Light;
         [SerializeField]
-        private string name;
+        private string itemName;
         [SerializeField]
         private string description;
         [SerializeField] 
         private Difficulty difficulty = Difficulty.Easy;
         public string GetName()
         {
-            return name;
+            return itemName;
         }
 
         public Difficulty GetDifficulty()

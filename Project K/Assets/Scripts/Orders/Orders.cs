@@ -20,18 +20,7 @@ namespace Orders
       private List<Item> hardItems;
 
       private Random _rand = new Random();
-
-      private void OnEnable()
-      {
-         GetItemLists();
-         Debug.Log("ENABLE");
-      }
-
-      private void GetItemLists()
-      {
-         easyItems.Append<>(GameObject.FindObjectsOfType<Item>().GetDifficulty() == Item.Difficulty.Easy);
-         Debug.Log(easyItems[1].name);
-      }
+      
       //Get methods for retrieving the list of easy, med, and hard potions
       public List<Item> GetEasyItems()
       {

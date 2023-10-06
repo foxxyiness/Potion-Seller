@@ -11,7 +11,9 @@ namespace Orders
 {
     public class OrderManager : MonoBehaviour
     {
-        private static Orders _orders;
+       
+        public Orders _orders;
+        
         private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
 
         private enum Difficulty
@@ -24,15 +26,16 @@ namespace Orders
         }
         [SerializeField]
         private Difficulty currentState = Difficulty.VeryEasy;
-        private List<Item> _itemsOnOrder;
+        [SerializeField]
+        public List<Item> _itemsOnOrder;
 
-
-        private void Awake()
+        private void Start()
         {
-            _orders = (Orders)ScriptableObject.CreateInstance(typeof(Orders));
+            StartCoroutine(StartOfDay());
         }
 
-        internal IEnumerator StartOfDay()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private IEnumerator StartOfDay()
         {
             _itemsOnOrder.Clear();
             yield return new WaitForSeconds(2);
@@ -45,7 +48,7 @@ namespace Orders
             {
                 //Level 1 has all Easy items **************************************************************************
                 case Difficulty.VeryEasy:
-                    for (var i = 0; i <= 5; i++)
+                    for (var i = 0; i < 5; i++)
                     {
                         _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
                     }

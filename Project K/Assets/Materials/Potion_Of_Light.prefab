@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGrounded: 0
   type: 0
-  name: Potion Of Light
+  itemName: potion_of_light
   description: Light potion that promotes growth
+  difficulty: 0
 --- !u!54 &-1081773039998263840
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Orders;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -23,7 +25,8 @@ namespace Items
         {
             allowBase = true;
             allowFlavor = true;
-            allowStrength = true;
+            allowStrength = true; 
+            _orderManager = GameObject.FindGameObjectWithTag("Order_Manager").GetComponent<OrderManager>();
         }
         private static bool HasItemName(Item item)
         {
@@ -48,28 +51,43 @@ namespace Items
                 if (recipes[i] == currentRecipe) 
                 {
                     SpawnPotion(i);
-                    break;
                 }
                 else
                 {
                     Debug.Log("Nothing has been created, items shall be returned to you at once");
-                    itemList.RemoveAll(HasItemName);
+                    StartCoroutine(ClearList());
                 }
+               
             }
         }
         private void SpawnPotion(int recipeIndex)
         {
             if (recipeIndex > 5) return;
             Instantiate(recipeResults[0], potionSpawnPoint);
+            CheckCorrectItem(recipeResults[0]);
             Debug.Log("Potion of Light Created");
             StartCoroutine(ClearList());
-            SetBoolFalse();
         }
 
+        private void CheckCorrectItem(Item potion)
+        {
+            var index = _orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
+            //Check for Item Created was actually in list
+            if ( index > -1)
+            {
+                _orderManager._itemsOnOrder.RemoveAt(index);
+                Debug.Log("ITEM INDEX FOUND AND DESTROYED SUCCESSFULLY I BELIEVE");
+            }
+            else
+            {
+                Debug.Log("ITEM NOT FOUND IN LIST");
+            }
+        }
         private IEnumerator ClearList()
         {
             yield return new WaitForSeconds(1.5F);
             itemList.Clear();
+            SetBoolFalse();
         }
         private void CheckForItemCount()
         {

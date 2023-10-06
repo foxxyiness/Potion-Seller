@@ -9,6 +9,8 @@ TagManager:
   - Flavor
   - Potion_Spawner
   - Ground
+  - Anchor
+  - Order_Manager
   layers:
   - Default
   - TransparentFX

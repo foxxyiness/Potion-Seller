@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,8 +14,14 @@ namespace Player
       [SerializeField] private GameObject fireBall;
       [SerializeField] private Transform rightPowerSpawnPoint;
       [SerializeField] private float shootForce = 10f;
+      
       private bool _itemGrabbed;
       private bool _canFire;
+
+      private void Awake()
+      {
+         _canFire = true;
+      }
 
       public void SetItemGrabTrue()
       { _itemGrabbed = true; Debug.Log("ITEM GRABBED");}
