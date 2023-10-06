@@ -2,7 +2,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace Unity.VRTemplate
+namespace VRTemplateAssets.Scripts
 {
     /// <summary>
     /// Add this to your interactable to make it snap to the source of the XR Ray Interactor

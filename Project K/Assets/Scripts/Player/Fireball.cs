@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+namespace Player
 {
-    private void OnCollisionEnter(Collision other)
+    public class Fireball : MonoBehaviour
     {
-        Destroy(this.gameObject);
+        private void OnCollisionEnter(Collision other)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
