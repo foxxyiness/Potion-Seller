@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Items;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = System.Random;
@@ -24,7 +26,11 @@ namespace Orders
         private Difficulty currentState = Difficulty.VeryEasy;
         private List<Item> _itemsOnOrder;
 
-        
+
+        private void Awake()
+        {
+            _orders = (Orders)ScriptableObject.CreateInstance(typeof(Orders));
+        }
 
         internal IEnumerator StartOfDay()
         {

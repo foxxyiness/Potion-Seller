@@ -30,7 +30,7 @@ namespace Items
             }
         }
 
-        private enum Difficulty
+        public enum Difficulty
         {
             Easy,
             Medium,
@@ -56,6 +56,11 @@ namespace Items
         public string GetName()
         {
             return name;
+        }
+
+        public Difficulty GetDifficulty()
+        {
+            return difficulty;
         }
     
     }
