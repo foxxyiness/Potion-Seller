@@ -9,6 +9,9 @@ public class GrowthStage : MonoBehaviour
     public int timeBetweenGrowths;
     public int maxGrowth;
     public GameObject crop;
+    [SerializeField]
+    private AudioSource audioSource;
+    
     public AudioClip FinishedSound;
     public Transform[] stages;
     public List<Transform> crops = new List<Transform>();
@@ -46,11 +49,9 @@ public class GrowthStage : MonoBehaviour
         }
          else if(currentProgression == maxGrowth && CountCrops() < 3) 
         {
-            //audioSource.playOneShot(FinishedSound);
             GameObject temp = Instantiate(crop,transform.position,Quaternion.identity);
             crops.Add(temp.transform);
             stages[currentProgression-1].gameObject.SetActive(false);
-
             //infinate crop for now?
             currentProgression = currentProgression - maxGrowth;
 
