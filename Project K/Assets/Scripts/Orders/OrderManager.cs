@@ -16,7 +16,7 @@ namespace Orders
         
         private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
 
-        private enum Difficulty
+        public enum Difficulty
         {
             VeryEasy,
             Easy,
@@ -26,7 +26,9 @@ namespace Orders
         }
         [SerializeField]
         private Difficulty currentState = Difficulty.VeryEasy;
-        [SerializeField]
+
+        public Difficulty getCurrentState => currentState;
+
         public List<Item> _itemsOnOrder;
 
         private void Start()
@@ -35,7 +37,7 @@ namespace Orders
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        private IEnumerator StartOfDay()
+        internal IEnumerator StartOfDay()
         {
             _itemsOnOrder.Clear();
             yield return new WaitForSeconds(2);
@@ -124,6 +126,12 @@ namespace Orders
             }
             Debug.Log(_itemsOnOrder);
         }
+
+        public void AddDifficulty()
+        {
+            currentState++;
+        }
+        
     }
 }
     
