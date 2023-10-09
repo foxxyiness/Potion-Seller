@@ -134,10 +134,9 @@ namespace Items
             }
             else
             {
+                // ReSharper disable once CommentTypo
+                //Rejects Gameobjects Given
                 collision.gameObject.GetComponent<Rigidbody>().AddForce(0, 5, 3, ForceMode.Impulse);
-                // Instantiate(collision.gameObject, this.transform, true);
-                //Destroy(collision.gameObject);
-                //CheckForCompleteRecipe();
             }
 
 

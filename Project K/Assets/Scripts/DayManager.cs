@@ -25,6 +25,11 @@ public class DayManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Timer();
+    }
+
+    private void Timer()
+    {
         //Timer cycle for Day
         timer += Time.deltaTime;
         while (timer >= 1.5f)
@@ -35,7 +40,6 @@ public class DayManager : MonoBehaviour
         }
         DayTime();
     }
-
     private void DayTime()
     {
         //Resets Minute and add Hour

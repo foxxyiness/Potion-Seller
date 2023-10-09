@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Player
 {
    public class PowerManager : MonoBehaviour
    {
-      [SerializeField] private InputActionReference inputActionReference;
+      [FormerlySerializedAs("inputActionReference")] [SerializeField] private InputActionReference fireActionReference;
+      [SerializeField] private InputActionReference sunActionReference;
       [SerializeField] private float intensity, duration = 0.5F;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
@@ -31,12 +33,12 @@ namespace Player
 
       private void OnEnable()
       {
-         inputActionReference.action.Enable();
+         fireActionReference.action.Enable();
       }
 
       private void OnDisable()
       {
-         inputActionReference.action.Disable();
+         fireActionReference.action.Disable();
       }
    
       private void Update()
@@ -46,7 +48,7 @@ namespace Player
 
       private IEnumerator Fire()
       {
-         if (inputActionReference.action.triggered && !_itemGrabbed && _canFire)
+         if (fireActionReference.action.triggered && !_itemGrabbed && _canFire)
          {
             _canFire = false;
             Debug.Log("FIRE");
@@ -57,6 +59,7 @@ namespace Player
             _canFire = true;
          }
       }
+      
       private void TriggerHaptic(XRBaseController controller)
       {
          controller.SendHapticImpulse(intensity, duration);
