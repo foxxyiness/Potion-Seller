@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -6,7 +7,7 @@ namespace Items
     {
         public bool isGrounded { get; private set; }
         private Rigidbody _rb;
-
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();

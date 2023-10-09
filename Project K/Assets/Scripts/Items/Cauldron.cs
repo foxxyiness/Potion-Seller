@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Orders;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -55,18 +56,40 @@ namespace Items
                 else
                 {
                     Debug.Log("Nothing has been created, items shall be returned to you at once");
-                    StartCoroutine(ClearList());
+                    ReturnItems();
                 }
                
             }
         }
+
+        private void ReturnItems()
+        {
+            foreach (Item item in itemList)
+            {
+                Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity);
+            }
+
+            StartCoroutine(ClearList());
+        }
         private void SpawnPotion(int recipeIndex)
         {
-            if (recipeIndex > 5) return;
-            Instantiate(recipeResults[0], potionSpawnPoint);
-            CheckCorrectItem(recipeResults[0]);
-            Debug.Log("Potion of Light Created");
-            StartCoroutine(ClearList());
+            if (recipeIndex <= 5)
+            {
+                //Potion of Light
+                Instantiate(recipeResults[0], potionSpawnPoint);
+                CheckCorrectItem(recipeResults[0]);
+                Debug.Log("Potion of Light Created");
+                StartCoroutine(ClearList());
+            }
+            else if(recipeIndex is >= 6 and <= 11)
+            {
+                //Potion of Darkness
+                Instantiate(recipeResults[1], potionSpawnPoint);
+                CheckCorrectItem(recipeResults[1]);
+                Debug.Log("Potion of Darkness Created");
+                StartCoroutine(ClearList());
+            }
+            
         }
 
         private void CheckCorrectItem(Item potion)
