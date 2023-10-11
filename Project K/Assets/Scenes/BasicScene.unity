@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2815507, g: 0.4949973, b: 0.7395134, a: 1}
+  m_IndirectSpecularColor: {r: 0.28146088, g: 0.49500346, b: 0.73919654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1337,9 +1337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c38df6f4527ba741a8c9a01613b6e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DirectionalLight: {fileID: 299639868}
-  Preset: {fileID: 11400000, guid: dc49a09b063215149bfe805efd8e5600, type: 2}
-  TimeOfDay: 0
+  directionalLight: {fileID: 299639868}
+  preset: {fileID: 11400000, guid: dc49a09b063215149bfe805efd8e5600, type: 2}
+  timeOfDay: 0
 --- !u!4 &585208798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1944597102889229584, guid: 6bd52c2e615fa024784e641855193339, type: 3}

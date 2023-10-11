@@ -1,30 +1,16 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-
-[CreateAssetMenu(fileName = "Lighting Preset", menuName = "Scriptables/Lighting Preset", order =1)]
-public class LightingPresets : ScriptableObject
+namespace DayNight_Lighting
 {
-
-
-    public Gradient AmbientColor;
-    public Gradient DirectionalColor;
-    public Gradient FogColor;
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "Lighting Preset", menuName = "Scriptables/Lighting Preset", order =1)]
+    public class LightingPresets : ScriptableObject
     {
-    
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+
+        [FormerlySerializedAs("AmbientColor")] public Gradient ambientColor;
+        [FormerlySerializedAs("DirectionalColor")] public Gradient directionalColor;
+        [FormerlySerializedAs("FogColor")] public Gradient fogColor;
         
     }
 }
