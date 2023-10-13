@@ -19,13 +19,14 @@ public class DayManager : MonoBehaviour
     private int min;
 
     private int _totalDays;
-    
+    public float timerTick;
     public int getTotalDays => _totalDays;
     public float getClampHour => clampHour;
     // Start is called before the first frame update
     private void Awake()
     {
         totalMin = 1440;
+        timerTick = 1.5f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -33,13 +34,19 @@ public class DayManager : MonoBehaviour
     private void Update()
     {
         Timer();
+        //FastForward();
+    }
+
+    public void FastForward()
+    {
+        timerTick = totalMin > 10 ? 0.01f : 1.5f;
     }
 
     private void Timer()
     {
         //Timer cycle for Day
         timer += Time.deltaTime;
-        while (timer >= 1.5f)
+        while (timer >= timerTick)
         {
             timer = 0f;
             totalMin--;

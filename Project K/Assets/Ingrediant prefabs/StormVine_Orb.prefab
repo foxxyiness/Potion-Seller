@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 7155336888321978428}
   - component: {fileID: 1196239565700351238}
   - component: {fileID: 1042824885168121238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StormVine_Orb
-  m_TagString: Flavor
+  m_TagString: Strength
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
