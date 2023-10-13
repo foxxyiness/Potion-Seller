@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Items;
+using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,11 +13,14 @@ namespace Orders
 {
     public class OrderManager : MonoBehaviour
     {
-       
+        [SerializeField] private TextMeshProUGUI textContent;
+        [SerializeField] private GameObject orderUIContent;
+        //private TextMeshProUGUI _textMeshProUGUI;
         public Orders _orders;
         
         private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
 
+       
         public enum Difficulty
         {
             VeryEasy,
@@ -30,6 +35,18 @@ namespace Orders
         public Difficulty getCurrentState => currentState;
 
         public List<Item> _itemsOnOrder;
+        private void ItemsOnOrderUI()
+        {
+            foreach (Item item in _itemsOnOrder)
+            {
+                TextMeshProUGUI text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
+                text.text = item.GetName();
+                //text.transform.SetParent(orderUIContent.transform);
+                text.autoSizeTextContainer = true;
+                text.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            
+        }
 
         private void Start()
         {
@@ -40,9 +57,17 @@ namespace Orders
         internal IEnumerator StartOfDay()
         {
             _itemsOnOrder.Clear();
+            if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
+            {
+                foreach (TextMeshProUGUI text in orderUIContent.GetComponentsInChildren<TextMeshProUGUI>())
+                {
+                    Destroy(text);
+                }
+            }
             yield return new WaitForSeconds(2);
             GetOrders(currentState);
         }
+
         private void GetOrders(Difficulty difficulty)
         {
             var rand = new Random();
@@ -125,8 +150,10 @@ namespace Orders
                     goto case Difficulty.VeryEasy;
             }
             Debug.Log(_itemsOnOrder);
+            ItemsOnOrderUI();
         }
 
+    
         public void AddDifficulty()
         {
             currentState++;
