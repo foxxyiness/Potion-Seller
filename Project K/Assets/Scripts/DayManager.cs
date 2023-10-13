@@ -44,7 +44,7 @@ public class DayManager : MonoBehaviour
             timer = 0f;
             totalMin--;
             min++;
-            clampHour = 24f - ((float)totalMin / 60f);
+            clampHour = 24f - (totalMin / 60f);
             hour = Mathf.Floor(clampHour);
         }
         DayTime();
