@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Orders;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -99,6 +100,15 @@ namespace Items
             if ( index > -1)
             {
                 _orderManager._itemsOnOrder.RemoveAt(index);
+                TextMeshProUGUI []text = _orderManager.orderUIContent.GetComponentsInChildren<TextMeshProUGUI>();
+                foreach (TextMeshProUGUI _text in text)
+                {
+                    if (_text.text == potion.GetName())
+                    {
+                        Destroy(_text.gameObject);
+                        break;
+                    }
+                }
                 Debug.Log("ITEM INDEX FOUND AND DESTROYED SUCCESSFULLY I BELIEVE");
             }
             else

@@ -13,8 +13,8 @@ namespace Orders
 {
     public class OrderManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI textContent;
-        [SerializeField] private GameObject orderUIContent;
+         public TextMeshProUGUI textContent;
+         public GameObject orderUIContent;
         //private TextMeshProUGUI _textMeshProUGUI;
         public Orders _orders;
         
