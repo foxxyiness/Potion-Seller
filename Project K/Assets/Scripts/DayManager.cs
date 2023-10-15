@@ -22,6 +22,8 @@ public class DayManager : MonoBehaviour
     public float timerTick;
     public int getTotalDays => _totalDays;
     public float getClampHour => clampHour;
+
+    public bool doFastForward;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -34,12 +36,26 @@ public class DayManager : MonoBehaviour
     private void Update()
     {
         Timer();
-        //FastForward();
+        if (doFastForward)
+        {
+            FastForward();
+        }
     }
 
     public void FastForward()
     {
-        timerTick = totalMin > 10 ? 0.01f : 1.5f;
+        //Debug.Log("FASTFOWRARD");
+        if (totalMin > 20)
+        {
+            timerTick = 0.01f;
+        }
+        else
+        {
+            timerTick = 1.5f;
+            doFastForward = false;
+        }
+
+
     }
 
     private void Timer()

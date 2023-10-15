@@ -2,18 +2,14 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace Player
-{
    public class PowerManager : MonoBehaviour
    {
-      [SerializeField] private DayManager _dayManager;
+      [FormerlySerializedAs("_dayManager")] [SerializeField] private DayManager dayManager;
+      private XRIDefaultInputActions _inputActions;
       [FormerlySerializedAs("inputActionReference")] [SerializeField] private InputActionReference fireActionReference;
-      [SerializeField] private InputActionReference sunActionReference;
-      [SerializeField] private InputActionReference timeActionReference;
       [SerializeField] private float intensity, duration = 0.5F;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
@@ -29,7 +25,8 @@ namespace Player
       private void Awake()
       {
          _canFire = true;
-         timePower = false;
+         timePower = true;
+         _inputActions = new XRIDefaultInputActions();
       }
 
       public void SetItemGrabTrue()
@@ -41,19 +38,21 @@ namespace Player
       private void OnEnable()
       {
          fireActionReference.action.Enable();
-         timeActionReference.action.Enable();
+         _inputActions.Enable();
+         //timeActionReference.action.Enable();
       }
 
       private void OnDisable()
       {
          fireActionReference.action.Disable();
-         timeActionReference.action.Disable();
+         _inputActions.Disable();
+         //timeActionReference.action.Disable();
       }
    
       private void Update()
       {
          StartCoroutine(nameof(Fire));
-         TimeForward();
+         StartCoroutine(nameof(TimeForward));
       }
 
       private IEnumerator Fire()
@@ -70,13 +69,15 @@ namespace Player
          }
       }
 
-      private void TimeForward()
+      private IEnumerator TimeForward()
       {
-         if (timeActionReference.action.triggered && timePower)
+         if (_inputActions.XRIPower.Time_Power.triggered && timePower)
          {
+            Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
             leftController.SendHapticImpulse(1, 5);
             rightController.SendHapticImpulse(1, 5);
-            _dayManager.FastForward();
+            yield return new WaitForSeconds(3);
+            dayManager.doFastForward = true;
          }
       }
       
@@ -85,4 +86,3 @@ namespace Player
          controller.SendHapticImpulse(intensity, duration);
       }
    }
-}

@@ -13816,10 +13816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53942a17419564167995a047f2adebec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 573244792}
+  dayManager: {fileID: 573244792}
   fireActionReference: {fileID: 3295043170113595908, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  sunActionReference: {fileID: -220483556536197097, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  timeActionReference: {fileID: -2519126891815191215, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   intensity: 1
   duration: 1
   leftController: {fileID: 9014170785090376806}

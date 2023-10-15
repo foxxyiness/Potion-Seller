@@ -2384,6 +2384,50 @@
                     "action": "Time_Power",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "21b06c5f-5caf-4b30-818a-42d2c4e9973c",
+                    "path": "TwoModifiers",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "487db63c-5c3d-459a-9826-0694cdd576a8",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "e4519f23-73c3-44d9-902b-7e52bec735d8",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "629b9dbe-8555-41e8-ac1b-ba5ad6a02e51",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
