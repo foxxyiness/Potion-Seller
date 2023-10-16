@@ -52,7 +52,7 @@ using UnityEngine.XR.Interaction.Toolkit;
       private void Update()
       {
          StartCoroutine(nameof(Fire));
-         StartCoroutine(nameof(TimeForward));
+         //StartCoroutine(nameof(TimeForward));
       }
 
       private IEnumerator Fire()
@@ -69,7 +69,7 @@ using UnityEngine.XR.Interaction.Toolkit;
          }
       }
 
-      private IEnumerator TimeForward()
+      /*private IEnumerator TimeForward()
       {
          if (_inputActions.XRIPower.Time_Power.triggered && timePower)
          {
@@ -79,7 +79,7 @@ using UnityEngine.XR.Interaction.Toolkit;
             yield return new WaitForSeconds(3);
             dayManager.doFastForward = true;
          }
-      }
+      }*/
       
       private void TriggerHaptic(XRBaseController controller)
       {

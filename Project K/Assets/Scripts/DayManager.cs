@@ -1,4 +1,6 @@
+using System.Collections;
 using Orders;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //[ExecuteInEditMode]
@@ -36,27 +38,30 @@ public class DayManager : MonoBehaviour
     private void Update()
     {
         Timer();
-        if (doFastForward)
+        /*if (doFastForward)
         {
-            FastForward();
-        }
+            StartCoroutine(FastForward());
+        }*/
     }
 
-    public void FastForward()
+    /*private IEnumerator FastForward()
     {
         //Debug.Log("FASTFOWRARD");
         if (totalMin > 20)
         {
             timerTick = 0.01f;
         }
-        else
+        yield return new  WaitUntil(() => totalMin < 20);
+        timerTick = 1.5f;
+        doFastForward = false;
+        /*else
         {
             timerTick = 1.5f;
             doFastForward = false;
-        }
+        }#1#
 
 
-    }
+    }*/
 
     private void Timer()
     {
@@ -81,10 +86,14 @@ public class DayManager : MonoBehaviour
         }
 
         //Resets Day and Hour
-        if (hour < 24) return;
+        if (hour >= 24)
+        {
+            hour = 0;
+            totalMin = 1440;
+            AddDay();
+        }
         //hour = 0;
-        totalMin = 1440;
-        AddDay();
+      
     }
 
     private void AddDay()

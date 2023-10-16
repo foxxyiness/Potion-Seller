@@ -54,14 +54,14 @@ namespace Orders
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        internal IEnumerator StartOfDay()
+        public IEnumerator StartOfDay()
         {
             _itemsOnOrder.Clear();
             if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
             {
                 foreach (TextMeshProUGUI text in orderUIContent.GetComponentsInChildren<TextMeshProUGUI>())
                 {
-                    Destroy(text);
+                    Destroy(text.gameObject);
                 }
             }
             yield return new WaitForSeconds(2);
