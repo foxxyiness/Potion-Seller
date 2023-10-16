@@ -7,9 +7,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
    public class PowerManager : MonoBehaviour
    {
-      [FormerlySerializedAs("_dayManager")] [SerializeField] private DayManager dayManager;
+      [SerializeField] private DayManager dayManager;
       private XRIDefaultInputActions _inputActions;
-      [FormerlySerializedAs("inputActionReference")] [SerializeField] private InputActionReference fireActionReference;
+      [SerializeField] private InputActionReference fireActionReference;
       [SerializeField] private float intensity, duration = 0.5F;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
@@ -25,7 +25,7 @@ using UnityEngine.XR.Interaction.Toolkit;
       private void Awake()
       {
          _canFire = true;
-         timePower = true;
+         timePower = false;
          _inputActions = new XRIDefaultInputActions();
       }
 
@@ -37,14 +37,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
       private void OnEnable()
       {
-         fireActionReference.action.Enable();
+         //fireActionReference.action.Enable();
          _inputActions.Enable();
          //timeActionReference.action.Enable();
       }
 
       private void OnDisable()
       {
-         fireActionReference.action.Disable();
+         //fireActionReference.action.Disable();
          _inputActions.Disable();
          //timeActionReference.action.Disable();
       }
@@ -52,12 +52,12 @@ using UnityEngine.XR.Interaction.Toolkit;
       private void Update()
       {
          StartCoroutine(nameof(Fire));
-         //StartCoroutine(nameof(TimeForward));
+         StartCoroutine(nameof(TimeForward));
       }
 
       private IEnumerator Fire()
       {
-         if (fireActionReference.action.triggered && !_itemGrabbed && _canFire)
+         if (_inputActions.XRIPower.Fire_Power.triggered && !_itemGrabbed && _canFire)
          {
             _canFire = false;
             Debug.Log("FIRE");
@@ -69,7 +69,8 @@ using UnityEngine.XR.Interaction.Toolkit;
          }
       }
 
-      /*private IEnumerator TimeForward()
+      //Time Power
+      private IEnumerator TimeForward()
       {
          if (_inputActions.XRIPower.Time_Power.triggered && timePower)
          {
@@ -77,9 +78,10 @@ using UnityEngine.XR.Interaction.Toolkit;
             leftController.SendHapticImpulse(1, 5);
             rightController.SendHapticImpulse(1, 5);
             yield return new WaitForSeconds(3);
+            //Reference to enable DayManager Time forward
             dayManager.doFastForward = true;
          }
-      }*/
+      }
       
       private void TriggerHaptic(XRBaseController controller)
       {

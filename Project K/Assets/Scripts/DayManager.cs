@@ -38,15 +38,18 @@ public class DayManager : MonoBehaviour
     private void Update()
     {
         Timer();
-        /*if (doFastForward)
+        //Continuous Check for Time Skip
+        if (doFastForward)
         {
             StartCoroutine(FastForward());
-        }*/
+        }
     }
 
-    /*private IEnumerator FastForward()
+    //Fast forward function
+    // ReSharper disable Unity.PerformanceAnalysis
+    private IEnumerator FastForward()
     {
-        //Debug.Log("FASTFOWRARD");
+        Debug.Log("FAST FORWARD");
         if (totalMin > 20)
         {
             timerTick = 0.01f;
@@ -58,10 +61,10 @@ public class DayManager : MonoBehaviour
         {
             timerTick = 1.5f;
             doFastForward = false;
-        }#1#
+        }*/
 
 
-    }*/
+    }
 
     private void Timer()
     {

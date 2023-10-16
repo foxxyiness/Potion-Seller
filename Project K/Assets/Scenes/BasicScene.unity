@@ -1365,6 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionAssets:
+  - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: -944628639613478452, guid: 07f76d03acd2f8a4ea3d946b7d5cd97a, type: 3}
 --- !u!1 &458566416
 GameObject:
@@ -1585,6 +1586,7 @@ MonoBehaviour:
   clampHour: 0
   min: 0
   timerTick: 0
+  doFastForward: 0
 --- !u!4 &573244793
 Transform:
   m_ObjectHideFlags: 0
