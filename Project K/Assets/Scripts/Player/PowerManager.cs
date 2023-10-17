@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -8,7 +9,9 @@ using UnityEngine.XR.Interaction.Toolkit;
    public class PowerManager : MonoBehaviour
    {
       [SerializeField] private DayManager dayManager;
-      private XRIDefaultInputActions _inputActions;
+
+      [SerializeField]
+      private InputActionMap _inputAction;
       [SerializeField] private InputActionReference fireActionReference;
       [SerializeField] private float intensity, duration = 0.5F;
       [SerializeField] private XRBaseController leftController;
@@ -20,13 +23,16 @@ using UnityEngine.XR.Interaction.Toolkit;
       public bool timePower;
       
       private bool _itemGrabbed;
-      private bool _canFire;
+      [SerializeField] private bool _canFire;
 
+      private InputAction fireAction;
+      private InputAction timeAction;
       private void Awake()
       {
          _canFire = true;
          timePower = false;
-         _inputActions = new XRIDefaultInputActions();
+         _inputAction["Fire_Power"].performed += Fire;
+         _inputAction["Time_Power"].performed += TimeForward;
       }
 
       public void SetItemGrabTrue()
@@ -37,27 +43,33 @@ using UnityEngine.XR.Interaction.Toolkit;
 
       private void OnEnable()
       {
-         //fireActionReference.action.Enable();
-         _inputActions.Enable();
-         //timeActionReference.action.Enable();
+        _inputAction.Enable();
+        //timeActionReference.action.Enable();
       }
 
+      private void Fire(InputAction.CallbackContext context)
+      {
+         StartCoroutine(FireCoroutine(context));
+      }
+
+      private void TimeForward(InputAction.CallbackContext context)
+      {
+         StartCoroutine(TimeForwardCoroutine(context));
+      }
       private void OnDisable()
       {
-         //fireActionReference.action.Disable();
-         _inputActions.Disable();
-         //timeActionReference.action.Disable();
+         _inputAction.Disable();
       }
    
       private void Update()
       {
-         StartCoroutine(nameof(Fire));
-         StartCoroutine(nameof(TimeForward));
+        // StartCoroutine(nameof(FireCoroutine));
+        // StartCoroutine(nameof(TimeForward));
       }
 
-      private IEnumerator Fire()
+      private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if (_inputActions.XRIPower.Fire_Power.triggered && !_itemGrabbed && _canFire)
+         if ( context.performed && !_itemGrabbed && _canFire)
          {
             _canFire = false;
             Debug.Log("FIRE");
@@ -70,9 +82,9 @@ using UnityEngine.XR.Interaction.Toolkit;
       }
 
       //Time Power
-      private IEnumerator TimeForward()
+      private IEnumerator TimeForwardCoroutine(InputAction.CallbackContext context)
       {
-         if (_inputActions.XRIPower.Time_Power.triggered && timePower)
+         if (context.performed && timePower)
          {
             Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
             leftController.SendHapticImpulse(1, 5);
