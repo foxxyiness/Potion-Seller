@@ -1,38 +1,35 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
+namespace Player
+{
    public class PowerManager : MonoBehaviour
    {
+      [Header("Power Input Action Map")]
+      [SerializeField] private InputActionMap inputAction;
+      [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
-
-      [SerializeField]
-      private InputActionMap _inputAction;
-      [SerializeField] private InputActionReference fireActionReference;
-      [SerializeField] private float intensity, duration = 0.5F;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
       [SerializeField] private Transform rightPowerSpawnPoint;
+      [Header("Float Values ")]
+      [SerializeField] private float intensity = 0.5f; 
+      [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
 
+      [Header("State Check Booleans")]
       public bool timePower;
-      
       private bool _itemGrabbed;
-      [SerializeField] private bool _canFire;
-
-      private InputAction fireAction;
-      private InputAction timeAction;
+      private bool _canFire;
       private void Awake()
       {
          _canFire = true;
          timePower = false;
-         _inputAction["Fire_Power"].performed += Fire;
-         _inputAction["Time_Power"].performed += TimeForward;
+         inputAction["Fire_Power"].performed += Fire;
+         inputAction["Time_Power"].performed += TimeForward;
       }
 
       public void SetItemGrabTrue()
@@ -43,8 +40,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
       private void OnEnable()
       {
-        _inputAction.Enable();
-        //timeActionReference.action.Enable();
+         inputAction.Enable();
+         //timeActionReference.action.Enable();
       }
 
       private void Fire(InputAction.CallbackContext context)
@@ -58,13 +55,7 @@ using UnityEngine.XR.Interaction.Toolkit;
       }
       private void OnDisable()
       {
-         _inputAction.Disable();
-      }
-   
-      private void Update()
-      {
-        // StartCoroutine(nameof(FireCoroutine));
-        // StartCoroutine(nameof(TimeForward));
+         inputAction.Disable();
       }
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
@@ -100,3 +91,4 @@ using UnityEngine.XR.Interaction.Toolkit;
          controller.SendHapticImpulse(intensity, duration);
       }
    }
+}

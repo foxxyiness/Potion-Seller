@@ -13818,16 +13818,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53942a17419564167995a047f2adebec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayManager: {fileID: 573244792}
-  _inputAction:
-    m_Name: Input
-    m_Id: 314b4519-b1db-407d-997a-e548ae956fa5
+  inputAction:
+    m_Name: Input Action
+    m_Id: ca14731b-b7a4-4282-9e05-fde02ee38d53
     m_Asset: {fileID: 0}
     m_Actions:
     - m_Name: Fire_Power
       m_Type: 1
       m_ExpectedControlType: Button
-      m_Id: a0ec4b65-acc0-4338-8a8f-86644ec76ab4
+      m_Id: c9283443-2f8e-4237-85d2-42d4a2a1cd80
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -13835,22 +13834,78 @@ MonoBehaviour:
     - m_Name: Time_Power
       m_Type: 1
       m_ExpectedControlType: Button
-      m_Id: 6cad8225-7e91-4c65-9f20-493841576d51
+      m_Id: 40a37451-0dd4-4bfa-ae83-4d70a20cd2e3
       m_Processors: 
       m_Interactions: Hold(duration=1)
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Bindings:
     - m_Name: 
-      m_Id: e099d0ba-2ca3-4bf8-aa0d-699a7d1a9759
+      m_Id: 3b14e847-ba86-4097-84f2-fbee4d4ad462
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Fire_Power
       m_Flags: 0
-    - m_Name: One Modifier
-      m_Id: 7d6ada6f-0c31-48dd-bfd4-bd5093293bed
+    - m_Name: Grip
+      m_Id: 461360f0-7c1a-45ad-9f10-cfd0208a3859
+      m_Path: OneModifier
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire_Power
+      m_Flags: 4
+    - m_Name: modifier
+      m_Id: 99934ee5-c78f-4a32-b42d-4a70b4137d0b
+      m_Path: <XRSimulatedController>{RightHand}/gripButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire_Power
+      m_Flags: 8
+    - m_Name: binding
+      m_Id: 0e9dc21e-b1c5-4ba7-bf35-980fb9f5492f
+      m_Path: <XRSimulatedController>{RightHand}/triggerButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire_Power
+      m_Flags: 8
+    - m_Name: Grip Controller
+      m_Id: 0db97ecb-bbc1-4830-a3a4-57c783d05679
+      m_Path: TwoModifiers
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 4
+    - m_Name: modifier1
+      m_Id: 54b3ff7a-07bf-49af-8cca-73d6bbd48285
+      m_Path: <XRSimulatedController>{LeftHand}/gripButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 8
+    - m_Name: modifier2
+      m_Id: 96886ac5-584e-4f2e-b44b-dffa46508973
+      m_Path: <XRSimulatedController>{RightHand}/gripButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 8
+    - m_Name: binding
+      m_Id: 638cb663-db28-4649-983b-6c7ede4ccecd
+      m_Path: <XRSimulatedController>{LeftHand}/triggerButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 8
+    - m_Name: Keyboard
+      m_Id: 30bf2211-64f7-4e31-b29d-1a1aa878c06b
       m_Path: OneModifier
       m_Interactions: 
       m_Processors: 
@@ -13858,7 +13913,7 @@ MonoBehaviour:
       m_Action: Time_Power
       m_Flags: 4
     - m_Name: modifier
-      m_Id: 6c5bc404-e969-47d5-974f-9189b41cdb83
+      m_Id: 2fb56878-9ac3-49c8-b4c9-96cbbe145d18
       m_Path: <Keyboard>/t
       m_Interactions: 
       m_Processors: 
@@ -13866,23 +13921,22 @@ MonoBehaviour:
       m_Action: Time_Power
       m_Flags: 8
     - m_Name: binding
-      m_Id: 27f6adbf-192e-4eb1-87f4-b397c786fc51
+      m_Id: aecc4e86-e44e-4c2b-8d4c-4d7ab75bb12c
       m_Path: <Keyboard>/y
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Time_Power
       m_Flags: 8
-  fireActionReference: {fileID: 3295043170113595908, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  intensity: 1
-  duration: 1
+  dayManager: {fileID: 573244792}
   leftController: {fileID: 9014170785090376806}
   rightController: {fileID: 9014170783538599046}
   fireBall: {fileID: 4271625861835170951, guid: a8927576060d0d640b877bf41d68aad4, type: 3}
   rightPowerSpawnPoint: {fileID: 324670783}
+  intensity: 1
+  duration: 1
   shootForce: 10
   timePower: 0
-  _canFire: 0
 --- !u!1 &7889555932551191633
 GameObject:
   m_ObjectHideFlags: 0
