@@ -13819,6 +13819,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayManager: {fileID: 573244792}
+  _inputAction:
+    m_Name: Input
+    m_Id: 314b4519-b1db-407d-997a-e548ae956fa5
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: Fire_Power
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: a0ec4b65-acc0-4338-8a8f-86644ec76ab4
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: Time_Power
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 6cad8225-7e91-4c65-9f20-493841576d51
+      m_Processors: 
+      m_Interactions: Hold(duration=1)
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: e099d0ba-2ca3-4bf8-aa0d-699a7d1a9759
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire_Power
+      m_Flags: 0
+    - m_Name: One Modifier
+      m_Id: 7d6ada6f-0c31-48dd-bfd4-bd5093293bed
+      m_Path: OneModifier
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 4
+    - m_Name: modifier
+      m_Id: 6c5bc404-e969-47d5-974f-9189b41cdb83
+      m_Path: <Keyboard>/t
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 8
+    - m_Name: binding
+      m_Id: 27f6adbf-192e-4eb1-87f4-b397c786fc51
+      m_Path: <Keyboard>/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Time_Power
+      m_Flags: 8
   fireActionReference: {fileID: 3295043170113595908, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   intensity: 1
   duration: 1
@@ -13828,6 +13882,7 @@ MonoBehaviour:
   rightPowerSpawnPoint: {fileID: 324670783}
   shootForce: 10
   timePower: 0
+  _canFire: 0
 --- !u!1 &7889555932551191633
 GameObject:
   m_ObjectHideFlags: 0
