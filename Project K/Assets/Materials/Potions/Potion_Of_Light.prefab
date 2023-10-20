@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1081773039998263840}
   - component: {fileID: 2888108891095645055}
   - component: {fileID: 356638707846480920}
+  - component: {fileID: 4674226415953034667}
   m_Layer: 6
   m_Name: Potion_Of_Light
   m_TagString: Untagged
@@ -301,3 +302,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: ad05e0fe7cfc8324cabf497147e2d680, type: 3}
+--- !u!114 &4674226415953034667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978046125074739099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcd88d670d21024fae987a665358274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toastedUpgrade: {fileID: 1957016431850235086, guid: dfd81400887d5b642910735bdef2cef5, type: 3}
+  toastable: 1
+  roastLevel: 3

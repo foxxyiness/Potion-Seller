@@ -1,17 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Orders;
-using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
 {
     public class Cauldron : MonoBehaviour
     {
-        private OrderManager _orderManager;
         [SerializeField]
         private bool allowBase, allowFlavor, allowStrength;
 
@@ -28,12 +22,11 @@ namespace Items
             allowBase = true;
             allowFlavor = true;
             allowStrength = true; 
-            _orderManager = GameObject.FindGameObjectWithTag("Order_Manager").GetComponent<OrderManager>();
         }
-        private static bool HasItemName(Item item)
+        /*private static bool HasItemName(Item item)
         {
             return item;
-        }
+        }*/
         private void CheckForCompleteRecipe()
         {
             var currentRecipe = "";
@@ -78,7 +71,7 @@ namespace Items
             {
                 //Potion of Light
                 Instantiate(recipeResults[0], potionSpawnPoint);
-                CheckCorrectItem(recipeResults[0]);
+                //CheckCorrectItem(recipeResults[0]);
                 Debug.Log("Potion of Light Created");
                 StartCoroutine(ClearList());
             }
@@ -86,14 +79,14 @@ namespace Items
             {
                 //Potion of Darkness
                 Instantiate(recipeResults[1], potionSpawnPoint);
-                CheckCorrectItem(recipeResults[1]);
+                //CheckCorrectItem(recipeResults[1]);
                 Debug.Log("Potion of Darkness Created");
                 StartCoroutine(ClearList());
             }
             
         }
 
-        private void CheckCorrectItem(Item potion)
+        /*private void CheckCorrectItem(Item potion)
         {
             var index = _orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
             //Check for Item Created was actually in list
@@ -115,7 +108,7 @@ namespace Items
             {
                 Debug.Log("ITEM NOT FOUND IN LIST");
             }
-        }
+        }*/
         private IEnumerator ClearList()
         {
             yield return new WaitForSeconds(1.5F);
