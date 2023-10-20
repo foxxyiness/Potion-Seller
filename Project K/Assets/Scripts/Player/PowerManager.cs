@@ -78,8 +78,8 @@ namespace Player
          if (context.performed && timePower)
          {
             Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
-            leftController.SendHapticImpulse(1, 5);
-            rightController.SendHapticImpulse(1, 5);
+            leftController.SendHapticImpulse(1, 10);
+            rightController.SendHapticImpulse(1, 10);
             yield return new WaitForSeconds(3);
             //Reference to enable DayManager Time forward
             dayManager.doFastForward = true;

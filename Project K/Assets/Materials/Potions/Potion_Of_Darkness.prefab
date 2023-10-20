@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67109008c18a41643922f4a58e5d110e, type: 2}
+  - {fileID: 2100000, guid: 68caebca26399b9458e5c5cab4afa243, type: 2}
   - {fileID: -6478536213147159724, guid: ad05e0fe7cfc8324cabf497147e2d680, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -314,6 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcd88d670d21024fae987a665358274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toastedUpgrade: {fileID: 0}
-  toastable: 0
-  roastLevel: 0
+  toastedUpgrade: {fileID: 7306048064908439895, guid: 08795bec2e3693f44a308c9397505ae5, type: 3}
+  toastable: 1
+  roastLevel: 5
