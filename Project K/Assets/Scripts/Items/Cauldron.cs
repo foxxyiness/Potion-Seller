@@ -85,30 +85,6 @@ namespace Items
             }
             
         }
-
-        /*private void CheckCorrectItem(Item potion)
-        {
-            var index = _orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
-            //Check for Item Created was actually in list
-            if ( index > -1)
-            {
-                _orderManager._itemsOnOrder.RemoveAt(index);
-                TextMeshProUGUI []text = _orderManager.orderUIContent.GetComponentsInChildren<TextMeshProUGUI>();
-                foreach (TextMeshProUGUI _text in text)
-                {
-                    if (_text.text == potion.GetName())
-                    {
-                        Destroy(_text.gameObject);
-                        break;
-                    }
-                }
-                Debug.Log("ITEM INDEX FOUND AND DESTROYED SUCCESSFULLY I BELIEVE");
-            }
-            else
-            {
-                Debug.Log("ITEM NOT FOUND IN LIST");
-            }
-        }*/
         private IEnumerator ClearList()
         {
             yield return new WaitForSeconds(1.5F);
