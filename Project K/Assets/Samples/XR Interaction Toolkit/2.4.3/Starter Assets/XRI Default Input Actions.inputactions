@@ -2219,6 +2219,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Time_Power",
+                    "type": "Button",
+                    "id": "6eb64bb5-8eb5-45cd-965f-987072e18ab1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2329,6 +2338,94 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sun_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button With Two Modifiers",
+                    "id": "b781d9b6-400f-4edb-bc27-1859d07ccb35",
+                    "path": "ButtonWithTwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Modifier 1",
+                    "id": "16f7b676-bbe6-4ac3-ab73-4a6c8b60dae8",
+                    "path": "<XRSimulatedController>{LeftHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Modifier 2",
+                    "id": "4e7b8e4b-6faf-4c2a-9899-5df23f78b96b",
+                    "path": "<XRSimulatedController>{RightHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button",
+                    "id": "fcb44780-3544-4ad8-b82e-5af0424a7b89",
+                    "path": "<XRSimulatedController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "21b06c5f-5caf-4b30-818a-42d2c4e9973c",
+                    "path": "TwoModifiers",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "487db63c-5c3d-459a-9826-0694cdd576a8",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "e4519f23-73c3-44d9-902b-7e52bec735d8",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "629b9dbe-8555-41e8-ac1b-ba5ad6a02e51",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Time_Power",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

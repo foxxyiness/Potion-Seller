@@ -1,28 +1,35 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Player
 {
    public class PowerManager : MonoBehaviour
    {
-      [FormerlySerializedAs("inputActionReference")] [SerializeField] private InputActionReference fireActionReference;
-      [SerializeField] private InputActionReference sunActionReference;
-      [SerializeField] private float intensity, duration = 0.5F;
+      [Header("Power Input Action Map")]
+      [SerializeField] private InputActionMap inputAction;
+      [Header("References for Game Objects")]
+      [SerializeField] private DayManager dayManager;
+      [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
       [SerializeField] private Transform rightPowerSpawnPoint;
+      [Header("Float Values ")]
+      [SerializeField] private float intensity = 0.5f; 
+      [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
-      
+
+      [Header("State Check Booleans")]
+      public bool timePower;
       private bool _itemGrabbed;
       private bool _canFire;
-
       private void Awake()
       {
          _canFire = true;
+         timePower = false;
+         inputAction["Fire_Power"].performed += Fire;
+         inputAction["Time_Power"].performed += TimeForward;
       }
 
       public void SetItemGrabTrue()
@@ -33,22 +40,27 @@ namespace Player
 
       private void OnEnable()
       {
-         fireActionReference.action.Enable();
+         inputAction.Enable();
+         //timeActionReference.action.Enable();
       }
 
+      private void Fire(InputAction.CallbackContext context)
+      {
+         StartCoroutine(FireCoroutine(context));
+      }
+
+      private void TimeForward(InputAction.CallbackContext context)
+      {
+         StartCoroutine(TimeForwardCoroutine(context));
+      }
       private void OnDisable()
       {
-         fireActionReference.action.Disable();
-      }
-   
-      private void Update()
-      {
-         StartCoroutine(nameof(Fire));
+         inputAction.Disable();
       }
 
-      private IEnumerator Fire()
+      private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if (fireActionReference.action.triggered && !_itemGrabbed && _canFire)
+         if ( context.performed && !_itemGrabbed && _canFire)
          {
             _canFire = false;
             Debug.Log("FIRE");
@@ -57,6 +69,20 @@ namespace Player
             fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
             yield return new WaitForSeconds(1);
             _canFire = true;
+         }
+      }
+
+      //Time Power
+      private IEnumerator TimeForwardCoroutine(InputAction.CallbackContext context)
+      {
+         if (context.performed && timePower)
+         {
+            Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
+            leftController.SendHapticImpulse(1, 10);
+            rightController.SendHapticImpulse(1, 10);
+            yield return new WaitForSeconds(3);
+            //Reference to enable DayManager Time forward
+            dayManager.doFastForward = true;
          }
       }
       

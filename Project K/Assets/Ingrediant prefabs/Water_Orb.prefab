@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1498987654879420124}
   - component: {fileID: 2041226438481269329}
   - component: {fileID: 8986683077431280529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water_Orb
   m_TagString: BaseFlavor
   m_Icon: {fileID: 0}
@@ -296,5 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  name: 
+  itemName: 
   description: 
+  difficulty: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4749193959882173748}
   - component: {fileID: 8645928595349914341}
   - component: {fileID: 5972322634066573359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IcePepper_Orb
   m_TagString: Flavor
   m_Icon: {fileID: 0}

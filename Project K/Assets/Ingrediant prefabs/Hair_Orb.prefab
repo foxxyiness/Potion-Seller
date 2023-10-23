@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4107103840892140180}
   - component: {fileID: 4576038926436005519}
   - component: {fileID: 7081868214164397912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair_Orb
   m_TagString: Flavor
   m_Icon: {fileID: 0}
@@ -296,5 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  name: 
+  itemName: 
   description: 
+  difficulty: 0

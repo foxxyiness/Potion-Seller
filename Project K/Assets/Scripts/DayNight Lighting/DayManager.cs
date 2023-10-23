@@ -1,4 +1,6 @@
+using System.Collections;
 using Orders;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //[ExecuteInEditMode]
@@ -19,13 +21,16 @@ public class DayManager : MonoBehaviour
     private int min;
 
     private int _totalDays;
-    
+    public float timerTick;
     public int getTotalDays => _totalDays;
     public float getClampHour => clampHour;
+
+    public bool doFastForward;
     // Start is called before the first frame update
     private void Awake()
     {
         totalMin = 1440;
+        timerTick = 1.5f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -33,13 +38,39 @@ public class DayManager : MonoBehaviour
     private void Update()
     {
         Timer();
+        //Continuous Check for Time Skip
+        if (doFastForward)
+        {
+            StartCoroutine(FastForward());
+        }
+    }
+
+    //Fast forward function
+    // ReSharper disable Unity.PerformanceAnalysis
+    private IEnumerator FastForward()
+    {
+        Debug.Log("FAST FORWARD");
+        if (totalMin > 20)
+        {
+            timerTick = 0.01f;
+        }
+        yield return new  WaitUntil(() => totalMin < 20);
+        timerTick = 1.5f;
+        doFastForward = false;
+        /*else
+        {
+            timerTick = 1.5f;
+            doFastForward = false;
+        }*/
+
+
     }
 
     private void Timer()
     {
         //Timer cycle for Day
         timer += Time.deltaTime;
-        while (timer >= 1.5f)
+        while (timer >= timerTick)
         {
             timer = 0f;
             totalMin--;
@@ -58,10 +89,14 @@ public class DayManager : MonoBehaviour
         }
 
         //Resets Day and Hour
-        if (hour < 24) return;
+        if (hour >= 24)
+        {
+            hour = 0;
+            totalMin = 1440;
+            AddDay();
+        }
         //hour = 0;
-        totalMin = 1440;
-        AddDay();
+      
     }
 
     private void AddDay()

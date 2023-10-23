@@ -6,11 +6,11 @@ namespace Items
     public class Item : MonoBehaviour
     {
         public bool isGrounded { get; private set; }
-        private Rigidbody _rb;
+        private Rigidbody rb;
         
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody>();
+            rb = GetComponent<Rigidbody>();
         }
     
 
@@ -18,7 +18,7 @@ namespace Items
         {
             if (collision.collider.CompareTag("Ground"))
             {
-                _rb.velocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
                 isGrounded = true;
             }
         }

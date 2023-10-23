@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 857493226007349064}
   - component: {fileID: 1969752978953800967}
   - component: {fileID: 6196301077651153008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sun_Orb
   m_TagString: Strength
   m_Icon: {fileID: 0}
@@ -296,5 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  name: 
+  itemName: 
   description: 
+  difficulty: 0
