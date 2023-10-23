@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Variables;
+using UnityEngine.InputSystem;
+using Variables;
 
 public class Interactor : MonoBehaviour
 {
 
-   /* [SerializeField] private FloatReference interactRadius;
-    [SerializeField] private InputConfig interactInput;
+    [SerializeField] private FloatReference interactRadius;
+    [SerializeField] private InputAction inputAction;
     private Collider[] _collidersInRange;
     private List<Interactable> _interactablesInRange;
     private Interactable _closestInteractable;
@@ -89,5 +90,5 @@ public class Interactor : MonoBehaviour
     void Update()
     {
         
-    }*/
+    }
 }
