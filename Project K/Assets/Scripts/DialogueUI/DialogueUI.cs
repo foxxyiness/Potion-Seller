@@ -129,9 +129,9 @@ namespace UIElements
                 if (i == 0)
                 {
                     var text = _buttons[i].GetComponentInChildren<TextMeshProUGUI>();
-                    text.text = _defaultDialogueOptions[i].buttonText;
+                    text.text = _defaultDialogueOptions.buttonText;
                     _buttons[i].onClick.RemoveAllListeners();
-                    _buttons[i].onClick.AddListener(_defaultDialogueOptions[i].actionToTrigger.Invoke);
+                    _buttons[i].onClick.AddListener(_defaultDialogueOptions.actionToTrigger.Invoke);
                     _buttons[i].gameObject.SetActive(true);
 
 

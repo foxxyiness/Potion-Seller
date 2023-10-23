@@ -15,12 +15,6 @@ namespace Dialogue
 
         
 
-
-
-
-
-
-
         private void Start()
         {
             stateDict = new Dictionary<string, string>();

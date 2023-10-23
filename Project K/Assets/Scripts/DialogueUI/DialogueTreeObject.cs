@@ -12,7 +12,7 @@ namespace Dialogue
     {
         public string npcName;
         public string defaultState;
-        public DialogueOption dialogueOption;
+        public DialogueOption defaultOption;
         public string[] scriptableCallbackNames;
         public DialogueUnit[] dialogueUnits;
 
