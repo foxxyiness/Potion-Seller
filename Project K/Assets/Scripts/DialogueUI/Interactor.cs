@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Variables;
+
 
 public class Interactor : MonoBehaviour
 {
 
-    [SerializeField] private FloatReference interactRadius;
+    [SerializeField] private float interactRadius;
     [SerializeField] private InputAction inputAction;
     private Collider[] _collidersInRange;
     private List<Interactable> _interactablesInRange;
     private Interactable _closestInteractable;
 
+    private void OnEnable()
+    {
+        inputAction.Enable();
+    }
+    private void OnDisable()
+    {
+        inputAction.Disable();
+    }
 
 
 
-   
     private void Start()
     {
         _interactablesInRange = new List<Interactable>();
@@ -24,7 +31,7 @@ public class Interactor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (interactInput.GetDown())
+        if (inputAction.IsPressed())
         {
             Debug.Log("Interacting");
             Interact();
@@ -54,7 +61,7 @@ public class Interactor : MonoBehaviour
     }
     private void UpdateInteractables()
     {
-        _collidersInRange = Physics.OverlapSphere(transform.position, interactRadius.Value);
+        _collidersInRange = Physics.OverlapSphere(transform.position, interactRadius);
         _interactablesInRange.Clear();
         if (_collidersInRange == null || _collidersInRange.Length == 0)
             return;

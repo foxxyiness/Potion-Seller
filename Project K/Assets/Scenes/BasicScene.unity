@@ -1106,7 +1106,7 @@ RectTransform:
   m_GameObject: {fileID: 402016804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1456206026}
@@ -1444,7 +1444,7 @@ RectTransform:
   m_GameObject: {fileID: 469182848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 6.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 692023097}
@@ -1720,6 +1720,8 @@ MonoBehaviour:
   hour: 0
   clampHour: 0
   min: 0
+  timerTick: 0
+  doFastForward: 0
 --- !u!4 &573244793
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,7 +1985,7 @@ RectTransform:
   m_GameObject: {fileID: 692023096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 469182849}
@@ -2311,7 +2313,7 @@ RectTransform:
   m_GameObject: {fileID: 720911451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1848240129}
@@ -4699,7 +4701,7 @@ RectTransform:
   m_GameObject: {fileID: 1456206025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 6.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 402016805}
@@ -6688,7 +6690,7 @@ RectTransform:
   m_GameObject: {fileID: 1848240128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 6.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 720911452}
@@ -13496,14 +13498,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53942a17419564167995a047f2adebec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActionReference: {fileID: 3295043170113595908, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  sunActionReference: {fileID: 0}
-  intensity: 1
-  duration: 1
+  inputAction:
+    m_Name: Input Action
+    m_Id: 201e13c8-d493-4346-8849-206ce61864e1
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  dayManager: {fileID: 573244792}
+  leftController: {fileID: 9014170785090376806}
   rightController: {fileID: 9014170783538599046}
   fireBall: {fileID: 4271625861835170951, guid: a8927576060d0d640b877bf41d68aad4, type: 3}
   rightPowerSpawnPoint: {fileID: 324670783}
+  intensity: 1
+  duration: 1
   shootForce: 10
+  timePower: 0
 --- !u!1 &7889555932551191633
 GameObject:
   m_ObjectHideFlags: 0
