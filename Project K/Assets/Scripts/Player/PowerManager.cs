@@ -9,6 +9,8 @@ namespace Player
    {
       [Header("Power Input Action Map")]
       [SerializeField] private InputActionMap inputAction;
+
+      private XRIDefaultInputActions _defaultAction;
       [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
       [SerializeField] private XRBaseController leftController;
@@ -28,8 +30,11 @@ namespace Player
       {
          _canFire = true;
          timePower = false;
-         inputAction["Fire_Power"].performed += Fire;
-         inputAction["Time_Power"].performed += TimeForward;
+         //inputAction["Fire_Power"].performed += Fire;
+         //inputAction["Time_Power"].performed += TimeForward;
+         _defaultAction = new XRIDefaultInputActions();
+         _defaultAction.XRIPower.Fire_Power.performed += Fire;
+         _defaultAction.XRIPower.Time_Power.performed += TimeForward;
       }
 
       public void SetItemGrabTrue()
@@ -40,7 +45,8 @@ namespace Player
 
       private void OnEnable()
       {
-         inputAction.Enable();
+        // inputAction.Enable();
+         _defaultAction.Enable();
          //timeActionReference.action.Enable();
       }
 
@@ -55,7 +61,8 @@ namespace Player
       }
       private void OnDisable()
       {
-         inputAction.Disable();
+         //inputAction.Disable();
+         _defaultAction.Disable();
       }
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
