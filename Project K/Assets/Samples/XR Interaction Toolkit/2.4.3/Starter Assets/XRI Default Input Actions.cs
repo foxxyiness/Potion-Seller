@@ -2377,7 +2377,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": ""Modifier 1"",
                     ""id"": ""16f7b676-bbe6-4ac3-ab73-4a6c8b60dae8"",
-                    ""path"": ""<XRController>{LeftHand}/gripPressed"",
+                    ""path"": ""<XRSimulatedController>{LeftHand}/gripButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -2388,7 +2388,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": ""Modifier 2"",
                     ""id"": ""4e7b8e4b-6faf-4c2a-9899-5df23f78b96b"",
-                    ""path"": ""<XRController>{RightHand}/gripPressed"",
+                    ""path"": ""<XRSimulatedController>{RightHand}/gripButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -2399,7 +2399,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": ""Button"",
                     ""id"": ""fcb44780-3544-4ad8-b82e-5af0424a7b89"",
-                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""path"": ""<XRSimulatedController>{LeftHand}/triggerButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

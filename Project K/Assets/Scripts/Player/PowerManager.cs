@@ -9,8 +9,11 @@ namespace Player
    {
       [Header("Power Input Action Map")]
       [SerializeField] private InputActionMap inputAction;
+<<<<<<< HEAD
 
       //private XRIDefaultInputActions _defaultAction;
+=======
+>>>>>>> parent of f7cd1ab (Merge remote-tracking branch 'origin/greg-2' into Julian-3)
       [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
       [SerializeField] private XRBaseController leftController;
@@ -32,9 +35,12 @@ namespace Player
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
+<<<<<<< HEAD
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
+=======
+>>>>>>> parent of f7cd1ab (Merge remote-tracking branch 'origin/greg-2' into Julian-3)
       }
 
       public void SetItemGrabTrue()
@@ -45,8 +51,12 @@ namespace Player
 
       private void OnEnable()
       {
+<<<<<<< HEAD
         inputAction.Enable();
          //_defaultAction.Enable();
+=======
+         inputAction.Enable();
+>>>>>>> parent of f7cd1ab (Merge remote-tracking branch 'origin/greg-2' into Julian-3)
          //timeActionReference.action.Enable();
       }
 
@@ -62,7 +72,10 @@ namespace Player
       private void OnDisable()
       {
          inputAction.Disable();
+<<<<<<< HEAD
          //_defaultAction.Disable();
+=======
+>>>>>>> parent of f7cd1ab (Merge remote-tracking branch 'origin/greg-2' into Julian-3)
       }
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
