@@ -2355,7 +2355,7 @@
                 {
                     "name": "Modifier 1",
                     "id": "16f7b676-bbe6-4ac3-ab73-4a6c8b60dae8",
-                    "path": "<XRSimulatedController>{LeftHand}/gripButton",
+                    "path": "<XRController>{LeftHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2366,7 +2366,7 @@
                 {
                     "name": "Modifier 2",
                     "id": "4e7b8e4b-6faf-4c2a-9899-5df23f78b96b",
-                    "path": "<XRSimulatedController>{RightHand}/gripButton",
+                    "path": "<XRController>{RightHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2377,7 +2377,7 @@
                 {
                     "name": "Button",
                     "id": "fcb44780-3544-4ad8-b82e-5af0424a7b89",
-                    "path": "<XRSimulatedController>{LeftHand}/triggerButton",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
