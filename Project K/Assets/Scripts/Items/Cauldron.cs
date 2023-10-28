@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Items
@@ -50,22 +51,23 @@ namespace Items
                 else
                 {
                     Debug.Log("Nothing has been created, items shall be returned to you at once");
-                    //ReturnItems();
+                    ReturnItems();
                 }
                
             }
         }
-
+    
+        //Returns All items in Items List, Calls Clear List to destory the items in Cauldron and List
         private void ReturnItems()
         {
-            foreach (Item item in itemList)
+            foreach (var itemSpawn in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity)))
             {
-                GameObject itemSpawn = Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity);
-                itemSpawn.transform.localScale = new Vector3(5f, 5f, 5f);
+                itemSpawn.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
             }
-
+            
             StartCoroutine(ClearList());
         }
+        
         private void SpawnPotion(int recipeIndex)
         {
             if (recipeIndex <= 5)
@@ -86,24 +88,33 @@ namespace Items
             }
             
         }
+        //Destroys Items in Cauldron and ItemList
         private IEnumerator ClearList()
         {
             yield return new WaitForSeconds(1.5F);
+            foreach (var item in itemList)
+            {
+                Destroy(item.gameObject);
+            }
             itemList.Clear();
             SetBoolFalse();
         }
+        
+        //Checks for count of ItemList to determine if completeRecipe should be called
         private void CheckForItemCount()
         {
             if (itemList.Count != 3) return;
             CheckForCompleteRecipe();
         }
 
+        //Resets All Booleans back to true
         private void SetBoolFalse()
         {
             allowBase = true;
             allowStrength = true;
             allowFlavor = true;
         }
+        //All Collision Detections to determine flavor combinations
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("BaseFlavor") && allowBase)

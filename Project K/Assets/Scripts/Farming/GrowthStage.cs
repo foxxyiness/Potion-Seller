@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class GrowthStage : MonoBehaviour
 {
+    [Header("Time & Random Time")]
+    [SerializeField] private DayManager _dayManager;
+    [SerializeField] private int minValue, maxValue;
 
-    private int currentProgression = 0;
-    public int timeBetweenGrowths;
-    public int maxGrowth;
-    public GameObject crop;
-    [SerializeField]
-    private AudioSource audioSource;
+    [Header("Growth Numbers")] 
+    [SerializeField] private int currentProgression = 0;
+    [SerializeField] private int timeBetweenGrowths;
+    [SerializeField] private int maxGrowth;
+    [SerializeField] private GameObject crop;
+    [SerializeField] private AudioSource audioSource;
     
     public AudioClip FinishedSound;
     public Transform[] stages;
@@ -20,18 +24,19 @@ public class GrowthStage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        minValue = 60;
+        maxValue = 120;
+        SelectRandomTimeBetweenGrowth();
         //loops growth function till finished growing
         InvokeRepeating("Growth", timeBetweenGrowths, timeBetweenGrowths);
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SelectRandomTimeBetweenGrowth()
     {
-        
+        var rand = new Random();
+        timeBetweenGrowths = rand.Next(minValue, maxValue);
     }
-
-
     public void Growth()
     {
         
@@ -47,19 +52,14 @@ public class GrowthStage : MonoBehaviour
         {
             currentProgression++;
         }
-         else if(currentProgression == maxGrowth && CountCrops() < 3) 
+        else if(currentProgression == maxGrowth && CountCrops() < 3) 
         {
             GameObject temp = Instantiate(crop,transform.position,Quaternion.identity);
             crops.Add(temp.transform);
             stages[currentProgression-1].gameObject.SetActive(false);
             //infinate crop for now?
             currentProgression = currentProgression - maxGrowth;
-
-
         }
-
-
-
     }
 
     int CountCrops()

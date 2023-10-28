@@ -14,6 +14,7 @@ namespace Items
         }
     
 
+        //Ground Check for Gameobject
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Ground"))
@@ -23,6 +24,7 @@ namespace Items
             }
         }
 
+        //Ground Check for Gameobject
         private void OnCollisionExit(Collision collision)
         {
             if (collision.collider.CompareTag("Ground"))
