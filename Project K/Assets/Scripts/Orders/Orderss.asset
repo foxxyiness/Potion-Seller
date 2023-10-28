@@ -15,5 +15,7 @@ MonoBehaviour:
   easyItems:
   - {fileID: -7716074044304417584, guid: 62bf33648ac48dc4692dbf320e19a112, type: 3}
   - {fileID: -7716074044304417584, guid: da125627693dfcb4bad8739c1a609e2d, type: 3}
+  - {fileID: 7207921817335874455, guid: 08795bec2e3693f44a308c9397505ae5, type: 3}
+  - {fileID: 8312003310105155461, guid: dfd81400887d5b642910735bdef2cef5, type: 3}
   mediumItems: []
   hardItems: []

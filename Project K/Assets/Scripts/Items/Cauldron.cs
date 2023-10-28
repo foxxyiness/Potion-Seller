@@ -50,7 +50,7 @@ namespace Items
                 else
                 {
                     Debug.Log("Nothing has been created, items shall be returned to you at once");
-                    ReturnItems();
+                    //ReturnItems();
                 }
                
             }
@@ -60,7 +60,8 @@ namespace Items
         {
             foreach (Item item in itemList)
             {
-                Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity);
+                GameObject itemSpawn = Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity);
+                itemSpawn.transform.localScale = new Vector3(5f, 5f, 5f);
             }
 
             StartCoroutine(ClearList());
@@ -110,6 +111,8 @@ namespace Items
                 //baseFlavor = collision.gameObject;
                 Debug.Log("Base Flavor Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
+                collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                
                 itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowBase = false;
                 CheckForItemCount();
@@ -121,6 +124,7 @@ namespace Items
                 //flavor = collision.gameObject;
                 Debug.Log("Flavor Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
+                collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowFlavor = false;
                 CheckForItemCount();
@@ -130,6 +134,7 @@ namespace Items
                 //strength = collision.gameObject;
                 Debug.Log("Strength Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
+                collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowStrength = false;
                 CheckForItemCount();
