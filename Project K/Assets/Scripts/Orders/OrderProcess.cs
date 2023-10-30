@@ -25,6 +25,7 @@ public class OrderProcess : MonoBehaviour
                     if (text.text == potion.GetName())
                     {
                         Destroy(text.gameObject);
+                        Destroy(potion.gameObject);
                         break;
                     }
                 }
