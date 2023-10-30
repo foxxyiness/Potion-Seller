@@ -5,15 +5,10 @@ using UnityEngine;
 public class ProximityInteraction : MonoBehaviour
 {
     public GameObject DialogueWindow;
-    public float interactionRadius = 1.0f; // The radius within which the interaction can occur.
+    public float interactionRadius = 2.5f; // The radius within which the interaction can occur.
 
-    private Transform player; // Reference to the VR player's position.
-
-    private void Start()
-    {
-        player = Camera.main.transform; // Assuming the VR camera is the player's viewpoint.
-    }
-
+    [SerializeField] private Transform player; // Reference to the VR player's position.
+    
     private void Update()
     {
         // Calculate the distance between the player and this object.
