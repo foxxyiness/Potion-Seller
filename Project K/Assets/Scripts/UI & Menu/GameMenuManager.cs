@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class GameMenuManager : MonoBehaviour
 {
+
+    public AudioMixer audioMixer;
+
+
     public Transform head;
     public float spawnDistance = 2;
+    
     public GameObject menu;
     public InputActionProperty showButton;
 
-    // Start is called before the first frame update
-    void Start()
+    //allows player to adjust volume for master volume
+    public void SetVolume(float volume)
     {
-        
+        audioMixer.SetFloat("volume", volume);
     }
+
+
 
     // Update is called once per frame
     void Update()
