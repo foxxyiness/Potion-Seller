@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Player
@@ -13,6 +16,7 @@ namespace Player
       //private XRIDefaultInputActions _defaultAction;
       [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
+      //[SerializeField] private GameMenuManager gameMenuManager;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
@@ -25,10 +29,10 @@ namespace Player
       [Header("State Check Booleans")]
       public bool timePower;
       private bool _itemGrabbed;
-      private bool _canFire;
+      [FormerlySerializedAs("_canFire")] public bool canFire;
       private void Awake()
       {
-         _canFire = true;
+         canFire = true;
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
@@ -67,15 +71,15 @@ namespace Player
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if ( context.performed && !_itemGrabbed && _canFire)
+         if ( context.performed && !_itemGrabbed && canFire)
          {
-            _canFire = false;
+            canFire = false;
             Debug.Log("FIRE");
             TriggerHaptic(rightController);
             GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
             fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
             yield return new WaitForSeconds(1);
-            _canFire = true;
+            canFire = true;
          }
       }
 
