@@ -10,7 +10,7 @@ public class GameMenuManager : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-
+    
     public Transform head;
     public float spawnDistance = 2;
     
@@ -37,6 +37,6 @@ public class GameMenuManager : MonoBehaviour
         }
 
         menu.transform.LookAt(new Vector3(head.position.x, menu.transform.position.y, head.position.y));
-        menu.transform.forward *= -1;
+        //menu.transform.forward *= -1;
     }
 }
