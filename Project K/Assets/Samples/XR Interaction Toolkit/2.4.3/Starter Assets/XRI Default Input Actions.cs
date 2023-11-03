@@ -425,6 +425,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""b45390ac-ee33-4d1d-90c1-63ab4b245579"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -634,6 +643,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
                     ""action"": ""Aim Flags"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""087578d1-be3c-4f65-a930-a0f90b7c4ab3"",
+                    ""path"": ""<XRController>{LeftHand}/menuButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2305,6 +2325,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRILeftHand_PinchPosition = m_XRILeftHand.FindAction("Pinch Position", throwIfNotFound: true);
         m_XRILeftHand_PokePosition = m_XRILeftHand.FindAction("Poke Position", throwIfNotFound: true);
         m_XRILeftHand_PokeRotation = m_XRILeftHand.FindAction("Poke Rotation", throwIfNotFound: true);
+        m_XRILeftHand_Menu = m_XRILeftHand.FindAction("Menu", throwIfNotFound: true);
         // XRI LeftHand Interaction
         m_XRILeftHandInteraction = asset.FindActionMap("XRI LeftHand Interaction", throwIfNotFound: true);
         m_XRILeftHandInteraction_Select = m_XRILeftHandInteraction.FindAction("Select", throwIfNotFound: true);
@@ -2544,6 +2565,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRILeftHand_PinchPosition;
     private readonly InputAction m_XRILeftHand_PokePosition;
     private readonly InputAction m_XRILeftHand_PokeRotation;
+    private readonly InputAction m_XRILeftHand_Menu;
     public struct XRILeftHandActions
     {
         private @XRIDefaultInputActions m_Wrapper;
@@ -2559,6 +2581,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         public InputAction @PinchPosition => m_Wrapper.m_XRILeftHand_PinchPosition;
         public InputAction @PokePosition => m_Wrapper.m_XRILeftHand_PokePosition;
         public InputAction @PokeRotation => m_Wrapper.m_XRILeftHand_PokeRotation;
+        public InputAction @Menu => m_Wrapper.m_XRILeftHand_Menu;
         public InputActionMap Get() { return m_Wrapper.m_XRILeftHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2601,6 +2624,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PokeRotation.started += instance.OnPokeRotation;
             @PokeRotation.performed += instance.OnPokeRotation;
             @PokeRotation.canceled += instance.OnPokeRotation;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IXRILeftHandActions instance)
@@ -2638,6 +2664,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PokeRotation.started -= instance.OnPokeRotation;
             @PokeRotation.performed -= instance.OnPokeRotation;
             @PokeRotation.canceled -= instance.OnPokeRotation;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IXRILeftHandActions instance)
@@ -3358,6 +3387,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         void OnPinchPosition(InputAction.CallbackContext context);
         void OnPokePosition(InputAction.CallbackContext context);
         void OnPokeRotation(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IXRILeftHandInteractionActions
     {
