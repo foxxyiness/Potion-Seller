@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +27,7 @@ namespace Player
       [SerializeField] private float intensity = 0.5f; 
       [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
+      [SerializeField] private float speed = 5.0f;
 
       [Header("State Check Booleans")]
       public bool timePower;
@@ -63,10 +65,17 @@ namespace Player
          if (context.performed && sunPower)
          {
             var position = leftPowerSpawnPoint.position;
-            Physics.Raycast(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward),
-               out RaycastHit hitInfo, 20f);
-            Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
-            Debug.Log(hitInfo);
+            if (Physics.Raycast(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward),
+                   out RaycastHit hitInfo, 20f))
+            {
+               GameObject laser = Instantiate(fireBall, leftPowerSpawnPoint.position, quaternion.identity);
+               laser.transform.position =
+                  Vector3.MoveTowards(laser.transform.position, hitInfo.point, speed * Time.deltaTime);
+               
+               Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+               Debug.Log(hitInfo);
+            }
+            
          }
       }
       private void Fire(InputAction.CallbackContext context)

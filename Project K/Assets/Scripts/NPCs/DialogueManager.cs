@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using TMPro;
 
 
 public class DialogueManager : MonoBehaviour
@@ -18,9 +19,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     public GameObject dialogueUI;
 
-    public Text npcName;
-    public Text npcDialogueBox;
-    public Text playerResponse;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public TextMeshProUGUI playerResponse;
 
 
     // Start is called before the first frame update
@@ -39,7 +40,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StartConversation();
             }
-            else if(Input.GetKeyDown(KeyCode.E) &&  isTalking==true) 
+            else if(Input.GetKeyDown(KeyCode.E) && isTalking== true) 
             {
                 EndDialogue();
             }
