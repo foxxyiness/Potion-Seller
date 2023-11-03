@@ -21,6 +21,7 @@ namespace Player
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
       [SerializeField] private Transform rightPowerSpawnPoint;
+      [SerializeField] private Transform leftPowerSpawnPoint;
       [Header("Float Values ")]
       [SerializeField] private float intensity = 0.5f; 
       [SerializeField] private float duration = 0.5F;
@@ -29,13 +30,16 @@ namespace Player
       [Header("State Check Booleans")]
       public bool timePower;
       private bool _itemGrabbed;
+      public bool sunPower;
       [FormerlySerializedAs("_canFire")] public bool canFire;
       private void Awake()
       {
          canFire = true;
+         sunPower = true;
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
+         inputAction["Sun_Power"].performed += SunPower;
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
@@ -54,6 +58,17 @@ namespace Player
          //timeActionReference.action.Enable();
       }
 
+      private void SunPower(InputAction.CallbackContext context)
+      {
+         if (context.performed && sunPower)
+         {
+            var position = leftPowerSpawnPoint.position;
+            Physics.Raycast(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward),
+               out RaycastHit hitInfo, 20f);
+            Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+            Debug.Log(hitInfo);
+         }
+      }
       private void Fire(InputAction.CallbackContext context)
       {
          StartCoroutine(FireCoroutine(context));
