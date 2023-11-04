@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2815507, g: 0.4949973, b: 0.7395134, a: 1}
+  m_IndirectSpecularColor: {r: 0.28146088, g: 0.49500346, b: 0.73919654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20426,10 +20426,19 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Sun_Power
       m_Flags: 8
+    - m_Name: 
+      m_Id: 88f73047-37bb-49bb-8db0-7fe31544193d
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Sun_Power
+      m_Flags: 0
   dayManager: {fileID: 573244792}
   leftController: {fileID: 9014170785090376806}
   rightController: {fileID: 9014170783538599046}
   fireBall: {fileID: 4271625861835170951, guid: a8927576060d0d640b877bf41d68aad4, type: 3}
+  sunBeam: {fileID: 5137868570522882944, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
   rightPowerSpawnPoint: {fileID: 324670783}
   leftPowerSpawnPoint: {fileID: 2102408471}
   intensity: 1

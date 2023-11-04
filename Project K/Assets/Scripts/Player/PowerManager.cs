@@ -21,6 +21,7 @@ namespace Player
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
+      [SerializeField] private GameObject sunBeam;
       [SerializeField] private Transform rightPowerSpawnPoint;
       [SerializeField] private Transform leftPowerSpawnPoint;
       [Header("Float Values ")]
@@ -41,7 +42,7 @@ namespace Player
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
-         inputAction["Sun_Power"].performed += SunPower;
+         inputAction["Sun_Power"].started += SunPower;
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
@@ -62,10 +63,16 @@ namespace Player
 
       private void SunPower(InputAction.CallbackContext context)
       {
-         if (context.performed && sunPower)
+         
+         if (context.started && sunPower)
          {
             var position = leftPowerSpawnPoint.position;
-            if (Physics.Raycast(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward),
+            if (Camera.main != null)
+            {
+               Ray ray = Camera.main.ScreenPointToRay(position);
+            }
+
+            if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
                    out RaycastHit hitInfo, 20f))
             {
                GameObject laser = Instantiate(fireBall, leftPowerSpawnPoint.position, quaternion.identity);

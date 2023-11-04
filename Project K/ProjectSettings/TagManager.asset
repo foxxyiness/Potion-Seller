@@ -12,6 +12,7 @@ TagManager:
   - Anchor
   - Order_Manager
   - Fire
+  - Sun_Beam
   layers:
   - Default
   - TransparentFX
