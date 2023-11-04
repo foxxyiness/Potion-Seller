@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7312262255923765754}
   m_Layer: 0
   m_Name: Sunbeam
-  m_TagString: Fire
+  m_TagString: Sun_Beam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

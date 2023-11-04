@@ -28,7 +28,7 @@ namespace Player
       [SerializeField] private float intensity = 0.5f; 
       [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
-      [SerializeField] private float speed = 5.0f;
+      [SerializeField] private float speed = 20.0f;
 
       [Header("State Check Booleans")]
       public bool timePower;
@@ -75,12 +75,11 @@ namespace Player
             if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
                    out RaycastHit hitInfo, 20f))
             {
-               GameObject laser = Instantiate(fireBall, leftPowerSpawnPoint.position, quaternion.identity);
-               laser.transform.position =
-                  Vector3.MoveTowards(laser.transform.position, hitInfo.point, speed * Time.deltaTime);
+               GameObject laser = Instantiate(sunBeam, leftPowerSpawnPoint.position, quaternion.identity);
+               laser.transform.position = Vector3.MoveTowards(laser.transform.position, hitInfo.point, speed * Time.deltaTime);
                
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
-               Debug.Log(hitInfo);
+               Debug.Log(hitInfo.collider.name);
             }
             
          }
