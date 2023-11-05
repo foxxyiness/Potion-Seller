@@ -24,7 +24,9 @@ namespace Player
       [SerializeField] private GameObject sunBeam;
       [SerializeField] private Transform rightPowerSpawnPoint;
       [SerializeField] private Transform leftPowerSpawnPoint;
-      [Header("Float Values ")]
+
+      [Header("Float Values ")] 
+      [SerializeField] private float sunDelay = 1.0f;
       [SerializeField] private float intensity = 0.5f; 
       [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
@@ -35,14 +37,19 @@ namespace Player
       private bool _itemGrabbed;
       public bool sunPower;
       [FormerlySerializedAs("_canFire")] public bool canFire;
+      private Camera _camera;
+      private bool _isCameraNotNull;
+
       private void Awake()
       {
+         _isCameraNotNull = _camera != null;
+         _camera = Camera.main;
          canFire = true;
          sunPower = true;
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
-         inputAction["Sun_Power"].started += SunPower;
+         //inputAction["Sun_Power"].performed += SunPower;
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
@@ -61,27 +68,37 @@ namespace Player
          //timeActionReference.action.Enable();
       }
 
-      private void SunPower(InputAction.CallbackContext context)
+      private void Update()
       {
-         
-         if (context.started && sunPower)
+         SunPower();
+      }
+
+      private void SunPower()
+      {
+         StartCoroutine(SunPowerCoroutine());
+      }
+
+      private IEnumerator SunPowerCoroutine()
+      {
+         if ( inputAction["Sun_Power"].WasPressedThisFrame()  && sunPower)
          {
             var position = leftPowerSpawnPoint.position;
-            if (Camera.main != null)
+            if (_isCameraNotNull)
             {
-               Ray ray = Camera.main.ScreenPointToRay(position);
+               Ray ray = _camera.ScreenPointToRay(position);
             }
 
             if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
                    out RaycastHit hitInfo, 20f))
             {
-               GameObject laser = Instantiate(sunBeam, leftPowerSpawnPoint.position, quaternion.identity);
-               laser.transform.position = Vector3.MoveTowards(laser.transform.position, hitInfo.point, speed * Time.deltaTime);
-               
-               Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+               GameObject laser = Instantiate(sunBeam, hitInfo.point, quaternion.identity);
+               //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
+
+               Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
+                  Color.red);
                Debug.Log(hitInfo.collider.name);
             }
-            
+            yield return new WaitForSeconds(sunDelay);
          }
       }
       private void Fire(InputAction.CallbackContext context)

@@ -7,6 +7,13 @@ public class Sunbeam : MonoBehaviour
 {
    private void OnCollisionEnter(Collision other)
    {
-      //Destroy(this.gameObject);
+      Destroy(this.gameObject);
+      if (other.collider.CompareTag("Crop"))
+      {
+         var otherObject = other.collider.GetComponentInChildren<GrowthStage>();
+        // otherObject.timeBetweenGrowths--;
+         Destroy(this.gameObject);
+         Debug.Log("CROP HIT");
+      }
    }
 }

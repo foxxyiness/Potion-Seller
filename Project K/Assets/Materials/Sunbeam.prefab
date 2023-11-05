@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2453242312394709040}
   - component: {fileID: 4179118298844994210}
   - component: {fileID: 1395677616458400806}
-  - component: {fileID: 389387398067241794}
   - component: {fileID: 7312262255923765754}
+  - component: {fileID: 9105843508854557760}
   m_Layer: 0
   m_Name: Sunbeam
   m_TagString: Sun_Beam
@@ -107,7 +107,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &389387398067241794
+--- !u!114 &7312262255923765754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137868570522882944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3e6e0922d3c4a25b464cf15442d217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &9105843508854557760
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,15 +146,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7312262255923765754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5137868570522882944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3e6e0922d3c4a25b464cf15442d217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

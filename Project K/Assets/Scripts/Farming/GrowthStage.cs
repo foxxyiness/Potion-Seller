@@ -10,8 +10,8 @@ public class GrowthStage : MonoBehaviour
     [SerializeField] private int minValue, maxValue;
 
     [Header("Growth Numbers")] 
-    [SerializeField] private int currentProgression = 0;
-    [SerializeField] private int timeBetweenGrowths;
+    public int currentProgression = 0;
+    public int timeBetweenGrowths;
     [SerializeField] private int maxGrowth;
     [SerializeField] private GameObject crop;
     [SerializeField] private AudioSource audioSource;
@@ -29,7 +29,7 @@ public class GrowthStage : MonoBehaviour
         SelectRandomTimeBetweenGrowth();
         //loops growth function till finished growing
         InvokeRepeating("Growth", timeBetweenGrowths, timeBetweenGrowths);
-
+        Debug.Log(timeBetweenGrowths);
     }
 
     private void SelectRandomTimeBetweenGrowth()
