@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class GrowthStage : MonoBehaviour
 
     [Header("Growth Numbers")] 
     public int currentProgression = 0;
+
+    public float currentTimeBeforeStage;
     public int timeBetweenGrowths;
     [SerializeField] private int maxGrowth;
     [SerializeField] private GameObject crop;
@@ -28,7 +31,7 @@ public class GrowthStage : MonoBehaviour
         maxValue = 120;
         SelectRandomTimeBetweenGrowth();
         //loops growth function till finished growing
-        InvokeRepeating("Growth", timeBetweenGrowths, timeBetweenGrowths);
+        //InvokeRepeating("Growth", timeBetweenGrowths, timeBetweenGrowths);
         Debug.Log(timeBetweenGrowths);
     }
 
@@ -36,15 +39,26 @@ public class GrowthStage : MonoBehaviour
     {
         var rand = new Random();
         timeBetweenGrowths = rand.Next(minValue, maxValue);
+        currentTimeBeforeStage = timeBetweenGrowths;
     }
+
+    private void Update()
+    {
+        Growth();
+    }
+
     public void Growth()
     {
-        
-        if (currentProgression != maxGrowth && currentProgression < stages.Length)
+        currentTimeBeforeStage -= Time.deltaTime;
+        if (currentTimeBeforeStage <= 0.0f)
+        {
+            
+        }
+        /*if (currentProgression != maxGrowth && currentProgression < stages.Length)
         {
             stages[currentProgression].gameObject.SetActive(true);
         }
-        if (currentProgression > 0 && currentProgression < maxGrowth) 
+        if (currentProgression > 0 && currentProgression < maxGrowth)
         {
             stages[currentProgression -1].gameObject.SetActive(false);
         }
@@ -52,14 +66,14 @@ public class GrowthStage : MonoBehaviour
         {
             currentProgression++;
         }
-        else if(currentProgression == maxGrowth && CountCrops() < 3) 
+        else if(currentProgression == maxGrowth && CountCrops() < 3)
         {
             GameObject temp = Instantiate(crop,transform.position,Quaternion.identity);
             crops.Add(temp.transform);
             stages[currentProgression-1].gameObject.SetActive(false);
             //infinate crop for now?
             currentProgression = currentProgression - maxGrowth;
-        }
+        }*/
     }
 
     int CountCrops()
