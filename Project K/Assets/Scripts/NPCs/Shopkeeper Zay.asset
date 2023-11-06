@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zay
   dialogue:
-  - Hi 4head
-  - of course 20head
-  - stop
-  - yote
+  - hello there
+  - 1
+  - 2
+  - 3
   playerDialogue:
-  - Reeeee
-  - Raaaaaaaaaave
-  - yeet
+  - option 1
+  - option 2
+  - option 3
