@@ -13,6 +13,7 @@ TagManager:
   - Order_Manager
   - Fire
   - Sun_Beam
+  - Crop
   layers:
   - Default
   - TransparentFX
