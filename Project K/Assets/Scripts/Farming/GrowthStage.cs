@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
@@ -47,63 +49,42 @@ public class GrowthStage : MonoBehaviour
         Growth();
     }
 
-    public void Growth()
+    private void Growth()
     {
         currentTimeBeforeStage -= Time.deltaTime;
         if (currentTimeBeforeStage <= 0.0f)
         {
+            SelectRandomTimeBetweenGrowth();
             Progression();
         }
       
     }
-
-    public void Progression()
+    
+    private void Progression()
     {
-        if (currentProgression == 0)
+        currentProgression++;
+        if (currentProgression == 1)
         {
-            currentProgression++;
-            stages[currentProgression - 1].gameObject.SetActive(true);
-        }
-        else if (currentProgression == 1)
-        {
-            stages[currentProgression].gameObject.SetActive(false);
-            currentProgression++;
-            stages[currentProgression].gameObject.SetActive(true);
+            stages[0].gameObject.SetActive(true);
         }
         else if (currentProgression == 2)
         {
-            stages[currentProgression].gameObject.SetActive(false);
-            currentProgression++;
-            stages[currentProgression].gameObject.SetActive(true);
+            stages[0].gameObject.SetActive(false);
+            stages[1].gameObject.SetActive(true);
         }
-        else if (currentProgression == maxGrowth && CountCrops() < 3)
+        else if (currentProgression == 3)
         {
+            stages[1].gameObject.SetActive(false);
+            stages[2].gameObject.SetActive(true);
+        }
+        else if (currentProgression > 3)
+        {
+            stages[2].gameObject.SetActive(false);
             GameObject temp = Instantiate(crop,transform.position,Quaternion.identity);
             crops.Add(temp.transform);
-            stages[currentProgression-1].gameObject.SetActive(false);
             //infinate crop for now?
             currentProgression = 0;
         }
-        /*if (currentProgression != maxGrowth && currentProgression < stages.Length)
-      {
-          stages[currentProgression].gameObject.SetActive(true);
-      }
-      if (currentProgression > 0 && currentProgression < maxGrowth)
-      {
-          stages[currentProgression -1].gameObject.SetActive(false);
-      }
-      if (currentProgression < maxGrowth)
-      {
-          currentProgression++;
-      }
-      else if(currentProgression == maxGrowth && CountCrops() < 3)
-      {
-          GameObject temp = Instantiate(crop,transform.position,Quaternion.identity);
-          crops.Add(temp.transform);
-          stages[currentProgression-1].gameObject.SetActive(false);
-          //infinate crop for now?
-          currentProgression = currentProgression - maxGrowth;
-      }*/
     }
 
     int CountCrops()
