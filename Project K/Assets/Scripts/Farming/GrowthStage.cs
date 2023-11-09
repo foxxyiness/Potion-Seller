@@ -34,7 +34,6 @@ public class GrowthStage : MonoBehaviour
         SelectRandomTimeBetweenGrowth();
         //loops growth function till finished growing
         //InvokeRepeating("Growth", timeBetweenGrowths, timeBetweenGrowths);
-        Debug.Log(timeBetweenGrowths);
     }
 
     private void SelectRandomTimeBetweenGrowth()
