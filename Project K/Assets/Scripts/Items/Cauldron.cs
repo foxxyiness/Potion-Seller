@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -8,7 +9,7 @@ namespace Items
     public class Cauldron : MonoBehaviour
     {
         [SerializeField]
-        private bool allowBase, allowFlavor, allowStrength;
+        private bool allowBase, allowFlavor, allowStrength, potionFound;
 
         [SerializeField] 
         private List<Item> itemList;
@@ -22,7 +23,8 @@ namespace Items
         {
             allowBase = true;
             allowFlavor = true;
-            allowStrength = true; 
+            allowStrength = true;
+            potionFound = false;
         }
         /*private static bool HasItemName(Item item)
         {
@@ -44,16 +46,23 @@ namespace Items
             }
             for(var i = 0; i < recipes.Length; i++)
             {
-                if (recipes[i] == currentRecipe) 
+                if (recipes[i] == currentRecipe)
                 {
+                    potionFound = true;
                     SpawnPotion(i);
-                }
-                else
-                {
-                    Debug.Log("Nothing has been created, items shall be returned to you at once");
-                    ReturnItems();
+                    break;
                 }
                
+            }
+
+            if (potionFound)
+            {
+                potionFound = false;
+            }
+            else if (!potionFound)
+            {
+                Debug.Log("Items have been returned to you");
+                ReturnItems();
             }
         }
     
@@ -63,6 +72,7 @@ namespace Items
             foreach (var itemSpawn in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity)))
             {
                 itemSpawn.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                itemSpawn.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
             
             StartCoroutine(ClearList());

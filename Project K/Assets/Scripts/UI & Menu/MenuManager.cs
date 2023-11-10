@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI___Menu
 {
@@ -10,5 +11,11 @@ namespace UI___Menu
             Debug.Log("QU/IT");
 
         }
+
+        public void Death()
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
+        
     };
 }
