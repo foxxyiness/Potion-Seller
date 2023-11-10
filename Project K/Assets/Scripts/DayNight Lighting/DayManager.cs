@@ -103,7 +103,7 @@ public class DayManager : MonoBehaviour
     {
         //Adds day and checks and iterates difficulty
         _totalDays++;
-        if (_totalDays % 3 == 0 && orderManager.getCurrentState == OrderManager.Difficulty.VeryHard)
+        if (_totalDays % 3 == 0 && orderManager.getCurrentState != OrderManager.Difficulty.VeryHard)
         {
             orderManager.AddDifficulty();
         }

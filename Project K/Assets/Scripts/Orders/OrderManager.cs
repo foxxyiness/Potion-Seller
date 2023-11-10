@@ -60,7 +60,7 @@ namespace Orders
         {
             if (_itemsOnOrder.Count > 0)
             {
-                menuManager.
+                menuManager.Death();
             }
             _itemsOnOrder.Clear();
             if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
