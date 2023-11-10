@@ -11,7 +11,7 @@ public class Sunbeam : MonoBehaviour
       if (other.collider.CompareTag("Crop"))
       {
          var otherObject = other.collider.GetComponentInChildren<GrowthStage>();
-        // otherObject.timeBetweenGrowths--;
+         otherObject.currentTimeBeforeStage--;
          Destroy(this.gameObject);
          Debug.Log("CROP HIT");
       }

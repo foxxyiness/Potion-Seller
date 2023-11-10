@@ -25,6 +25,8 @@ namespace Player
       [SerializeField] private Transform rightPowerSpawnPoint;
       [SerializeField] private Transform leftPowerSpawnPoint;
 
+      [Header("Power Amount & Level")]
+      [SerializeField] private short powerAmount = 2000;
       [Header("Float Values ")] 
       [SerializeField] private float sunDelay = 1.0f;
       [SerializeField] private float intensity = 0.5f; 
@@ -97,6 +99,7 @@ namespace Player
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
                   Color.red);
                Debug.Log(hitInfo.collider.name);
+               powerAmount--;
             }
             yield return new WaitForSeconds(sunDelay);
          }
@@ -125,6 +128,7 @@ namespace Player
             TriggerHaptic(rightController);
             GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
             fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
+            powerAmount -= 30;
             yield return new WaitForSeconds(1);
             canFire = true;
          }

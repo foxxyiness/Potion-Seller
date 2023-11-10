@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Items;
 using TMPro;
+using UI___Menu;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Orders
 {
     public class OrderManager : MonoBehaviour
     {
+        [SerializeField] private MenuManager menuManager;
          public TextMeshProUGUI textContent;
          public GameObject orderUIContent;
         //private TextMeshProUGUI _textMeshProUGUI;
@@ -56,6 +58,10 @@ namespace Orders
         // ReSharper disable Unity.PerformanceAnalysis
         public IEnumerator StartOfDay()
         {
+            if (_itemsOnOrder.Count > 0)
+            {
+                menuManager.
+            }
             _itemsOnOrder.Clear();
             if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
             {
