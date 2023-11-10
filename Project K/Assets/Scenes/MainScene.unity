@@ -2779,6 +2779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae97430cf4ff5743ad764f09674d9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuManager: {fileID: 1105318210}
   textContent: {fileID: 2768040870960423727, guid: a87301472d064d340bdac13d58693cc4, type: 3}
   orderUIContent: {fileID: 109567550}
   _orders: {fileID: 11400000, guid: fe451553db7717348a752f2231f628a2, type: 2}
@@ -4444,11 +4445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8742684424057629415, guid: a213c36abfb7c754a9ae56a4a2072f3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2493658
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8742684424057629415, guid: a213c36abfb7c754a9ae56a4a2072f3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8870445
+      value: -1.928
       objectReference: {fileID: 0}
     - target: {fileID: 8742684424057629415, guid: a213c36abfb7c754a9ae56a4a2072f3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5798,6 +5799,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd52c2e615fa024784e641855193339, type: 3}
+--- !u!1001 &975202200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.772433
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.915
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407666353132621787, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025863006473692601, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
+      propertyPath: m_Name
+      value: IcePepper_Orb
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8104c05a893abfc4aa6a5d52513323ff, type: 3}
 --- !u!1 &976069573
 GameObject:
   m_ObjectHideFlags: 0
@@ -8572,15 +8630,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1944597102889229584, guid: 6bd52c2e615fa024784e641855193339, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45366812
+      value: -1.134
       objectReference: {fileID: 0}
     - target: {fileID: 1944597102889229584, guid: 6bd52c2e615fa024784e641855193339, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8870445
+      value: -0.692
       objectReference: {fileID: 0}
     - target: {fileID: 1944597102889229584, guid: 6bd52c2e615fa024784e641855193339, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.831068
+      value: -1.901
       objectReference: {fileID: 0}
     - target: {fileID: 1944597102889229584, guid: 6bd52c2e615fa024784e641855193339, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9620,6 +9678,7 @@ MonoBehaviour:
   allowBase: 0
   allowFlavor: 0
   allowStrength: 0
+  potionFound: 0
   itemList: []
   recipes:
   - waterhairsun
@@ -9656,15 +9715,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217102099224687145, guid: 6be9de79478a0f649932a2916b2dc06c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56611633
+      value: -1.14
       objectReference: {fileID: 0}
     - target: {fileID: 8217102099224687145, guid: 6be9de79478a0f649932a2916b2dc06c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8870445
+      value: -0.995
       objectReference: {fileID: 0}
     - target: {fileID: 8217102099224687145, guid: 6be9de79478a0f649932a2916b2dc06c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0501857
+      value: -1.913
       objectReference: {fileID: 0}
     - target: {fileID: 8217102099224687145, guid: 6be9de79478a0f649932a2916b2dc06c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20426,3 +20485,4 @@ SceneRoots:
   - {fileID: 2063904182}
   - {fileID: 3245361349364980435}
   - {fileID: 109567549}
+  - {fileID: 975202200}

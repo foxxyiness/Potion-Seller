@@ -14,7 +14,7 @@ namespace UI___Menu
 
         public void Death()
         {
-            SceneManager.LoadScene("DeathScene");
+            SceneManager.LoadScene("FailScene");
         }
         
     };
