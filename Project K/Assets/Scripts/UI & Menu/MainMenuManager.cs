@@ -11,7 +11,7 @@ using UnityEngine.Audio;
 public class MainMenuManager : MonoBehaviour
 {
 
-    [SerializeField] private PowerManager powerManager;
+    [SerializeField] 
     public AudioMixer audioMixer;
 
 
