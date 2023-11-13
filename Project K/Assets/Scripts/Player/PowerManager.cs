@@ -82,7 +82,7 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].WasPressedThisFrame()  && sunPower)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower)
          {
             var position = leftPowerSpawnPoint.position;
             if (_isCameraNotNull)
@@ -99,7 +99,7 @@ namespace Player
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
                   Color.red);
                Debug.Log(hitInfo.collider.name);
-               powerAmount--;
+                  // powerAmount--;
             }
             yield return new WaitForSeconds(sunDelay);
          }
