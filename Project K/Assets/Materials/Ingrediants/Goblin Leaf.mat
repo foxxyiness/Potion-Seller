@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SunOrb
+  m_Name: Goblin Leaf
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: ed42a8c52c8c16947a1d87f9805cbf86, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -42,6 +42,6 @@ Material:
     - _Metallic: 0.404
     - _Smoothness: 0.732
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.46469262, b: 0.02264148, a: 1}
-    - _Color: {r: 1, g: 0.46469253, b: 0.02264148, a: 1}
+    - _BaseColor: {r: 0.5754717, g: 0.43535808, b: 0.051032368, a: 1}
+    - _Color: {r: 0.57547164, g: 0.43535805, b: 0.05103235, a: 1}
   m_BuildTextureStacks: []

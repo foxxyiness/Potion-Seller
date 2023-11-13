@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4991187210854926717
+--- !u!1 &8025863006473692601
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1944597102889229584}
-  - component: {fileID: 8919055866888979690}
-  - component: {fileID: 4291004727450497964}
-  - component: {fileID: 5795812413937057053}
-  - component: {fileID: 857493226007349064}
-  - component: {fileID: 1969752978953800967}
-  - component: {fileID: 6196301077651153008}
+  - component: {fileID: 407666353132621787}
+  - component: {fileID: 460495323932131990}
+  - component: {fileID: 7802599371178040076}
+  - component: {fileID: 7283100187419597710}
+  - component: {fileID: 4749193959882173748}
+  - component: {fileID: 8645928595349914341}
+  - component: {fileID: 5972322634066573359}
   m_Layer: 6
-  m_Name: Sun_Orb
-  m_TagString: Strength
+  m_Name: BarbedBamboo
+  m_TagString: Flavor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1944597102889229584
+--- !u!4 &407666353132621787
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.765, y: 1.132, z: -6.387}
+  m_LocalPosition: {x: 12.773, y: 1.132, z: -5.184}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8919055866888979690
+--- !u!33 &460495323932131990
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4291004727450497964
+--- !u!23 &7802599371178040076
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10651abbc8190d0439ec5b8a23c69e23, type: 2}
+  - {fileID: 2100000, guid: c7151b11366faa74fbd476eb3cc87cb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,13 +87,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5795812413937057053
+--- !u!135 &7283100187419597710
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   m_Material: {fileID: 13400000, guid: 415da8acbb8333141be861711b441195, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -108,13 +108,13 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &857493226007349064
+--- !u!54 &4749193959882173748
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -135,13 +135,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1969752978953800967
+--- !u!114 &8645928595349914341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -283,19 +283,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &6196301077651153008
+--- !u!114 &5972322634066573359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4991187210854926717}
+  m_GameObject: {fileID: 8025863006473692601}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  itemName: 
+  type: 1
+  itemName: icepepper
   description: 
   difficulty: 0
