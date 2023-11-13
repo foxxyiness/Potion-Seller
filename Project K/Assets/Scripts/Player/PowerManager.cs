@@ -57,6 +57,22 @@ namespace Player
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
       }
 
+      public void SetFireTrue()
+      {
+         if (canFire)
+            canFire = false;
+
+         if (!canFire)
+            canFire = true;
+      }
+      public void SetSunTrue()
+      {
+         if (sunPower)
+            sunPower = false;
+
+         if (!sunPower)
+            sunPower = true;
+      }
       public void SetItemGrabTrue()
       { _itemGrabbed = true; Debug.Log("ITEM GRABBED");}
 
@@ -73,8 +89,33 @@ namespace Player
       private void Update()
       {
          SunPower();
+         CheckPowerLevelForFire();
+         CheckPowerLevelForSun();
       }
 
+      private void CheckPowerLevelForSun()
+      {
+         if (powerAmount <= 0)
+         {
+            sunPower = false;
+         }
+         else
+         {
+            sunPower = true;
+         }
+      }
+      private void CheckPowerLevelForFire()
+      {
+         //Checks power level for fire ability
+         if (powerAmount < 30)
+         {
+            canFire = false;
+         }
+         else
+         {
+            canFire = true;
+         }
+      }
       private void SunPower()
       {
          StartCoroutine(SunPowerCoroutine());
@@ -82,7 +123,7 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_itemGrabbed)
          {
             var position = leftPowerSpawnPoint.position;
             if (_isCameraNotNull)
@@ -99,7 +140,8 @@ namespace Player
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
                   Color.red);
                Debug.Log(hitInfo.collider.name);
-                  // powerAmount--;
+               leftController.SendHapticImpulse(1, .25f);
+               powerAmount--;
             }
             yield return new WaitForSeconds(sunDelay);
          }
