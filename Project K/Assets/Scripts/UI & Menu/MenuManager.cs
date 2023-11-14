@@ -16,6 +16,11 @@ namespace UI___Menu
         {
             SceneManager.LoadScene("FailScene");
         }
-        
+
+        public void GameStart()
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+
     };
 }
