@@ -12938,13 +12938,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2172515228386846285, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_MaxHeight
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172515228386846285, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_MinHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4112044561458971408, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       propertyPath: dayManager
       value: 
       objectReference: {fileID: 573244792}
+    - target: {fileID: 5432114880658324917, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6253627152857723449, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       propertyPath: m_Name
       value: Player XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186240499320189921, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: field of view
+      value: 60.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186240499320189921, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_FocalLength
+      value: 20.78461
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186240499320189921, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864513482232383567, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 8864513482232383567, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       propertyPath: m_LocalPosition.x
