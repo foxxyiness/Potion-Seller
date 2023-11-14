@@ -30,7 +30,7 @@ public class DayManager : MonoBehaviour
     private void Awake()
     {
         totalMin = 1440;
-        timerTick = 1.5f;
+        timerTick = .25f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -54,8 +54,8 @@ public class DayManager : MonoBehaviour
         {
             timerTick = 0.01f;
         }
-        yield return new  WaitUntil(() => totalMin < 20);
-        timerTick = 1.5f;
+        yield return new  WaitUntil(() => totalMin < 10);
+        timerTick = 0.25f;
         doFastForward = false;
         /*else
         {

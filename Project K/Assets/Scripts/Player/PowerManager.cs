@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -38,7 +39,7 @@ namespace Player
       public bool timePower;
       private bool _itemGrabbed;
       public bool sunPower;
-      [FormerlySerializedAs("_canFire")] public bool canFire;
+      public bool canFire;
       private Camera _camera;
       private bool _isCameraNotNull;
 
@@ -56,7 +57,6 @@ namespace Player
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
          _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
       }
-
       public void SetFireTrue()
       {
          if (canFire)
