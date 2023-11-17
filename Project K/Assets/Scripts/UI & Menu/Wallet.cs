@@ -36,7 +36,7 @@ public class Wallet : MonoBehaviour
 
     public void RemoveBalance()
     {
-        if (balance > 0)
+        if (balance >= payment)
         {
             balance = balance - payment;
             balanceText.text = balance.ToString();
