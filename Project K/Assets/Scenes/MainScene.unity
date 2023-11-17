@@ -11772,6 +11772,7 @@ MonoBehaviour:
   failPurchase: {fileID: 1657965696}
   balance: 0
   isPurchased: 0
+  item: {fileID: 4005383050499181515, guid: 6be9de79478a0f649932a2916b2dc06c, type: 3}
 --- !u!4 &1997764774
 Transform:
   m_ObjectHideFlags: 0

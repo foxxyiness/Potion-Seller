@@ -13,6 +13,7 @@ public class Wallet : MonoBehaviour
     public GameObject failPurchase;
     public int balance;
     public bool isPurchased;
+    public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,8 @@ public class Wallet : MonoBehaviour
             balanceText.text = balance.ToString();
             payment = 0;
             isPurchased = true;
+            item = Instantiate(failPurchase, transform.position, transform.rotation);
+
         }
         else
         {
