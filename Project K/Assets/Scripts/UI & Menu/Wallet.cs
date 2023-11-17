@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class Wallet : MonoBehaviour
 {
     
@@ -19,7 +20,12 @@ public class Wallet : MonoBehaviour
         
     }
 
-
+    public IEnumerator enumerator ()
+    {
+        failPurchase.SetActive(true);
+        yield return new WaitForSeconds(30);
+        failPurchase.SetActive(false);
+    }
 
     public void AddBalance()
     {
@@ -40,7 +46,9 @@ public class Wallet : MonoBehaviour
         else
         {
             isPurchased = false;
-            failPurchase.SetActive(false);
+            
+            StartCoroutine(enumerator());
+
             return;
         }
         
