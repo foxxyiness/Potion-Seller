@@ -42,6 +42,10 @@ public class OrderProcess : MonoBehaviour
 
         private void OnCollisionEnter(Collision collision)
         {
-            CheckCorrectItem(collision.gameObject.GetComponent<Item>());
+            if (collision.gameObject.GetComponent<Item>() != null)
+            {
+                CheckCorrectItem(collision.gameObject.GetComponent<Item>());
+            }
+            
         }
     }

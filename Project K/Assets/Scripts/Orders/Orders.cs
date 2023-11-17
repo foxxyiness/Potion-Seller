@@ -21,6 +21,21 @@ namespace Orders
 
       private Random _rand = new Random();
       
+      //Get methods for retrieving the list of easy, med, and hard potions
+      public List<Item> GetEasyItems()
+      {
+         return easyItems;
+      }
+   
+      public List<Item> GetMediumItems()
+      {
+         return mediumItems;
+      }
+   
+      public List<Item> GetHardItems()
+      {
+         return hardItems;
+      }
 
       //Gets called when probability number hits the correct number for Easy
       public Item GetSingleEasyOrder()
