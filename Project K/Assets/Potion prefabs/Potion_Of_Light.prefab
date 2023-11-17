@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  itemName: potion_of_light
+  itemName: Potion of Light
   description: Light potion that promotes growth
   difficulty: 0
 --- !u!54 &-1081773039998263840

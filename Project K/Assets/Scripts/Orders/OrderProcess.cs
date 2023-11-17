@@ -3,9 +3,11 @@ using Orders;
 using TMPro;
 using UnityEngine;
 
+
 public class OrderProcess : MonoBehaviour
 {
         private OrderManager orderManager;
+        public Wallet wallet;
         
         private void Start()
         {
@@ -26,6 +28,7 @@ public class OrderProcess : MonoBehaviour
                     {
                         Destroy(text.gameObject);
                         Destroy(potion.gameObject);
+                        wallet.AddBalance();
                         break;
                     }
                 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7152803017802633037}
   - component: {fileID: 2841460582992803582}
   m_Layer: 6
-  m_Name: Potion_Of_Lightmellow
+  m_Name: Potion_Of_FreezingFlames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d4ef58e2b58ac34eb2191598a0a7180, type: 2}
+  - {fileID: 2100000, guid: 7f955ac01fde01b44ad371da2c94887a, type: 2}
   - {fileID: -6478536213147159724, guid: ad05e0fe7cfc8324cabf497147e2d680, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  itemName: Potion of Lightmellow
+  itemName: Potion of Freezing Flames
   description: A sweet geletized treat
   difficulty: 0
 --- !u!54 &1678734730060682933
@@ -317,6 +317,3 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 0}
   toastable: 0
   roastLevel: 0
-  baseText: Potion Of Light
-  strengthText: 
-  flavorText: Toasted
