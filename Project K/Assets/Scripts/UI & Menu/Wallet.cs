@@ -9,7 +9,9 @@ public class Wallet : MonoBehaviour
     public int income;
     public int payment;
     public TextMeshProUGUI balanceText;
+    public GameObject failPurchase;
     public int balance;
+    public bool isPurchased;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +30,20 @@ public class Wallet : MonoBehaviour
 
     public void RemoveBalance()
     {
-        balance = balance - payment;
-        balanceText.text = balance.ToString();
-        payment = 0;
+        if (balance > 0)
+        {
+            balance = balance - payment;
+            balanceText.text = balance.ToString();
+            payment = 0;
+            isPurchased = true;
+        }
+        else
+        {
+            isPurchased = false;
+            failPurchase.SetActive(false);
+            return;
+        }
+        
     }
 
     // Update is called once per frame
