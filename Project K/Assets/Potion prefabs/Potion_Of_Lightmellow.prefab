@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  itemName: potion_of_lightmellow
+  itemName: Potion of Lightmellow
   description: A sweet geletized treat
   difficulty: 0
 --- !u!54 &1678734730060682933

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  itemName: potion_of_darkness
+  itemName: Potion of Darkness
   description: Darkness potion that promotes death
   difficulty: 0
 --- !u!54 &-1081773039998263840
