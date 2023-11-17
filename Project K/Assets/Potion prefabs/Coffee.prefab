@@ -317,3 +317,6 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 0}
   toastable: 0
   roastLevel: 0
+  baseText: Potion Of Darkness
+  strengthText: 
+  flavorText: Toasted

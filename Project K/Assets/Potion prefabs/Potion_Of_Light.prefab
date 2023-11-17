@@ -317,3 +317,6 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 1957016431850235086, guid: dfd81400887d5b642910735bdef2cef5, type: 3}
   toastable: 1
   roastLevel: 3
+  baseText: Water
+  strengthText: Sun
+  flavorText: Hair
