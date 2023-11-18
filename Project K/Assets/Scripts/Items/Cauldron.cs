@@ -26,10 +26,6 @@ namespace Items
             allowStrength = true;
             potionFound = false;
         }
-        /*private static bool HasItemName(Item item)
-        {
-            return item;
-        }*/
         private void CheckForCompleteRecipe()
         {
             var currentRecipe = "";
@@ -69,10 +65,10 @@ namespace Items
         //Returns All items in Items List, Calls Clear List to destory the items in Cauldron and List
         private void ReturnItems()
         {
-            foreach (var itemSpawn in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity)))
+            foreach (var itemSpawnGameObject in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity)))
             {
-                itemSpawn.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-                itemSpawn.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                itemSpawnGameObject.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                itemSpawnGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
             
             StartCoroutine(ClearList());

@@ -320,3 +320,6 @@ MonoBehaviour:
   baseText: Water
   strengthText: StormVine
   flavorText: IcePepper
+  baseType: 0
+  strengthType: 1
+  flavorType: 1

@@ -30,6 +30,7 @@ public class DayManager : MonoBehaviour
     private void Awake()
     {
         totalMin = 1440;
+        //Makes day cycle 6 minutes
         timerTick = .25f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
@@ -57,13 +58,7 @@ public class DayManager : MonoBehaviour
         yield return new  WaitUntil(() => totalMin < 10);
         timerTick = 0.25f;
         doFastForward = false;
-        /*else
-        {
-            timerTick = 1.5f;
-            doFastForward = false;
-        }*/
-
-
+        
     }
 
     private void Timer()
@@ -95,7 +90,6 @@ public class DayManager : MonoBehaviour
             totalMin = 1440;
             AddDay();
         }
-        //hour = 0;
       
     }
 
