@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 
 public class Wallet : MonoBehaviour
 {
     
     public int income;
-    public int payment;
+    [SerializeField] int purchaseCost;
     public TextMeshProUGUI balanceText;
     public GameObject failPurchase;
-    public int balance;
+    [SerializeField] private int balance;
     public bool isPurchased;
     public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
-        balance = 0;
-        
+        balance = 100;
+        UpdateBalance();
     }
 
-    public IEnumerator enumerator ()
+    private IEnumerator FailPurchase()
     {
         failPurchase.SetActive(true);
         yield return new WaitForSeconds(30);
@@ -30,38 +31,31 @@ public class Wallet : MonoBehaviour
 
     public void AddBalance()
     {
-        balance = balance + income;
+        balance += income;
+       UpdateBalance();
+    }
+
+    private void UpdateBalance()
+    {
         balanceText.text = balance.ToString();
-        income = 0;
     }
 
     public void RemoveBalance()
     {
-        if (balance >= payment)
+        if (purchaseCost <= balance)
         {
-            balance = balance - payment;
-            balanceText.text = balance.ToString();
-            payment = 0;
-            isPurchased = true;
+            balance -= purchaseCost;
+            UpdateBalance();
+            //isPurchased = true;
             item = Instantiate(failPurchase, transform.position, transform.rotation);
 
         }
         else
         {
-            isPurchased = false;
-            
-            StartCoroutine(enumerator());
-
-            return;
+            //isPurchased = false;
+            StartCoroutine(FailPurchase());
         }
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        AddBalance();
-
-        RemoveBalance();
-    }
+    
 }
