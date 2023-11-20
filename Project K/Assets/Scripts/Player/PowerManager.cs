@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Player

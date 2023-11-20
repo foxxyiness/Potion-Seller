@@ -320,3 +320,6 @@ MonoBehaviour:
   baseText: Potion Of Darkness
   strengthText: 
   flavorText: Toasted
+  baseType: 2
+  strengthType: 2
+  flavorType: 2
