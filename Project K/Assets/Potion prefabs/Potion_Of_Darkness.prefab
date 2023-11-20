@@ -317,3 +317,9 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 7306048064908439895, guid: 08795bec2e3693f44a308c9397505ae5, type: 3}
   toastable: 1
   roastLevel: 3
+  baseText: Water
+  strengthText: StormVine
+  flavorText: IcePepper
+  baseType: 0
+  strengthType: 1
+  flavorType: 1

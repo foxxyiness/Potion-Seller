@@ -317,3 +317,9 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 0}
   toastable: 0
   roastLevel: 0
+  baseText: Potion Of Light
+  strengthText: 
+  flavorText: Toasted
+  baseType: 1
+  strengthType: 2
+  flavorType: 2

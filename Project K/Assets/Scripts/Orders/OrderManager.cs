@@ -1,13 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Items;
 using TMPro;
 using UI___Menu;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Orders
