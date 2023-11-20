@@ -21,6 +21,8 @@ namespace Player
       [SerializeField] private GameObject sunBeam;
       [SerializeField] private Transform rightPowerSpawnPoint;
       [SerializeField] private Transform leftPowerSpawnPoint;
+      [SerializeField] private XRRayInteractor rightRayInteractor;
+      [SerializeField] private XRRayInteractor leftRayInteractor;
 
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
@@ -33,7 +35,8 @@ namespace Player
 
       [Header("State Check Booleans")]
       public bool timePower;
-      private bool _itemGrabbed;
+      private bool _leftItemGrabbed;
+      private bool _rightItemGrabbed;
       public bool sunPower;
       public bool canFire;
       private Camera _camera;
@@ -69,11 +72,22 @@ namespace Player
          if (!sunPower)
             sunPower = true;
       }
-      public void SetItemGrabTrue()
-      { _itemGrabbed = true; Debug.Log("ITEM GRABBED");}
+     
+      /****************************************************************************************************************/
+      //Functions for Direct Interactors
+      public void SetRightItemGrabTrue()
+      { _rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
 
-      public void SetItemGrabFalse()
-      { _itemGrabbed = false; Debug.Log("ITEM DROPPED");}
+      public void SetRightItemGrabFalse()
+      { _rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
+      
+      public void SetLeftItemGrabTrue()
+      { _leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
+
+      public void SetLeftItemGrabFalse()
+      { _leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
+      
+      /****************************************************************************************************************/
 
       private void OnEnable()
       {
@@ -87,8 +101,14 @@ namespace Player
          SunPower();
          CheckPowerLevelForFire();
          CheckPowerLevelForSun();
+         CheckRayInteractors();
       }
 
+      private void CheckRayInteractors()
+      {
+         leftRayInteractor.gameObject.SetActive(!inputAction["Left_Grip"].IsInProgress());
+         rightRayInteractor.gameObject.SetActive(!inputAction["Right_Grip"].IsInProgress());
+      }
       private void CheckPowerLevelForSun()
       {
          if (powerAmount <= 0)
@@ -119,7 +139,7 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_itemGrabbed)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
          {
             var position = leftPowerSpawnPoint.position;
             if (_isCameraNotNull)
@@ -159,7 +179,7 @@ namespace Player
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if ( context.performed && !_itemGrabbed && canFire)
+         if ( context.performed && !_rightItemGrabbed && canFire)
          {
             canFire = false;
             Debug.Log("FIRE");
