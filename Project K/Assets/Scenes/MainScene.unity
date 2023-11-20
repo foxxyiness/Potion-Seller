@@ -4061,11 +4061,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 03ae09c8225e84543a4ecb1455073c70, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6b21ddf3da2c7d64fad5fe99fa54cb9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 68caebca26399b9458e5c5cab4afa243, type: 2}
     - target: {fileID: -7511558181221131132, guid: 03ae09c8225e84543a4ecb1455073c70, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: cd8ad63ff7e281d469fe7a7646991d3a, type: 2}
+      objectReference: {fileID: 2100000, guid: 68caebca26399b9458e5c5cab4afa243, type: 2}
     - target: {fileID: 919132149155446097, guid: 03ae09c8225e84543a4ecb1455073c70, type: 3}
       propertyPath: m_Name
       value: corn
