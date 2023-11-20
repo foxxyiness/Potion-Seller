@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+
+
+public class SetTurnType : MonoBehaviour
+{
+    public ActionBasedSnapTurnProvider snapTurn;
+    public ActionBasedContinuousTurnProvider continuousTurn;
+    [SerializeField] private ActionBasedControllerManager turnManager;
+  
+
+    public void SetTypeFromIndex(int index)
+    {
+        if (index == 0)
+        {
+            /*snapTurn.enabled = false;
+            continuousTurn.enabled = true;*/
+            turnManager.smoothTurnEnabled = true;
+        }
+        else if (index == 1)
+        {
+            /*snapTurn.enabled = true;
+            continuousTurn.enabled = false;*/
+            turnManager.smoothTurnEnabled = false;
+        }
+    }
+}

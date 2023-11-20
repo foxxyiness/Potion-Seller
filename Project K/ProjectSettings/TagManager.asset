@@ -3,15 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BaseFlavor
+  - Strength
+  - Flavor
+  - Potion_Spawner
+  - Ground
+  - Anchor
+  - Order_Manager
+  - Fire
+  - Sun_Beam
+  - Crop
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Body
   - Water
   - UI
-  - 
+  - Grab
   - 
   - 
   - 
