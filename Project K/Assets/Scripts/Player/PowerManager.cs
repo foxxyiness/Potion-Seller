@@ -154,7 +154,7 @@ namespace Player
                //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
 
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
-                  Color.red);
+                  Color.red, 2f);
                Debug.Log(hitInfo.collider.name);
                leftController.SendHapticImpulse(1, .25f);
                powerAmount--;
