@@ -111,26 +111,12 @@ namespace Player
       }
       private void CheckPowerLevelForSun()
       {
-         if (powerAmount <= 0)
-         {
-            sunPower = false;
-         }
-         else
-         {
-            sunPower = true;
-         }
+         sunPower = powerAmount > 0;
       }
       private void CheckPowerLevelForFire()
       {
          //Checks power level for fire ability
-         if (powerAmount < 30)
-         {
-            canFire = false;
-         }
-         else
-         {
-            canFire = true;
-         }
+         canFire = powerAmount >= 30;
       }
       private void SunPower()
       {
