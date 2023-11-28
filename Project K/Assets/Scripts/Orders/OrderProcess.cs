@@ -7,7 +7,7 @@ using UnityEngine;
 public class OrderProcess : MonoBehaviour
 {
         private OrderManager orderManager;
-        public Wallet wallet;
+        [SerializeField] private PlayerWallet playerWallet;
         
         private void Start()
         {
@@ -28,7 +28,7 @@ public class OrderProcess : MonoBehaviour
                     {
                         Destroy(text.gameObject);
                         Destroy(potion.gameObject);
-                        wallet.AddBalance();
+                        playerWallet.AddBalance(potion.GetPrice());
                         break;
                     }
                 }
@@ -39,7 +39,7 @@ public class OrderProcess : MonoBehaviour
                 Debug.Log("ITEM NOT FOUND IN LIST");
             }
         }
-
+        
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.GetComponent<Item>() != null)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine.Serialization;
 
 
@@ -12,13 +13,13 @@ public class Wallet : MonoBehaviour
     [SerializeField] int purchaseCost;
     public TextMeshProUGUI balanceText;
     public GameObject failPurchase;
-    [SerializeField] private int balance;
+    [SerializeField] private PlayerWallet playerWallet;
+    private int balance;
     public bool isPurchased;
     public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
-        balance = 100;
         UpdateBalance();
     }
 
@@ -28,15 +29,9 @@ public class Wallet : MonoBehaviour
         yield return new WaitForSeconds(30);
         failPurchase.SetActive(false);
     }
-
-    public void AddBalance()
-    {
-        balance += income;
-       UpdateBalance();
-    }
-
     private void UpdateBalance()
     {
+        balance = playerWallet.GetBalance();
         balanceText.text = balance.ToString();
     }
 
@@ -44,11 +39,8 @@ public class Wallet : MonoBehaviour
     {
         if (purchaseCost <= balance)
         {
-            balance -= purchaseCost;
-            UpdateBalance();
-            //isPurchased = true;
-            item = Instantiate(failPurchase, transform.position, transform.rotation);
-
+            playerWallet.RemoveBalance(purchaseCost);
+            SpawnItem();
         }
         else
         {
@@ -57,5 +49,9 @@ public class Wallet : MonoBehaviour
         }
         
     }
-    
+
+    private void SpawnItem()
+    {
+        var spawnItem = Instantiate(item, playerWallet.GetComponentInParent<Transform>().position, quaternion.identity);
+    }
 }
