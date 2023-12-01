@@ -7,6 +7,7 @@ namespace Items
         public bool isGrounded { get; private set; }
         private Rigidbody rb;
         [SerializeField] private int price;
+        [SerializeField] private int cost;
         
         private void Awake()
         {
@@ -69,6 +70,11 @@ namespace Items
         public int GetPrice()
         {
             return price;
+        }
+
+        public int GetCost()
+        {
+            return cost;
         }
     
     }

@@ -21,7 +21,7 @@ public class PlayerWallet : MonoBehaviour
     public void RemoveBalance(int purchaseCost)
     {
         balance -= purchaseCost;
-        balanceText.text = balance.ToString();
+        //balanceText.text = balance.ToString();
     }
     public void AddBalance(int price)
     {
