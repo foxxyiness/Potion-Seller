@@ -26,9 +26,9 @@ public class OrderProcess : MonoBehaviour
                 {
                     if (text.text == potion.GetName())
                     {
+                        playerWallet.AddBalance(potion.GetPrice());
                         Destroy(text.gameObject);
                         Destroy(potion.gameObject);
-                        playerWallet.AddBalance(potion.GetPrice());
                         break;
                     }
                 }
