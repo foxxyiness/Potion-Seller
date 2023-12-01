@@ -18,7 +18,7 @@ public class OrderProcess : MonoBehaviour
         {
             var index = orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
             //Check for Item Created was actually in list
-            if ( index > -1)
+            if (index > -1)
             {
                 orderManager._itemsOnOrder.RemoveAt(index);
                 TextMeshProUGUI []textList = orderManager.orderUIContent.GetComponentsInChildren<TextMeshProUGUI>();
