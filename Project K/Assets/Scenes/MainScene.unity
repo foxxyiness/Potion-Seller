@@ -12354,7 +12354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa33db241fa54b64086efc26b8b78e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWallet: {fileID: 0}
+  playerWallet: {fileID: 7873184976941804777}
 --- !u!64 &1972793116
 MeshCollider:
   m_ObjectHideFlags: 0
