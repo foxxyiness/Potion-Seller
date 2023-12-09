@@ -12,6 +12,21 @@ namespace Items
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            if (GetComponentInChildren<Potion>() != null)
+            {
+                if (difficulty == Difficulty.Easy)
+                {
+                    price = 500;
+                }
+                else if (difficulty == Difficulty.Medium)
+                {
+                    price = 1000;
+                }
+                else if (difficulty ==Difficulty.Hard)
+                {
+                    price = 1500;
+                }
+            }
         }
     
 
@@ -55,8 +70,8 @@ namespace Items
         private string itemName;
         [SerializeField]
         private string description;
-        [SerializeField] 
-        private Difficulty difficulty = Difficulty.Easy;
+
+        [SerializeField] private Difficulty difficulty;
         public string GetName()
         {
             return itemName;

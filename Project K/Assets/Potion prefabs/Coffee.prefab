@@ -106,7 +106,7 @@ MonoBehaviour:
   type: 1
   itemName: Coffee
   description: Darkness potion that promotes death
-  difficulty: 1
+  difficulty: 0
 --- !u!54 &736037907124560478
 Rigidbody:
   m_ObjectHideFlags: 0
