@@ -22,5 +22,10 @@ namespace UI___Menu
             SceneManager.LoadScene("MainScene");
         }
 
+        public void TutorialStart()
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+
     };
 }

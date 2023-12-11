@@ -1049,7 +1049,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""9e2fa814-8cbd-4c65-a60d-a1503f30ffd8"",
-                    ""path"": ""<XRController>{LeftHand}/gripPressed"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
@@ -1765,7 +1765,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""7ecb549e-ab98-4a4b-b979-38068fe3b811"",
-                    ""path"": ""<XRController>{RightHand}/gripPressed"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",

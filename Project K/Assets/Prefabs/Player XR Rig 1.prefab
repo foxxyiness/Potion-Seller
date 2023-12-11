@@ -2166,12 +2166,13 @@ MonoBehaviour:
   sunBeam: {fileID: 5137868570522882944, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
   rightPowerSpawnPoint: {fileID: 384085383393425170}
   leftPowerSpawnPoint: {fileID: 381456594572193265}
+  rightRayInteractor: {fileID: 6808237989441830968}
+  leftRayInteractor: {fileID: 1407709201022719951}
   powerAmount: 2000
   sunDelay: 0.25
   intensity: 1
   duration: 1
   shootForce: 10
-  speed: 200
   timePower: 0
   sunPower: 0
   canFire: 0

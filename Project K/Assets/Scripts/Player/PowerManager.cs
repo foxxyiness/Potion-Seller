@@ -31,21 +31,20 @@ namespace Player
       [SerializeField] private float intensity = 0.5f; 
       [SerializeField] private float duration = 0.5F;
       [SerializeField] private float shootForce = 10f;
-      [SerializeField] private float speed = 20.0f;
 
       [Header("State Check Booleans")]
       public bool timePower;
-      private bool _leftItemGrabbed;
-      private bool _rightItemGrabbed;
+      private bool leftItemGrabbed;
+      private bool rightItemGrabbed;
       public bool sunPower;
       public bool canFire;
-      private Camera _camera;
-      private bool _isCameraNotNull;
+      private Camera camera;
+      private bool isCameraNotNull;
 
       private void Awake()
       {
-         _isCameraNotNull = _camera != null;
-         _camera = Camera.main;
+         isCameraNotNull = camera != null;
+         camera = Camera.main;
          canFire = true;
          sunPower = true;
          timePower = false;
@@ -76,16 +75,16 @@ namespace Player
       /****************************************************************************************************************/
       //Functions for Direct Interactors
       public void SetRightItemGrabTrue()
-      { _rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
+      { rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
 
       public void SetRightItemGrabFalse()
-      { _rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
+      { rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
       
       public void SetLeftItemGrabTrue()
-      { _leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
+      { leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
 
       public void SetLeftItemGrabFalse()
-      { _leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
+      { leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
       
       /****************************************************************************************************************/
 
@@ -111,26 +110,12 @@ namespace Player
       }
       private void CheckPowerLevelForSun()
       {
-         if (powerAmount <= 0)
-         {
-            sunPower = false;
-         }
-         else
-         {
-            sunPower = true;
-         }
+         sunPower = powerAmount > 0;
       }
       private void CheckPowerLevelForFire()
       {
          //Checks power level for fire ability
-         if (powerAmount < 30)
-         {
-            canFire = false;
-         }
-         else
-         {
-            canFire = true;
-         }
+         canFire = powerAmount >= 30;
       }
       private void SunPower()
       {
@@ -139,12 +124,12 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !leftItemGrabbed)
          {
             var position = leftPowerSpawnPoint.position;
-            if (_isCameraNotNull)
+            if (isCameraNotNull)
             {
-               Ray ray = _camera.ScreenPointToRay(position);
+               Ray ray = camera.ScreenPointToRay(position);
             }
 
             if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
@@ -154,7 +139,7 @@ namespace Player
                //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
 
                Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
-                  Color.red);
+                  Color.red, 2f);
                Debug.Log(hitInfo.collider.name);
                leftController.SendHapticImpulse(1, .25f);
                powerAmount--;
@@ -179,7 +164,7 @@ namespace Player
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if ( context.performed && !_rightItemGrabbed && canFire)
+         if ( context.performed && !rightItemGrabbed && canFire)
          {
             canFire = false;
             Debug.Log("FIRE");

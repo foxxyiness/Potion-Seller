@@ -101,10 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 0
+  cost: 0
   type: 0
   itemName: Potion of Empowerment
   description: A sweet geletized treat
-  difficulty: 0
+  difficulty: 2
 --- !u!54 &1678734730060682933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -317,3 +319,9 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 0}
   toastable: 0
   roastLevel: 0
+  baseText: 
+  strengthText: 
+  flavorText: 
+  baseType: 0
+  strengthType: 0
+  flavorType: 0
