@@ -16457,6 +16457,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3662517606113316621, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_AllowAnchorControl
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5717516467045690798, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -16505,6 +16509,30 @@ PrefabInstance:
       propertyPath: dayManager
       value: 
       objectReference: {fileID: 573244792}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_RotateAnchorAction.m_Action.m_Id
+      value: d96852e0-60ae-4a79-b4d2-617131d3b46c
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_RotateAnchorAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_RotateAnchorAction.m_Action.m_Name
+      value: Rotate Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_TranslateAnchorAction.m_Action.m_Id
+      value: 0ddc8c4d-efcf-421e-9259-612fc22f80bb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_TranslateAnchorAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091170995073547316, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
+      propertyPath: m_TranslateAnchorAction.m_Action.m_Name
+      value: Translate Anchor
+      objectReference: {fileID: 0}
     - target: {fileID: 7498570008402613804, guid: fe80aa2a32fe64d8094b2c621633500e, type: 3}
       propertyPath: m_Enabled
       value: 0
