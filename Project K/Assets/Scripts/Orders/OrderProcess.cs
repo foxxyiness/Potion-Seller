@@ -7,7 +7,7 @@ using UnityEngine;
 public class OrderProcess : MonoBehaviour
 {
         private OrderManager orderManager;
-        public Wallet wallet;
+        [SerializeField] private PlayerWallet playerWallet;
         
         private void Start()
         {
@@ -18,7 +18,7 @@ public class OrderProcess : MonoBehaviour
         {
             var index = orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
             //Check for Item Created was actually in list
-            if ( index > -1)
+            if (index > -1)
             {
                 orderManager._itemsOnOrder.RemoveAt(index);
                 TextMeshProUGUI []textList = orderManager.orderUIContent.GetComponentsInChildren<TextMeshProUGUI>();
@@ -26,9 +26,9 @@ public class OrderProcess : MonoBehaviour
                 {
                     if (text.text == potion.GetName())
                     {
+                        playerWallet.AddBalance(potion.GetPrice());
                         Destroy(text.gameObject);
                         Destroy(potion.gameObject);
-                        wallet.AddBalance();
                         break;
                     }
                 }
@@ -39,7 +39,7 @@ public class OrderProcess : MonoBehaviour
                 Debug.Log("ITEM NOT FOUND IN LIST");
             }
         }
-
+        
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.GetComponent<Item>() != null)

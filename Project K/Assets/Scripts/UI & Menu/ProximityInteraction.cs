@@ -1,14 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ProximityInteraction : MonoBehaviour
 {
-    public GameObject DialogueWindow;
+    [FormerlySerializedAs("DialogueWindow")] public GameObject dialogueWindow;
     public float interactionRadius = 2.5f; // The radius within which the interaction can occur.
 
     [SerializeField] private Transform player; // Reference to the VR player's position.
-    
+
+    private void Awake()
+    {
+        dialogueWindow = GetComponentInChildren<Canvas>().gameObject;
+    }
+
     private void Update()
     {
         // Calculate the distance between the player and this object.
@@ -18,11 +25,11 @@ public class ProximityInteraction : MonoBehaviour
         if (distance <= interactionRadius)
         {
             // toggle dialogue window
-            DialogueWindow.SetActive(true);
+            dialogueWindow.SetActive(true);
         }
         else
         {
-            DialogueWindow.SetActive(false);
+            dialogueWindow.SetActive(false);
         }
     }
 

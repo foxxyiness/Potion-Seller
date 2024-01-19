@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 500
+  cost: 0
   type: 3
   itemName: Potion of Darkness
   description: Darkness potion that promotes death

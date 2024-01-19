@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine.Serialization;
 
-
+//Class intended for each Specific Shop
 public class Wallet : MonoBehaviour
 {
     
@@ -12,14 +14,16 @@ public class Wallet : MonoBehaviour
     [SerializeField] int purchaseCost;
     public TextMeshProUGUI balanceText;
     public GameObject failPurchase;
-    [SerializeField] private int balance;
+    [SerializeField] private PlayerWallet playerWallet;
+    [SerializeField]private int balance;
     public bool isPurchased;
     public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
-        balance = 100;
         UpdateBalance();
+        //Gets purchase Cost from Item
+        purchaseCost = item.GetComponent<Item>().GetCost();
     }
 
     private IEnumerator FailPurchase()
@@ -28,15 +32,9 @@ public class Wallet : MonoBehaviour
         yield return new WaitForSeconds(30);
         failPurchase.SetActive(false);
     }
-
-    public void AddBalance()
-    {
-        balance += income;
-       UpdateBalance();
-    }
-
     private void UpdateBalance()
     {
+        balance = playerWallet.GetBalance();
         balanceText.text = balance.ToString();
     }
 
@@ -44,11 +42,9 @@ public class Wallet : MonoBehaviour
     {
         if (purchaseCost <= balance)
         {
-            balance -= purchaseCost;
+            playerWallet.RemoveBalance(purchaseCost);
             UpdateBalance();
-            //isPurchased = true;
-            item = Instantiate(failPurchase, transform.position, transform.rotation);
-
+            SpawnItem();
         }
         else
         {
@@ -57,5 +53,9 @@ public class Wallet : MonoBehaviour
         }
         
     }
-    
+
+    private void SpawnItem()
+    {
+        var spawnItem = Instantiate(item, playerWallet.GetComponentInParent<Transform>().position + Vector3.up, quaternion.identity);
+    }
 }
