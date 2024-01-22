@@ -13,6 +13,8 @@ public class OrderProcess : MonoBehaviour
         {
             orderManager = GameObject.FindGameObjectWithTag("Order_Manager").GetComponent<OrderManager>();
         }
+
+        
        
         private void CheckCorrectItem(Item potion)
         {
