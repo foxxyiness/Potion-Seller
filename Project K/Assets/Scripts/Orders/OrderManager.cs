@@ -75,6 +75,7 @@ namespace Orders
             GetOrders(currentState);
         }
 
+        //Death Coroutine. Runs When day is complete but not all orders were complete. Starts Chime and loads Scene ****
         private IEnumerator Death()
         {
             orderManagerAudio.Play();

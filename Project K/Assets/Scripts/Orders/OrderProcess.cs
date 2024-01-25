@@ -13,9 +13,7 @@ public class OrderProcess : MonoBehaviour
         {
             orderManager = GameObject.FindGameObjectWithTag("Order_Manager").GetComponent<OrderManager>();
         }
-
         
-       
         private void CheckCorrectItem(Item potion)
         {
             var index = orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
