@@ -17,7 +17,7 @@ namespace UI___Menu
         [SerializeField] private TextMeshProUGUI strengthText;
         [SerializeField] private TextMeshProUGUI flavorText;
         [SerializeField] private TextMeshProUGUI toastyText;
-        [SerializeField] private TextMeshProUGUI pageNumber;
+      //  [SerializeField] private TextMeshProUGUI pageNumber;
         private List<Item> _allPotions;
         [SerializeField] private int _bookIndex = 0;
         void Start()
@@ -48,7 +48,7 @@ namespace UI___Menu
             strengthText.text = _allPotions[_bookIndex].GetComponent<Potion>().GetStrengthText();
             flavorText.text = _allPotions[_bookIndex].GetComponent<Potion>().GetFlavorText();
             toastyText.text = _allPotions[_bookIndex].GetComponent<Potion>().GetToastable();
-            pageNumber.text = (1 + _bookIndex).ToString();
+          //  pageNumber.text = (1 + _bookIndex).ToString();
         }
 
         public void NextPage()

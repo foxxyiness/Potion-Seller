@@ -11,6 +11,8 @@ namespace Orders
     public class OrderManager : MonoBehaviour
     {
         [SerializeField] private MenuManager menuManager;
+        [SerializeField] private AudioSource orderManagerAudio;
+        [SerializeField] private AudioClip deathChime;
          public TextMeshProUGUI textContent;
          public GameObject orderUIContent;
         //private TextMeshProUGUI _textMeshProUGUI;
@@ -49,6 +51,7 @@ namespace Orders
         private void Start()
         {
             StartCoroutine(StartOfDay());
+            orderManagerAudio.clip = deathChime;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -56,7 +59,9 @@ namespace Orders
         {
             if (_itemsOnOrder.Count > 0)
             {
-                menuManager.Death();
+                StartCoroutine(Death());
+                _itemsOnOrder.Clear();
+                yield break;
             }
             _itemsOnOrder.Clear();
             if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
@@ -70,6 +75,20 @@ namespace Orders
             GetOrders(currentState);
         }
 
+        private IEnumerator Death()
+        {
+            orderManagerAudio.Play();
+            DontDestroyOnLoad(orderManagerAudio);
+            if (orderManagerAudio.isPlaying)
+            {
+                yield return new WaitForSeconds(12);
+                menuManager.DeathLoad();
+            }
+            else
+            {
+                menuManager.Death();
+            }
+        }
         private void GetOrders(Difficulty difficulty)
         {
             var rand = new Random();
