@@ -82,7 +82,7 @@ namespace Orders
             DontDestroyOnLoad(orderManagerAudio);
             if (orderManagerAudio.isPlaying)
             {
-                yield return new WaitForSeconds(12);
+                yield return new WaitForSeconds(16);
                 menuManager.DeathLoad();
             }
             else
