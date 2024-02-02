@@ -18,6 +18,8 @@ namespace Items
         private Item[] recipeResults;
         [SerializeField]
         private Transform potionSpawnPoint;
+
+        private string _currentRecipe;
         private void Start()
         {
             allowBase = true;
@@ -27,21 +29,21 @@ namespace Items
         }
         private void CheckForCompleteRecipe()
         {
-            var currentRecipe = "";
+            
             foreach(Item item in itemList)
             {
                 if(item != null)
                 {
-                    currentRecipe += item.GetName();
+                    _currentRecipe += item.GetName();
                 }
                 else
                 {
-                    currentRecipe += "null";
+                    _currentRecipe += "null";
                 }
             }
             for(var i = 0; i < recipes.Length; i++)
             {
-                if (recipes[i] == currentRecipe)
+                if (recipes[i] == _currentRecipe)
                 {
                     potionFound = true;
                     SpawnPotion(i);

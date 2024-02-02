@@ -5,6 +5,7 @@ namespace UI___Menu
 {
     public class MenuManager : MonoBehaviour
     {
+        
         public void QuitGame()
         {
             Application.Quit();
@@ -17,6 +18,10 @@ namespace UI___Menu
             SceneManager.LoadScene("FailScene");
         }
 
+        public void DeathLoad()
+        {
+            SceneManager.LoadSceneAsync("FailScene");
+        }
         public void GameStart()
         {
             SceneManager.LoadScene("MainScene");

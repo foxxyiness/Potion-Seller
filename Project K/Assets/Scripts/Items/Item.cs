@@ -5,13 +5,22 @@ namespace Items
     public class Item : MonoBehaviour
     {
         public bool isGrounded { get; private set; }
-        private Rigidbody rb;
+        private Rigidbody _rb;
+        [Header("Item Type")]
+        [SerializeField] private Type type = Type.Light;
+        [SerializeField] private string itemName;
+        [SerializeField] private string description;
+        
+        [Header("Item Cost")]
         [SerializeField] private int price;
         [SerializeField] private int cost;
         
-        private void Awake()
+
+        [SerializeField] private Difficulty difficulty;
+        
+        private void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            _rb = GetComponent<Rigidbody>();
             if (GetComponentInChildren<Potion>() != null)
             {
                 if (difficulty == Difficulty.Easy)
@@ -35,7 +44,7 @@ namespace Items
         {
             if (collision.collider.CompareTag("Ground"))
             {
-                rb.velocity = Vector3.zero;
+                _rb.velocity = Vector3.zero;
                 isGrounded = true;
             }
         }
@@ -63,15 +72,7 @@ namespace Items
             Death
         }
 
-  
-        [SerializeField]
-        private Type type = Type.Light;
-        [SerializeField]
-        private string itemName;
-        [SerializeField]
-        private string description;
-
-        [SerializeField] private Difficulty difficulty;
+        
         public string GetName()
         {
             return itemName;
