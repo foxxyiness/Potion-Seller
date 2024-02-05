@@ -16,11 +16,11 @@ public class OrderProcess : MonoBehaviour
         
         private void CheckCorrectItem(Item potion)
         {
-            var index = orderManager._itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
+            var index = orderManager.itemsOnOrder.FindIndex(item => item.GetName() == potion.GetName());
             //Check for Item Created was actually in list
             if (index > -1)
             {
-                orderManager._itemsOnOrder.RemoveAt(index);
+                orderManager.itemsOnOrder.RemoveAt(index);
                 TextMeshProUGUI []textList = orderManager.orderUIContent.GetComponentsInChildren<TextMeshProUGUI>();
                 foreach (TextMeshProUGUI text in textList)
                 {

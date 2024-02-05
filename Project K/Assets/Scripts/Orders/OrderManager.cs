@@ -4,6 +4,7 @@ using Items;
 using TMPro;
 using UI___Menu;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Orders
@@ -16,9 +17,8 @@ namespace Orders
          public TextMeshProUGUI textContent;
          public GameObject orderUIContent;
         //private TextMeshProUGUI _textMeshProUGUI;
-        public Orders _orders;
-        
-        private readonly int[] _levelState = { 1, 2, 3, 4, 5 };
+        [FormerlySerializedAs("_orders")] public Orders orders;
+        private readonly int[] levelState = { 1, 2, 3, 4, 5 };
 
        
         public enum Difficulty
@@ -34,10 +34,10 @@ namespace Orders
 
         public Difficulty getCurrentState => currentState;
 
-        public List<Item> _itemsOnOrder;
+        [FormerlySerializedAs("_itemsOnOrder")] public List<Item> itemsOnOrder;
         private void ItemsOnOrderUI()
         {
-            foreach (Item item in _itemsOnOrder)
+            foreach (Item item in itemsOnOrder)
             {
                 TextMeshProUGUI text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
                 text.text = item.GetName();
@@ -57,13 +57,13 @@ namespace Orders
         // ReSharper disable Unity.PerformanceAnalysis
         public IEnumerator StartOfDay()
         {
-            if (_itemsOnOrder.Count > 0)
+            if (itemsOnOrder.Count > 0)
             {
                 StartCoroutine(Death());
-                _itemsOnOrder.Clear();
+                itemsOnOrder.Clear();
                 yield break;
             }
-            _itemsOnOrder.Clear();
+            itemsOnOrder.Clear();
             if (orderUIContent.GetComponentsInChildren<TextMeshProUGUI>() != null)
             {
                 foreach (TextMeshProUGUI text in orderUIContent.GetComponentsInChildren<TextMeshProUGUI>())
@@ -99,7 +99,7 @@ namespace Orders
                 case Difficulty.VeryEasy:
                     for (var i = 0; i < 5; i++)
                     {
-                        _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                        itemsOnOrder.Add(orders.GetSingleEasyOrder());
                     }
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
@@ -107,7 +107,7 @@ namespace Orders
                     for (var i = 0; i <= rand.Next(5, 7); i++)
                     {
                         var probability = rand.Next(1, 101);
-                        _itemsOnOrder.Add(probability <= 13 ? _orders.GetSingleMediumOrder() : _orders.GetSingleEasyOrder());
+                        itemsOnOrder.Add(probability <= 13 ? orders.GetSingleMediumOrder() : orders.GetSingleEasyOrder());
                     }
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
@@ -117,15 +117,15 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 40)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleMediumOrder());
+                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
                         }
                         else if (probability is >= 41 and <= 90)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
                         }
                         else
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleHardOrder());
+                            itemsOnOrder.Add(orders.GetSingleHardOrder());
                         }
                     }
                     break;
@@ -136,15 +136,15 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 35)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleMediumOrder());
+                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
                         }
                         else if (probability is >= 36 and <= 80)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
                         }
                         else
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleHardOrder());
+                            itemsOnOrder.Add(orders.GetSingleHardOrder());
                         }
                     }
                     break;
@@ -155,15 +155,15 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 33)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleMediumOrder());
+                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
                         }
                         else if (probability is >= 34 and <= 67)
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleEasyOrder());
+                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
                         }
                         else
                         {
-                            _itemsOnOrder.Add(_orders.GetSingleHardOrder());
+                            itemsOnOrder.Add(orders.GetSingleHardOrder());
                         }
                     }
                     break;
@@ -171,7 +171,7 @@ namespace Orders
                     Debug.LogWarning("State Difficulty not equal 1-5, defaulting to easy.");
                     goto case Difficulty.VeryEasy;
             }
-            Debug.Log(_itemsOnOrder);
+            Debug.Log(itemsOnOrder);
             ItemsOnOrderUI();
         }
 
