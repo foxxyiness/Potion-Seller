@@ -7,12 +7,12 @@ namespace Pages
     [CreateAssetMenu]
     public class LostPagesList : ScriptableObject
     {
-        [SerializeField] private List<Vector3> mediumLostPages;
+        [SerializeField] private List<Vector3> lostPageLocations;
 
 
-        public List<Vector3> getMediumPages()
+        public List<Vector3> GetLostPages()
         {
-            return mediumLostPages;
+            return lostPageLocations;
         }
     }
 }

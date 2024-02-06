@@ -91,6 +91,8 @@ namespace Orders
                 menuManager.Death();
             }
         }
+        
+        //Rand.Next in for loops determine the amount of potions spawn in at a given time.
         private void GetOrders(Difficulty difficulty)
         {
             Item item;
@@ -106,7 +108,7 @@ namespace Orders
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
                 case Difficulty.Easy:
-                    for (var i = 0; i <= rand.Next(5, 7); i++)
+                    for (var i = 0; i <= rand.Next(5, 7); i++) 
                     {
                         var probability = rand.Next(1, 101);
                         item = probability <= 13 ? orders.GetSingleMediumOrder() : orders.GetSingleEasyOrder();
@@ -185,7 +187,7 @@ namespace Orders
                     }
                     break;
                 default:
-                    Debug.LogWarning("State Difficulty not equal 1-5, defaulting to easy.");
+                    Debug.LogWarning("State Difficulty not equal 1-5, defaulting to very easy.");
                     goto case Difficulty.VeryEasy;
             }
             

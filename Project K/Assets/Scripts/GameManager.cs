@@ -16,52 +16,26 @@ public class GameManager : MonoBehaviour
 {
     [FormerlySerializedAs("_orderManager")] [SerializeField] OrderManager orderManager;
     public LostPagesList lostPages;
-    private List<Item> _orderList;
+    private List<Item> _allPotionList;
     private List<Vector3> _spawnPositions;
     private int _runningTotal;
 
     public void Start()
     {
-        _orderList = orderManager.orders.GetAllItems();
+        _allPotionList = orderManager.orders.GetAllItems();
     }
 
-    //Spawn Pages determines the game difficulty and randomizes the pages to spawn in the random locations, but limiting the amount that spawns at a time. 
-    //Pages spawned will be added to the pool of potential orders to be on the list
-    public void SpawnPages(OrderManager.Difficulty difficulty)
+    //When new item is selected to order list without page being unlocked, it will spawn the lost page in a random lost page spawn point.
+    public void Spawn(Item potionPage)
     {
-        _spawnPositions = lostPages.getMediumPages();
+        _spawnPositions = lostPages.GetLostPages();
         var random = new Random();
-        switch (difficulty)
-        {
-            case OrderManager.Difficulty.Easy:
-                _runningTotal = 4;
-                _orderList = orderManager.orders.GetMediumItems();
-                foreach (var item in _orderList)
-                {
-                    if (_runningTotal == 0)
-                    {
-                        break;
-                    }
-                    var index = random.Next(0, _spawnPositions.Count - 1);
-                    Instantiate(item, _spawnPositions[index], Quaternion.identity);
-                    _orderList.Remove(item);
-                    _runningTotal--;
-                }
-                break;
-            
-        }
-    }
-
-    public void Spawn(Item _item)
-    {
-        _spawnPositions = lostPages.getMediumPages();
-        var random = new Random();
-        if (!_orderList.Contains(_item)) return;
-        if (_item.GetDifficulty() == Item.Difficulty.Easy)
+        if (!_allPotionList.Contains(potionPage)) return;
+        if (potionPage.GetDifficulty() == Item.Difficulty.Easy)
             return;
         var index = random.Next(0, _spawnPositions.Count - 1);
-        Instantiate(_item, _spawnPositions[index], Quaternion.identity);
-        _orderList.Remove(_item);
+        Instantiate(potionPage, _spawnPositions[index], Quaternion.identity);
+        _allPotionList.Remove(potionPage);
 
     }
     
