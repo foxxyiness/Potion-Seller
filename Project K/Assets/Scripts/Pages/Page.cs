@@ -20,6 +20,7 @@ namespace UI___Menu
         [SerializeField] private TextMeshProUGUI strengthText;
         [SerializeField] private TextMeshProUGUI flavorText;
         [SerializeField] private TextMeshProUGUI toastyText;
+        [SerializeField] private Book book;
 
      
         //Changes the UI Text references to show current "Page"
@@ -33,12 +34,18 @@ namespace UI___Menu
           //  pageNumber.text = (1 + _bookIndex).ToString();
         }
 
+        //If Page is found and destroyed by fire, page will be destroyed and added to the book of spells
         private void OnCollisionEnter(Collision other)
         {
             if (other.collider.CompareTag("Fire"))
             {
-                _gameManager.PageFound(_potion);
+                PageFound(_potion.gameObject.GetComponent<Item>());
             }
+        }
+
+        private void PageFound(Item potion)
+        {
+            book.AddPotionToList(potion);
         }
     }
 }

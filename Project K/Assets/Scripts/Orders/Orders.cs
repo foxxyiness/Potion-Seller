@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Items;
 using UnityEngine;
 using Random = System.Random;
@@ -30,6 +31,12 @@ namespace Orders
       public List<Item> GetHardItems()
       {
          return hardItems;
+      }
+
+      public List<Item> GetAllItems()
+      {
+         List<Item> temp = easyItems.Concat(mediumItems).Concat(hardItems).ToList();
+         return temp;
       }
 
       //Gets called when probability number hits the correct number for Easy

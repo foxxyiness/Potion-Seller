@@ -12,6 +12,7 @@ namespace Orders
     public class OrderManager : MonoBehaviour
     {
         [SerializeField] private MenuManager menuManager;
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private AudioSource orderManagerAudio;
         [SerializeField] private AudioClip deathChime;
          public TextMeshProUGUI textContent;
@@ -92,6 +93,7 @@ namespace Orders
         }
         private void GetOrders(Difficulty difficulty)
         {
+            Item item;
             var rand = new Random();
             switch (difficulty)
             {
@@ -107,7 +109,9 @@ namespace Orders
                     for (var i = 0; i <= rand.Next(5, 7); i++)
                     {
                         var probability = rand.Next(1, 101);
-                        itemsOnOrder.Add(probability <= 13 ? orders.GetSingleMediumOrder() : orders.GetSingleEasyOrder());
+                        item = probability <= 13 ? orders.GetSingleMediumOrder() : orders.GetSingleEasyOrder();
+                        itemsOnOrder.Add(item);
+                        gameManager.Spawn(item);
                     }
                     break;
                 //Adds Probability of having medium item to 40%, easy to 50%, hard 10%
@@ -117,16 +121,20 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 40)
                         {
-                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
+                            item = orders.GetSingleMediumOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else if (probability is >= 41 and <= 90)
                         {
-                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
+                            item = orders.GetSingleEasyOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else
                         {
-                            itemsOnOrder.Add(orders.GetSingleHardOrder());
+                            item = orders.GetSingleHardOrder();
+                            itemsOnOrder.Add(item);
                         }
+                        gameManager.Spawn(item);
                     }
                     break;
                 //Adds Probability of having medium to 35%, easy 45%, hard to 20%
@@ -136,17 +144,22 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 35)
                         {
-                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
+                            item = orders.GetSingleMediumOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else if (probability is >= 36 and <= 80)
                         {
-                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
+                            item = orders.GetSingleEasyOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else
                         {
-                            itemsOnOrder.Add(orders.GetSingleHardOrder());
+                            item = orders.GetSingleHardOrder();
+                            itemsOnOrder.Add(item);
                         }
-                    }
+
+                        gameManager.Spawn(item);
+                    } 
                     break;
                 //Easy, Med, Hard 33%
                 case Difficulty.VeryHard:
@@ -155,22 +168,27 @@ namespace Orders
                         var probability = rand.Next(1, 101);
                         if (probability <= 33)
                         {
-                            itemsOnOrder.Add(orders.GetSingleMediumOrder());
+                            item = orders.GetSingleMediumOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else if (probability is >= 34 and <= 67)
                         {
-                            itemsOnOrder.Add(orders.GetSingleEasyOrder());
+                            item = orders.GetSingleEasyOrder();
+                            itemsOnOrder.Add(item);
                         }
                         else
                         {
-                            itemsOnOrder.Add(orders.GetSingleHardOrder());
-                        }
+                            item = orders.GetSingleHardOrder();
+                            itemsOnOrder.Add(item);
+                        } 
+                        gameManager.Spawn(item);
                     }
                     break;
                 default:
                     Debug.LogWarning("State Difficulty not equal 1-5, defaulting to easy.");
                     goto case Difficulty.VeryEasy;
             }
+            
             Debug.Log(itemsOnOrder);
             ItemsOnOrderUI();
         }
