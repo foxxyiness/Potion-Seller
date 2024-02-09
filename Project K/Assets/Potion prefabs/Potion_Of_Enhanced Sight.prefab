@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
-  cost: 0
   type: 0
   itemName: Potion of Enhanced Sight
   description: A sweet geletized treat
+  price: 0
+  cost: 0
   difficulty: 1
 --- !u!54 &1678734730060682933
 Rigidbody:
@@ -319,9 +319,11 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 0}
   toastable: 0
   roastLevel: 0
-  baseText: 
-  strengthText: 
-  flavorText: 
+  archetype: 
+  baseText: Water
+  strengthText: PheonixBerry
+  flavorText: BarbedBamboo
+  archeType: 4
   baseType: 0
-  strengthType: 0
-  flavorType: 0
+  strengthType: 2
+  flavorType: 2
