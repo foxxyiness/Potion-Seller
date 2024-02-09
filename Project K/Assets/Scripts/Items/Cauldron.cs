@@ -80,22 +80,10 @@ namespace Items
         
         private void SpawnPotion(int recipeIndex)
         {
-            if (recipeIndex <= 5)
-            {
-                //Potion of Light
-                Instantiate(recipeResults[0], potionSpawnPoint);
-                //CheckCorrectItem(recipeResults[0]);
-                Debug.Log("Potion of Light Created");
-                StartCoroutine(ClearList());
-            }
-            else if(recipeIndex is >= 6 and <= 11)
-            {
-                //Potion of Darkness
-                Instantiate(recipeResults[1], potionSpawnPoint);
-                //CheckCorrectItem(recipeResults[1]);
-                Debug.Log("Potion of Darkness Created");
-                StartCoroutine(ClearList());
-            }
+            Instantiate(recipeResults[recipeIndex], potionSpawnPoint);
+            //CheckCorrectItem(recipeResults[0]);
+            Debug.Log("Potion Created");
+            StartCoroutine(ClearList());
             
         }
         //Destroys Items in Cauldron and ItemList
