@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Items
             allowFlavor = true;
             allowStrength = true;
             potionFound = false;
+            itemList = new List<Item> {null, null, null};
         }
         private void CheckForCompleteRecipe()
         {
@@ -58,6 +60,7 @@ namespace Items
             }
             else if (!potionFound)
             {
+                Debug.Log(_currentRecipe);
                 Debug.Log("Items have been returned to you");
                 ReturnItems();
             }
@@ -105,13 +108,26 @@ namespace Items
             }
             itemList.Clear();
             SetBoolFalse();
+            _currentRecipe = String.Empty;
+            StartCoroutine(RestoreList());
+        }
+
+        private IEnumerator RestoreList()
+        {
+            yield return new WaitForSeconds(.5F);
+            itemList = new List<Item> {null, null, null};
         }
         
         //Checks for count of ItemList to determine if completeRecipe should be called
         private void CheckForItemCount()
         {
-            if (itemList.Count != 3) return;
-            CheckForCompleteRecipe();
+            //if (itemList.Count != 3) return;
+            if (itemList.Count == 6)
+            {
+                itemList.RemoveAll(item => item == null);
+                CheckForCompleteRecipe();
+            }
+            //CheckForCompleteRecipe();
         }
 
         //Resets All Booleans back to true
@@ -130,8 +146,8 @@ namespace Items
                 Debug.Log("Base Flavor Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                
-                itemList.Add(collision.gameObject.GetComponent<Item>());
+                itemList.Insert(0,collision.gameObject.GetComponent<Item>());
+                //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowBase = false;
                 CheckForItemCount();
             
@@ -143,7 +159,8 @@ namespace Items
                 Debug.Log("Flavor Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                itemList.Add(collision.gameObject.GetComponent<Item>());
+                itemList.Insert(1, collision.gameObject.GetComponent<Item>());
+                //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowFlavor = false;
                 CheckForItemCount();
             }
@@ -153,7 +170,8 @@ namespace Items
                 Debug.Log("Strength Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                itemList.Add(collision.gameObject.GetComponent<Item>());
+                itemList.Insert(2,collision.gameObject.GetComponent<Item>());
+                //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowStrength = false;
                 CheckForItemCount();
             }
