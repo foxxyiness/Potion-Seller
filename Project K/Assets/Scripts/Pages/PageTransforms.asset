@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba14c02fcaea4ea3b066509988f2ee9, type: 3}
   m_Name: PageTransforms
   m_EditorClassIdentifier: 
-  mediumLostPages:
-  - {x: 4.697, y: 2.668, z: 98.324}
-  - {x: 48.56, y: 3.97, z: 32.628}
+  lostPageLocations:
   - {x: 35.791, y: 4.716, z: 43.14}
+  - {x: 5.66, y: 0.209, z: 11.807}
+  - {x: -69.315, y: -4.336, z: 26.198}
+  - {x: -83.978, y: -4.336, z: 6.785}

@@ -15,6 +15,8 @@ using Random = System.Random;
 public class GameManager : MonoBehaviour
 {
     [FormerlySerializedAs("_orderManager")] [SerializeField] OrderManager orderManager;
+    [SerializeField] private GameObject pageObject;
+    [SerializeField] private Book book;
     public LostPagesList lostPages;
     private List<Item> _allPotionList;
     private List<Vector3> _spawnPositions;
@@ -26,17 +28,25 @@ public class GameManager : MonoBehaviour
     }
 
     //When new item is selected to order list without page being unlocked, it will spawn the lost page in a random lost page spawn point.
-    public void Spawn(Item potionPage)
+    public void Spawn(Item potion)
     {
         _spawnPositions = lostPages.GetLostPages();
         var random = new Random();
-        if (!_allPotionList.Contains(potionPage)) return;
-        if (potionPage.GetDifficulty() == Item.Difficulty.Easy)
+        if (!_allPotionList.Contains(potion)) return;
+        if (potion.GetDifficulty() == Item.Difficulty.Easy)
             return;
         var index = random.Next(0, _spawnPositions.Count - 1);
-        Instantiate(potionPage, _spawnPositions[index], Quaternion.identity);
-        _allPotionList.Remove(potionPage);
+        var potionPage = Instantiate(pageObject, _spawnPositions[index], Quaternion.identity);
+        potionPage.GetComponent<Page>().potion = potion.GetComponent<Potion>();
+        Debug.Log("Lost Page Spawned for: ", potion);
+        potionPage.GetComponent<Page>().ShowPotionList();
+        _allPotionList.Remove(potion);
 
+    }
+    
+    public void PageFound(Item potion)
+    {
+        book.AddPotionToList(potion);
     }
     
 }

@@ -14,6 +14,7 @@ TagManager:
   - Fire
   - Sun_Beam
   - Crop
+  - book
   layers:
   - Default
   - TransparentFX
