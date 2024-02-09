@@ -9210,6 +9210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1667355766328875664, guid: 9025bb089e97a604e8fa9a515717e39b, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 5466348813287318266, guid: 9025bb089e97a604e8fa9a515717e39b, type: 3}
       propertyPath: m_Name
       value: Book Parent
