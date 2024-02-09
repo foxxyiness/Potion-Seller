@@ -9,6 +9,7 @@ using UnityEngine.AdaptivePerformance.VisualScripting;
 public class Fountain : MonoBehaviour
 {
     [SerializeField] private GameObject waterOrb;
+    [SerializeField] private GameObject spawnPoint;
     [SerializeField] private float waterSpawnRate;
     private bool _canSpawnWater;
 
@@ -23,7 +24,7 @@ public class Fountain : MonoBehaviour
 
     private IEnumerator SpawnWater()
     {
-        Instantiate(waterOrb, transform.position, quaternion.identity);
+        Instantiate(waterOrb, spawnPoint.transform.position, quaternion.identity);
         yield return new WaitForSeconds(waterSpawnRate);
         _canSpawnWater = true;
     }

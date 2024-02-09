@@ -5,12 +5,13 @@ using UnityEngine;
 public class Frog : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    private bool _canPlay;
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.CompareTag("Fire") && _canPlay)
         {
             _canPlay = false;
-            StartCoroutine(PlaySound);
+            StartCoroutine(PlaySound());
         }
     }
 
