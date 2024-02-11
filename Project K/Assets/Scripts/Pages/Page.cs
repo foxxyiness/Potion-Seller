@@ -46,6 +46,7 @@ namespace UI___Menu
             {
                 _gameManager.PageFound(potion.gameObject.GetComponent<Item>());
                 Debug.Log("Lost Page Hit");
+                Destroy(gameObject);
             }
         }
         
