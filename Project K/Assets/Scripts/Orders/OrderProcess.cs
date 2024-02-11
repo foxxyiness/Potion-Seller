@@ -7,7 +7,7 @@ using UnityEngine;
 public class OrderProcess : MonoBehaviour
 {
         private OrderManager orderManager;
-        [SerializeField] private PlayerWallet playerWallet;
+        //[SerializeField] private PlayerWallet playerWallet;
         
         private void Start()
         {
@@ -26,7 +26,8 @@ public class OrderProcess : MonoBehaviour
                 {
                     if (text.text == potion.GetName())
                     {
-                        playerWallet.AddBalance(potion.GetPrice());
+                        //***************************************FOR PLAYER WALLET***********************************//
+                        //playerWallet.AddBalance(potion.GetPrice());
                         Destroy(text.gameObject);
                         Destroy(potion.gameObject);
                         break;

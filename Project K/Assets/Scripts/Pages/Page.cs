@@ -42,9 +42,10 @@ namespace UI___Menu
         //If Page is found and destroyed by fire, page will be destroyed and added to the book of spells
         private void OnCollisionEnter(Collision other)
         {
-            if (other.collider.CompareTag("Fire"))
+            if (other.gameObject.CompareTag("Fire"))
             {
                 _gameManager.PageFound(potion.gameObject.GetComponent<Item>());
+                Debug.Log("Lost Page Hit");
             }
         }
         
