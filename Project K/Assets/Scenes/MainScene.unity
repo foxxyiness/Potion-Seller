@@ -9304,6 +9304,10 @@ PrefabInstance:
       propertyPath: pageNumber
       value: 
       objectReference: {fileID: 30837550}
+    - target: {fileID: 3807260026709285465, guid: 9025bb089e97a604e8fa9a515717e39b, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5466348813287318266, guid: 9025bb089e97a604e8fa9a515717e39b, type: 3}
       propertyPath: m_Name
       value: Book Parent
@@ -11232,7 +11236,7 @@ MonoBehaviour:
   potionFound: 0
   itemList: []
   recipes:
-  - waterhairsun
+  - watersunhair
   - waterstormvineicepepper
   - watersunpixiecabbage
   - waterstormvinepixiecabbage
