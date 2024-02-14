@@ -147,7 +147,7 @@ namespace Items
                 Debug.Log("Flavor Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                itemList.Insert(1, collision.gameObject.GetComponent<Item>());
+                itemList.Insert(2, collision.gameObject.GetComponent<Item>());
                 //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowFlavor = false;
                 CheckForItemCount();
@@ -158,7 +158,7 @@ namespace Items
                 Debug.Log("Strength Found");
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                itemList.Insert(2,collision.gameObject.GetComponent<Item>());
+                itemList.Insert(1,collision.gameObject.GetComponent<Item>());
                 //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowStrength = false;
                 CheckForItemCount();
