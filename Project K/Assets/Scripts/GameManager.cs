@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         var index = random.Next(0, spawnPositions.Count - 1);
         var potionPage = Instantiate(pageObject, spawnPositions[index], Quaternion.identity);
         potionPage.GetComponent<Page>().potion = potion.GetComponent<Potion>();
-        Debug.Log("Lost Page Spawned for: ", potion);
+        Debug.Log("Lost Page Spawned for: " + potion.GetName());
         potionPage.GetComponent<Page>().ShowPotionList();
         allPotionList.Remove(potion);
 
