@@ -2,27 +2,20 @@ using System.Collections;
 using Orders;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //[ExecuteInEditMode]
 public class DayManager : MonoBehaviour
 {
-    [SerializeField] 
-    private OrderManager orderManager;
-
-    [SerializeField]
-    private int totalMin;
-
-    [SerializeField]
-    private float timer;
-
-    [SerializeField]
-    private float hour, clampHour;
-    [SerializeField]
-    private int min;
-
-    private int _totalDays;
+    [SerializeField] private OrderManager orderManager;
+    [SerializeField] private int totalMin;
+    [SerializeField] private float timer;
+    [SerializeField] private float hour, clampHour;
+    [SerializeField] private int min;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private int totalDays;
     public float timerTick;
-    public int getTotalDays => _totalDays;
+    public int getTotalDays => totalDays;
     public float getClampHour => clampHour;
 
     public bool doFastForward;
@@ -74,6 +67,22 @@ public class DayManager : MonoBehaviour
             hour = Mathf.Floor(clampHour);
         }
         DayTime();
+        CheckQuarterBell();
+    }
+
+    private void CheckQuarterBell()
+    {
+        if (totalMin == 1080)
+            PlayBellChime();
+        else if(totalMin == 720)
+            PlayBellChime();
+        else if(totalMin == 360)
+            PlayBellChime();
+    }
+
+    private void PlayBellChime()
+    {
+        audioSource.Play();
     }
     private void DayTime()
     {
@@ -92,12 +101,13 @@ public class DayManager : MonoBehaviour
         }
       
     }
+    
 
     private void AddDay()
     {
         //Adds day and checks and iterates difficulty
-        _totalDays++;
-        if (_totalDays % 3 == 0 && orderManager.getCurrentState != OrderManager.Difficulty.VeryHard)
+        totalDays++;
+        if (totalDays % 3 == 0 && orderManager.getCurrentState != OrderManager.Difficulty.VeryHard)
         {
             orderManager.AddDifficulty();
         }
