@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -154,7 +155,11 @@ namespace Player
 
       private IEnumerator SunPowerSoundCoroutine()
       {
-         if (audioSource.isPlaying) yield break;
+         if (audioSource.isPlaying)
+         {
+            audioSource.Stop();
+            yield return new WaitForSeconds(1F);
+         }
          audioSource.Play();
          yield return new WaitForSeconds(1F);
 

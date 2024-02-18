@@ -16360,6 +16360,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4112044561458971408, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: sunDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112044561458971408, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       propertyPath: dayManager
       value: 
       objectReference: {fileID: 573244792}
@@ -16367,6 +16371,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 546963195}
+    - target: {fileID: 4112044561458971408, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4112044561458971408, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       propertyPath: sunPowerSound
       value: 
@@ -16645,7 +16653,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3175706745102423612, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7873184976941804777}
+      addedObject: {fileID: 7873184976941804785}
   m_SourcePrefab: {fileID: 100100000, guid: 2ba50c9ba0e312c45ab23a4459106057, type: 3}
 --- !u!114 &4955363459552300650
 MonoBehaviour:
@@ -18192,7 +18200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &7873184976941804777
+--- !u!82 &7873184976941804785
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
