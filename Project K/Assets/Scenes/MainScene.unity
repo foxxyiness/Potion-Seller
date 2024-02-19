@@ -5710,7 +5710,7 @@ GameObject:
   - component: {fileID: 546963196}
   - component: {fileID: 546963195}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: AmbiantSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5985,6 +5985,8 @@ MonoBehaviour:
   hour: 0
   clampHour: 0
   min: 0
+  audioSource: {fileID: 0}
+  totalDays: 0
   timerTick: 0
   doFastForward: 0
 --- !u!4 &573244793
@@ -18628,6 +18630,7 @@ MonoBehaviour:
   allowFlavor: 0
   allowStrength: 0
   potionFound: 0
+  audioSource: {fileID: 0}
   itemList: []
   recipes:
   - watersunhair
