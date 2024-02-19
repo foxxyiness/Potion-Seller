@@ -32,5 +32,10 @@ namespace UI___Menu
             SceneManager.LoadScene("Tutorial");
         }
 
+        public void MainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
     };
 }
