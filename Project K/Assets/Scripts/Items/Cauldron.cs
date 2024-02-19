@@ -11,14 +11,11 @@ namespace Items
         [SerializeField]
         private bool allowBase, allowFlavor, allowStrength, potionFound;
 
-        [SerializeField] 
-        private List<Item> itemList;
-        [SerializeField]
-        private string[] recipes;
-        [SerializeField]
-        private Item[] recipeResults;
-        [SerializeField]
-        private Transform potionSpawnPoint;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private List<Item> itemList;
+        [SerializeField] private string[] recipes;
+        [SerializeField] private Item[] recipeResults;
+        [SerializeField] private Transform potionSpawnPoint;
 
         private string _currentRecipe;
         private void Start()
@@ -48,7 +45,7 @@ namespace Items
                 if (recipes[i] == _currentRecipe)
                 {
                     potionFound = true;
-                    SpawnPotion(i);
+                    StartCoroutine(SpawnPotion(i));
                     break;
                 }
                
@@ -66,7 +63,7 @@ namespace Items
             }
         }
     
-        //Returns All items in Items List, Calls Clear List to destory the items in Cauldron and List
+        //Returns All items in Items List, Calls Clear List to destroy the items in Cauldron and List
         private void ReturnItems()
         {
             foreach (var itemSpawnGameObject in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.position, Quaternion.identity)))
@@ -78,8 +75,11 @@ namespace Items
             StartCoroutine(ClearList());
         }
         
-        private void SpawnPotion(int recipeIndex)
+        private IEnumerator SpawnPotion(int recipeIndex)
         {
+            //Plays Fire Swoosh and spawns in potion after swoosh
+            audioSource.Play();
+            yield return new WaitForSeconds(2.25F);
             Instantiate(recipeResults[recipeIndex], potionSpawnPoint);
             //CheckCorrectItem(recipeResults[0]);
             Debug.Log("Potion Created");
