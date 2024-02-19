@@ -14,6 +14,7 @@ namespace Player
       //private XRIDefaultInputActions _defaultAction;
       [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
+      //[SerializeField] private GameMenuManager gameMenuManager;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
@@ -22,8 +23,6 @@ namespace Player
       [SerializeField] private Transform leftPowerSpawnPoint;
       [SerializeField] private XRRayInteractor rightRayInteractor;
       [SerializeField] private XRRayInteractor leftRayInteractor;
-      [SerializeField] private AudioSource audioSource;
-      [SerializeField] private AudioClip sunPowerSound;
 
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
@@ -127,7 +126,6 @@ namespace Player
       {
          if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !leftItemGrabbed)
          {
-            audioSource.clip = sunPowerSound;
             var position = leftPowerSpawnPoint.position;
             if (isCameraNotNull)
             {
@@ -144,20 +142,10 @@ namespace Player
                   Color.red, 2f);
                Debug.Log(hitInfo.collider.name);
                leftController.SendHapticImpulse(1, .25f);
-               StartCoroutine(SunPowerSoundCoroutine());
                powerAmount--;
             }
             yield return new WaitForSeconds(sunDelay);
          }
-         audioSource.Stop();
-      }
-
-      private IEnumerator SunPowerSoundCoroutine()
-      {
-         if (audioSource.isPlaying) yield break;
-         audioSource.Play();
-         yield return new WaitForSeconds(1F);
-
       }
       private void Fire(InputAction.CallbackContext context)
       {
