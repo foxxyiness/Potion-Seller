@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8978046125074739099}
-  m_Mesh: {fileID: -5495902117074765545, guid: ad05e0fe7cfc8324cabf497147e2d680, type: 3}
+  m_Mesh: {fileID: -5495902117074765545, guid: 53924c55faff5a942ab7b07dbd401ede, type: 3}
 --- !u!23 &7435222837108894423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 500
-  cost: 0
   type: 3
   itemName: Potion of Darkness
   description: Darkness potion that promotes death
+  price: 500
+  cost: 0
   difficulty: 0
 --- !u!54 &-1081773039998263840
 Rigidbody:
@@ -319,9 +319,11 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 7306048064908439895, guid: 08795bec2e3693f44a308c9397505ae5, type: 3}
   toastable: 1
   roastLevel: 3
+  archetype: 
   baseText: Water
   strengthText: StormVine
   flavorText: IcePepper
+  archeType: 1
   baseType: 0
   strengthType: 1
   flavorType: 1
