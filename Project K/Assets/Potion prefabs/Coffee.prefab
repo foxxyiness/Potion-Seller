@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7207921817335874455}
   - component: {fileID: 736037907124560478}
   - component: {fileID: 8271647454611158333}
-  - component: {fileID: 5954774879272613739}
   - component: {fileID: 5819975522066302622}
+  - component: {fileID: 2998514253079203093}
   m_Layer: 6
   m_Name: Coffee
   m_TagString: Untagged
@@ -282,28 +282,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!64 &5954774879272613739
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7306048064908439895}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: ad05e0fe7cfc8324cabf497147e2d680, type: 3}
 --- !u!114 &5819975522066302622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,3 +305,25 @@ MonoBehaviour:
   baseType: 2
   strengthType: 2
   flavorType: 2
+--- !u!64 &2998514253079203093
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306048064908439895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: c7ef952a55e18e84fbd52bb18fa6547e, type: 3}
