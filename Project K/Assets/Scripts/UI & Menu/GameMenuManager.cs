@@ -7,11 +7,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameMenuManager : MonoBehaviour
 {
 
     [SerializeField] private PowerManager powerManager;
+    [SerializeField] private Slider slider;
     public AudioMixer audioMixer;
 
     
@@ -23,9 +25,10 @@ public class GameMenuManager : MonoBehaviour
     public bool isMenuActive;
 
     //allows player to adjust volume for master volume
-    public void SetVolume(float volume)
+    public void SetVolume()
     {
-        audioMixer.SetFloat("volume", volume);
+        float volume = slider.value;
+        audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
     }
 
     private void OnEnable()
