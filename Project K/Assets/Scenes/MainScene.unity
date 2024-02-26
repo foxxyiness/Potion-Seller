@@ -50485,7 +50485,7 @@ Transform:
   m_GameObject: {fileID: 1241968542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.53, y: 1.75, z: -0}
+  m_LocalPosition: {x: 0.65, y: 1.75, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81255,7 +81255,7 @@ MonoBehaviour:
   - {fileID: 8312003310105155461, guid: 43962b5158dd4884faa4f5c361919f55, type: 3}
   - {fileID: 8312003310105155461, guid: 32ad34ffa3aca424eb6e2482028273e9, type: 3}
   - {fileID: 8312003310105155461, guid: f34bc8bee5f381e4e994d54717e6f5db, type: 3}
-  potionSpawnPoint: {fileID: 0}
+  potionSpawnPoint: {fileID: 1241968543}
 --- !u!64 &1873392551
 MeshCollider:
   m_ObjectHideFlags: 0
