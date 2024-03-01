@@ -13,9 +13,14 @@ public class Fountain : MonoBehaviour
     [SerializeField] private float waterSpawnRate;
     private bool _canSpawnWater;
 
+    private void Start()
+    {
+        _canSpawnWater = true;
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Fire") && _canSpawnWater)
+        if (other.gameObject.CompareTag("Fire") && _canSpawnWater)
         {
             _canSpawnWater = false;
             StartCoroutine(SpawnWater());
@@ -25,6 +30,7 @@ public class Fountain : MonoBehaviour
     private IEnumerator SpawnWater()
     {
         Instantiate(waterOrb, spawnPoint.transform.position, quaternion.identity);
+        Debug.Log("WATER SPAWNED");
         yield return new WaitForSeconds(waterSpawnRate);
         _canSpawnWater = true;
     }
