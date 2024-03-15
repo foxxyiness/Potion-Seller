@@ -295,9 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
-  cost: 1000
   type: 0
   itemName: 
   description: 
+  price: 0
+  cost: 1000
   difficulty: 0

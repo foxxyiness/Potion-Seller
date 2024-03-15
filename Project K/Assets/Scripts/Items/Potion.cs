@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Items;
 
@@ -14,8 +15,12 @@ public class Potion : MonoBehaviour
     [SerializeField] private Base baseType;
     [SerializeField] private Strength strengthType;
     [SerializeField] private Flavor flavorType;
+    [SerializeField] private float speed;
+    private Rigidbody rb;
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        speed = rb.velocity.sqrMagnitude;
         GetComponent<Item>();
         roastLevel = 2;
     }
@@ -95,4 +100,6 @@ public class Potion : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+  
 }
