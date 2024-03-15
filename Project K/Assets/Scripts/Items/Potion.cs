@@ -27,11 +27,7 @@ public class Potion : MonoBehaviour
         GetComponent<Item>();
         roastLevel = 2;
     }
-
-    private void Update()
-    {
-        CheckVelocity();
-    }
+    
 
     private enum Archetype
     {
@@ -58,7 +54,7 @@ public class Potion : MonoBehaviour
         PheonixBerry,
         AshCapMushroom,
         GoblinLeaf,
-        Fireshot
+        Shoot
     }
     private enum Flavor
     {
@@ -67,7 +63,7 @@ public class Potion : MonoBehaviour
         BarbedBamboo,
         PixieCabbage,
         EagleBlossom,
-        Toasted
+        Fire
     }
 
     public string GetArchetype()
@@ -99,11 +95,7 @@ public class Potion : MonoBehaviour
             CheckRoast();
         }
     }
-
-    private void CheckVelocity()
-    {
-        currentVelocity = rb.velocity.sqrMagnitude;
-    }
+    
     private void CheckRoast()
     {
         if (roastLevel == 0)
@@ -112,6 +104,5 @@ public class Potion : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-  
+    
 }

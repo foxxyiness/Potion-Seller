@@ -325,7 +325,7 @@ MonoBehaviour:
   flavorText: Toasted
   archeType: 0
   baseType: 1
-  strengthType: 0
+  strengthType: 5
   flavorType: 5
   speed: 0
   velocityLimit: 0
