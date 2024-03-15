@@ -303,8 +303,11 @@ MonoBehaviour:
   flavorText: Toasted
   archeType: 4
   baseType: 2
-  strengthType: 2
-  flavorType: 2
+  strengthType: 5
+  flavorType: 5
+  speed: 0
+  velocityLimit: 0
+  currentVelocity: 0
 --- !u!64 &2998514253079203093
 MeshCollider:
   m_ObjectHideFlags: 0

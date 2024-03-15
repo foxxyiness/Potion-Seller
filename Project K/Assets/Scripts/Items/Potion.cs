@@ -16,7 +16,10 @@ public class Potion : MonoBehaviour
     [SerializeField] private Strength strengthType;
     [SerializeField] private Flavor flavorType;
     [SerializeField] private float speed;
+    [SerializeField] private float velocityLimit;
+    [SerializeField] private float currentVelocity;
     private Rigidbody rb;
+    private bool isBreakable;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,6 +27,7 @@ public class Potion : MonoBehaviour
         GetComponent<Item>();
         roastLevel = 2;
     }
+    
 
     private enum Archetype
     {
@@ -50,7 +54,7 @@ public class Potion : MonoBehaviour
         PheonixBerry,
         AshCapMushroom,
         GoblinLeaf,
-        Fireshot
+        Shoot
     }
     private enum Flavor
     {
@@ -59,7 +63,7 @@ public class Potion : MonoBehaviour
         BarbedBamboo,
         PixieCabbage,
         EagleBlossom,
-        Toasted
+        Fire
     }
 
     public string GetArchetype()
@@ -91,7 +95,7 @@ public class Potion : MonoBehaviour
             CheckRoast();
         }
     }
-
+    
     private void CheckRoast()
     {
         if (roastLevel == 0)
@@ -100,6 +104,5 @@ public class Potion : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-  
+    
 }

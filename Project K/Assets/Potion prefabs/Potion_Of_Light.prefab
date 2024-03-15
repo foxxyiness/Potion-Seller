@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8978046125074739099}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 6.059, y: 1.096, z: -5.659}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5d236b74ec794c8a7f773d550f900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 500
-  cost: 0
   type: 0
   itemName: Potion of Light
   description: Light potion that promotes growth
+  price: 500
+  cost: 0
   difficulty: 0
 --- !u!54 &-1081773039998263840
 Rigidbody:
@@ -319,9 +319,14 @@ MonoBehaviour:
   toastedUpgrade: {fileID: 1957016431850235086, guid: dfd81400887d5b642910735bdef2cef5, type: 3}
   toastable: 1
   roastLevel: 3
+  archetype: 
   baseText: Water
   strengthText: Sun
   flavorText: Hair
+  archeType: 0
   baseType: 0
   strengthType: 0
   flavorType: 0
+  speed: 0
+  velocityLimit: 0
+  currentVelocity: 0
