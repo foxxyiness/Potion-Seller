@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -26,8 +27,12 @@ namespace Player
       [SerializeField] private AudioSource audioSource;
       [SerializeField] private AudioClip sunPowerSound;
 
+      [Header("Mana UI")] 
+      public Image rightHandManaStatus;
+
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
+      [SerializeField] private short totalPowerAmount = 2000;
       [Header("Float Values ")] 
       [SerializeField] private float sunDelay = 1.0f;
       [SerializeField] private float intensity = 0.5f; 
@@ -52,6 +57,7 @@ namespace Player
          timePower = false;
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
+         SetMana();
          //inputAction["Sun_Power"].performed += SunPower;
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;
@@ -73,7 +79,11 @@ namespace Player
          if (!sunPower)
             sunPower = true;
       }
-     
+
+      void SetMana()
+      {
+         rightHandManaStatus.fillAmount = (float)powerAmount / totalPowerAmount;
+      }
       /****************************************************************************************************************/
       //Functions for Direct Interactors
       public void SetRightItemGrabTrue()
@@ -147,6 +157,7 @@ namespace Player
                leftController.SendHapticImpulse(1, .25f);
                StartCoroutine(SunPowerSoundCoroutine());
                powerAmount--;
+               SetMana();
             }
             yield return new WaitForSeconds(sunDelay);
          }
@@ -189,6 +200,7 @@ namespace Player
             GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
             fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
             powerAmount -= 30;
+            SetMana();
             yield return new WaitForSeconds(1);
             canFire = true;
          }
