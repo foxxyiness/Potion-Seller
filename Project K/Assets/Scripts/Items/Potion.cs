@@ -16,13 +16,21 @@ public class Potion : MonoBehaviour
     [SerializeField] private Strength strengthType;
     [SerializeField] private Flavor flavorType;
     [SerializeField] private float speed;
+    [SerializeField] private float velocityLimit;
+    [SerializeField] private float currentVelocity;
     private Rigidbody rb;
+    private bool isBreakable;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         speed = rb.velocity.sqrMagnitude;
         GetComponent<Item>();
         roastLevel = 2;
+    }
+
+    private void Update()
+    {
+        CheckVelocity();
     }
 
     private enum Archetype
@@ -92,6 +100,10 @@ public class Potion : MonoBehaviour
         }
     }
 
+    private void CheckVelocity()
+    {
+        currentVelocity = rb.velocity.sqrMagnitude;
+    }
     private void CheckRoast()
     {
         if (roastLevel == 0)
