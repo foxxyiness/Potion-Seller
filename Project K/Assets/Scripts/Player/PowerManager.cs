@@ -47,6 +47,7 @@ namespace Player
       public bool canFire;
       private Camera camera;
       private bool isCameraNotNull;
+      public ParticleSystem particleSystem;
 
       private void Awake()
       {
@@ -58,6 +59,7 @@ namespace Player
          inputAction["Fire_Power"].performed += Fire;
          inputAction["Time_Power"].performed += TimeForward;
          SetMana();
+         
          //inputAction["Sun_Power"].performed += SunPower;
          /*_defaultAction = new XRIDefaultInputActions();
          _defaultAction.XRIPower.Fire_Power.performed += Fire;

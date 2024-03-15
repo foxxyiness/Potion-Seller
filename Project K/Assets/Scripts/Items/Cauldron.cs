@@ -16,6 +16,8 @@ namespace Items
         [SerializeField] private string[] recipes;
         [SerializeField] private Item[] recipeResults;
         [SerializeField] private Transform potionSpawnPoint;
+        [SerializeField] private ParticleSystem potionSpawnParticleSystem;
+        [SerializeField] private ParticleSystem cauldronParticleSystem;
 
         private string _currentRecipe;
         private void Start()
@@ -79,8 +81,10 @@ namespace Items
         {
             //Plays Fire Swoosh and spawns in potion after swoosh
             audioSource.Play();
+            potionSpawnParticleSystem.Play();
             yield return new WaitForSeconds(2.25F);
             Instantiate(recipeResults[recipeIndex], potionSpawnPoint);
+            potionSpawnParticleSystem.Stop();
             //CheckCorrectItem(recipeResults[0]);
             Debug.Log("Potion Created");
             StartCoroutine(ClearList());
@@ -104,6 +108,15 @@ namespace Items
         {
             yield return new WaitForSeconds(.5F);
             itemList = new List<Item> {null, null, null};
+        }
+
+        private IEnumerator CauldronSmoke(Color color)
+        {
+            ParticleSystem.MainModule mainModule = cauldronParticleSystem.main;
+            mainModule.startColor = color;
+            cauldronParticleSystem.Play();
+            yield return new WaitForSeconds(1f);
+            cauldronParticleSystem.Stop();
         }
         
         //Checks for count of ItemList to determine if completeRecipe should be called
@@ -135,6 +148,7 @@ namespace Items
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(0,collision.gameObject.GetComponent<Item>());
+                StartCoroutine(CauldronSmoke(Color.blue)); //*************************************TEMP*****************//
                 //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowBase = false;
                 CheckForItemCount();
@@ -148,6 +162,7 @@ namespace Items
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(2, collision.gameObject.GetComponent<Item>());
+                StartCoroutine(CauldronSmoke(Color.green));  //*************************************TEMP*****************//
                 //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowFlavor = false;
                 CheckForItemCount();
@@ -159,6 +174,7 @@ namespace Items
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(1,collision.gameObject.GetComponent<Item>());
+                StartCoroutine(CauldronSmoke(Color.yellow));  //*************************************TEMP*****************//
                 //itemList.Add(collision.gameObject.GetComponent<Item>());
                 allowStrength = false;
                 CheckForItemCount();
