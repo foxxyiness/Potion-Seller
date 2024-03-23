@@ -41,18 +41,18 @@ namespace Player
 
       [Header("State Check Booleans")]
       public bool timePower;
-      private bool leftItemGrabbed;
-      private bool rightItemGrabbed;
+      private bool _leftItemGrabbed;
+      private bool _rightItemGrabbed;
       public bool sunPower;
       public bool canFire;
-      private Camera camera;
-      private bool isCameraNotNull;
+      private Camera _camera;
+      private bool _isCameraNotNull;
       public ParticleSystem particleSystem;
 
       private void Awake()
       {
-         isCameraNotNull = camera != null;
-         camera = Camera.main;
+         _isCameraNotNull = _camera != null;
+         _camera = Camera.main;
          canFire = true;
          sunPower = true;
          timePower = false;
@@ -60,10 +60,6 @@ namespace Player
          inputAction["Time_Power"].performed += TimeForward;
          SetMana();
          
-         //inputAction["Sun_Power"].performed += SunPower;
-         /*_defaultAction = new XRIDefaultInputActions();
-         _defaultAction.XRIPower.Fire_Power.performed += Fire;
-         _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
       }
       public void SetFireTrue()
       {
@@ -89,16 +85,16 @@ namespace Player
       /****************************************************************************************************************/
       //Functions for Direct Interactors
       public void SetRightItemGrabTrue()
-      { rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
+      { _rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
 
       public void SetRightItemGrabFalse()
-      { rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
+      { _rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
       
       public void SetLeftItemGrabTrue()
-      { leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
+      { _leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
 
       public void SetLeftItemGrabFalse()
-      { leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
+      { _leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
       
       /****************************************************************************************************************/
 
@@ -138,13 +134,13 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !leftItemGrabbed)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
          {
             audioSource.clip = sunPowerSound;
             var position = leftPowerSpawnPoint.position;
-            if (isCameraNotNull)
+            if (_isCameraNotNull)
             {
-               Ray ray = camera.ScreenPointToRay(position);
+               Ray ray = _camera.ScreenPointToRay(position);
             }
 
             if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
@@ -194,7 +190,7 @@ namespace Player
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if ( context.performed && !rightItemGrabbed && canFire)
+         if ( context.performed && !_rightItemGrabbed && canFire)
          {
             canFire = false;
             Debug.Log("FIRE");
