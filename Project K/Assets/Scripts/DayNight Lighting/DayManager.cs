@@ -72,16 +72,19 @@ public class DayManager : MonoBehaviour
 
     private void CheckQuarterBell()
     {
-        if (totalMin == 1080)
-            PlayBellChime();
-        else if(totalMin == 720)
-            PlayBellChime();
-        else if(totalMin == 360)
-            PlayBellChime();
+        if (totalMin == 960)
+            StartCoroutine(PlayBellChime(1));
+        else if (totalMin == 480)
+            StartCoroutine(PlayBellChime(2));
+
     }
 
-    private void PlayBellChime()
+    private IEnumerator PlayBellChime(int gameStageNumber)
     {
+        float tempTime;
+        audioSource.Play();
+        if (gameStageNumber != 2) yield break;
+        yield return new WaitForSeconds(4f);  
         audioSource.Play();
     }
     private void DayTime()
@@ -112,5 +115,12 @@ public class DayManager : MonoBehaviour
             orderManager.AddDifficulty();
         }
         StartCoroutine(orderManager.StartOfDay());
+    }
+
+    public void AddTime(int x)
+    {
+        totalMin += x;
+        if (totalMin > 1440)
+            totalDays = 1440;
     }
 }
