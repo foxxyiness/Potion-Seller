@@ -47,7 +47,6 @@ namespace Player
       public bool canFire;
       private Camera _camera;
       private bool _isCameraNotNull;
-      public ParticleSystem particleSystem;
 
       private void Awake()
       {
