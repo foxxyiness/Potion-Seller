@@ -15,15 +15,11 @@ public class Potion : MonoBehaviour
     [SerializeField] private Base baseType;
     [SerializeField] private Strength strengthType;
     [SerializeField] private Flavor flavorType;
-    [SerializeField] private float speed;
-    [SerializeField] private float velocityLimit;
-    [SerializeField] private float currentVelocity;
     private Rigidbody rb;
     private bool isBreakable;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        speed = rb.velocity.sqrMagnitude;
         GetComponent<Item>();
         roastLevel = 2;
     }

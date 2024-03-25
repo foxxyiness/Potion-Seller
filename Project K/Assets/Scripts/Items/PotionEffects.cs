@@ -9,9 +9,34 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PotionEffects : MonoBehaviour
 {
-   [SerializeField] private PowerManager powerManager;
-   [SerializeField] private DayManager dayManager;
-   [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
+   public GameObject player;
+   public PowerManager powerManager;
+   public DayManager dayManager;
+   public DynamicMoveProvider dynamicMoveProvider;
+
+   private void Start()
+   {
+      player = GameObject.FindGameObjectWithTag("Player");
+      powerManager = player.gameObject.GetComponentInChildren<PowerManager>();
+      dynamicMoveProvider = player.gameObject.GetComponentInChildren<DynamicMoveProvider>();
+      dayManager = GameObject.FindGameObjectWithTag("Day_Manager").GetComponent<DayManager>();
+   }
+
+   //Checks to see if potion hit the ground, destroys after checking for effects
+   private void OnCollisionEnter(Collision other)
+   {
+      if (other.gameObject.CompareTag("Ground"))
+      {
+         float playerDistance = Vector3.Distance(player.transform.position, this.transform.position);
+         Debug.Log("POTION EFFECT: GROUND HIT, PLAYER DISTANCE IS " + playerDistance);
+         if (playerDistance <= 5)
+         {
+            StartEffect(potionEffectsEnum);
+         }
+         Destroy(gameObject);
+      }
+      
+   }
 
    private enum PotionEffectsEnum
    {
@@ -48,6 +73,7 @@ public class PotionEffects : MonoBehaviour
    {
       powerManager.RestoreMana(750);
       Debug.Log("Mana Restored Called.");
+      
    }
 
    private void TimeBackwards()
