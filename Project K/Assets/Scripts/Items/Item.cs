@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Items
@@ -10,35 +11,56 @@ namespace Items
         [SerializeField] private Type type = Type.Light;
         [SerializeField] private string itemName;
         [SerializeField] private string description;
+        private ItemManager _itemManager;
         
         [Header("Item Cost")]
         [SerializeField] private int price;
         [SerializeField] private int cost;
-        
-
+        [SerializeField] private float velocityLimit;
+        [SerializeField] private float currentVelocity;
+        [SerializeField]private Vector3 previousPosition;
         [SerializeField] private Difficulty difficulty;
         
         private void Start()
         {
-            _rb = GetComponent<Rigidbody>();
-            if (GetComponentInChildren<Potion>() != null)
+            _itemManager = GameObject.FindGameObjectWithTag("Item_Manager").GetComponent<ItemManager>();
+            if (!gameObject.GetComponent<Potion>())
             {
-                if (difficulty == Difficulty.Easy)
+                if (_itemManager.allItemObjectsList.Count < 50)
                 {
-                    price = 500;
+                    _itemManager.allItemObjectsList.Add(gameObject);
                 }
-                else if (difficulty == Difficulty.Medium)
+                else
                 {
-                    price = 1000;
-                }
-                else if (difficulty ==Difficulty.Hard)
-                {
-                    price = 1500;
+                    Destroy(gameObject);
                 }
             }
+            
+            _rb = GetComponent<Rigidbody>();
+            velocityLimit = 125F;
+            InvokeRepeating(nameof(GetPreviousPosition), 1f, 5f);
         }
-    
 
+        private void Update()
+        {
+            VelocityCheck();
+        }
+        //Gets and checks velocity to see if it exceeds velocity limit
+        private void VelocityCheck()
+        {
+            currentVelocity = _rb.velocity.sqrMagnitude;
+            if (currentVelocity > velocityLimit)
+            {
+                //Teleports GameObject back 5 seconds
+                transform.position = previousPosition;
+            }
+        }
+        //Gets Previous Position of 5 seconds ago for velocity check. If velocity of GameObject exceeds velocity limit, it will return to this location
+        private void GetPreviousPosition()
+        {
+            previousPosition = transform.position;
+        }
+        
         //Ground Check for Gameobject
         private void OnCollisionEnter(Collision collision)
         {
