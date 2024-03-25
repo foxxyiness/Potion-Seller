@@ -9,9 +9,21 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PotionEffects : MonoBehaviour
 {
+   [SerializeField] private GameObject player;
    [SerializeField] private PowerManager powerManager;
    [SerializeField] private DayManager dayManager;
    [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
+
+   private void OnCollisionEnter(Collision other)
+   {
+      if (other.gameObject.CompareTag("Ground"))
+      {
+         if (Vector3.Distance(player.transform.position, this.transform.position) <= 5)
+         {
+            StartEffect(potionEffectsEnum);
+         }
+      }
+   }
 
    private enum PotionEffectsEnum
    {
