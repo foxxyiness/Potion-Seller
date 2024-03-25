@@ -116,4 +116,11 @@ public class DayManager : MonoBehaviour
         }
         StartCoroutine(orderManager.StartOfDay());
     }
+
+    public void AddTime(int x)
+    {
+        totalMin += x;
+        if (totalMin > 1440)
+            totalDays = 1440;
+    }
 }

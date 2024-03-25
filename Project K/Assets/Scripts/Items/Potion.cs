@@ -51,7 +51,7 @@ public class Potion : MonoBehaviour
     {
         Sun,
         StormVine,
-        PheonixBerry,
+        PhoenixBerry,
         AshCapMushroom,
         GoblinLeaf,
         Shoot
