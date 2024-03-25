@@ -78,6 +78,19 @@ namespace Player
             sunPower = true;
       }
 
+      public short GetManaLevel()
+      {
+         return powerAmount;
+      }
+
+      public void RestoreMana(short x)
+      {
+         powerAmount += x;
+         if (powerAmount > 2000)
+            powerAmount = 2000;
+         
+         Debug.Log("Mana Level: " + powerAmount);
+      }
       void SetMana()
       {
          rightHandManaStatus.fillAmount = (float)powerAmount / totalPowerAmount;
