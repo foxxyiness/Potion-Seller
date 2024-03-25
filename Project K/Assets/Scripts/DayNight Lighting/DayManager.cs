@@ -70,6 +70,7 @@ public class DayManager : MonoBehaviour
         CheckQuarterBell();
     }
 
+    //Checks and Plays *NOT QUARTERLY* BELL
     private void CheckQuarterBell()
     {
         if (totalMin == 960)
