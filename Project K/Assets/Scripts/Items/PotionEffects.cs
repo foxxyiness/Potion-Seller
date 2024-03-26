@@ -29,7 +29,7 @@ public class PotionEffects : MonoBehaviour
       {
          float playerDistance = Vector3.Distance(player.transform.position, this.transform.position);
          Debug.Log("POTION EFFECT: GROUND HIT, PLAYER DISTANCE IS " + playerDistance);
-         if (playerDistance <= 5)
+         if (playerDistance <= 50)
          {
             StartEffect(potionEffectsEnum);
          }
@@ -85,8 +85,15 @@ public class PotionEffects : MonoBehaviour
    private IEnumerator SpeedBoost()
    {
       dynamicMoveProvider.moveSpeed = 5;
-      yield return new WaitForSeconds(15f);
+      float timer = new float();
+      timer += Time.deltaTime;
+      while (timer < 10.0)
+      {
+         Debug.Log(timer + " seconds left of speed");
+      }
       dynamicMoveProvider.moveSpeed = 3;
+      Debug.Log("PLAYER SPEED SHOULDVE RETURNED");
+      yield break;
    }
    
 }

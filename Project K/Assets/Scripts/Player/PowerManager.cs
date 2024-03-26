@@ -87,7 +87,7 @@ namespace Player
          powerAmount += x;
          if (powerAmount > 2000)
             powerAmount = 2000;
-         
+         SetMana();
          Debug.Log("Mana Level: " + powerAmount);
       }
       void SetMana()

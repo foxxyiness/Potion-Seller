@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +107,9 @@ MonoBehaviour:
   description: Light potion that promotes growth
   price: 500
   cost: 0
+  velocityLimit: 0
+  currentVelocity: 0
+  previousPosition: {x: 0, y: 0, z: 0}
   difficulty: 0
 --- !u!54 &-1081773039998263840
 Rigidbody:
@@ -328,9 +331,6 @@ MonoBehaviour:
   baseType: 0
   strengthType: 0
   flavorType: 0
-  speed: 0
-  velocityLimit: 0
-  currentVelocity: 0
 --- !u!114 &397915071730309376
 MonoBehaviour:
   m_ObjectHideFlags: 0

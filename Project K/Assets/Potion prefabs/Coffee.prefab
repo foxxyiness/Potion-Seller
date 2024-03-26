@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8271647454611158333}
   - component: {fileID: 5819975522066302622}
   - component: {fileID: 2998514253079203093}
+  - component: {fileID: -1383917550723569223}
   m_Layer: 6
   m_Name: Coffee
   m_TagString: Untagged
@@ -106,6 +107,9 @@ MonoBehaviour:
   description: Darkness potion that promotes death
   price: 500
   cost: 0
+  velocityLimit: 0
+  currentVelocity: 0
+  previousPosition: {x: 0, y: 0, z: 0}
   difficulty: 0
 --- !u!54 &736037907124560478
 Rigidbody:
@@ -305,9 +309,6 @@ MonoBehaviour:
   baseType: 2
   strengthType: 5
   flavorType: 5
-  speed: 0
-  velocityLimit: 0
-  currentVelocity: 0
 --- !u!64 &2998514253079203093
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -330,3 +331,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: c7ef952a55e18e84fbd52bb18fa6547e, type: 3}
+--- !u!114 &-1383917550723569223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306048064908439895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ae0c6ca357d487698015c6d50881b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  powerManager: {fileID: 0}
+  dayManager: {fileID: 0}
+  dynamicMoveProvider: {fileID: 0}
+  potionEffectsEnum: 0
