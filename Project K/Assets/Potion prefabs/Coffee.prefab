@@ -347,4 +347,4 @@ MonoBehaviour:
   powerManager: {fileID: 0}
   dayManager: {fileID: 0}
   dynamicMoveProvider: {fileID: 0}
-  potionEffectsEnum: 0
+  potionEffectsEnum: 2

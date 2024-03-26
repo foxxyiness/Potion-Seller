@@ -26,7 +26,7 @@ namespace Items
             _itemManager = GameObject.FindGameObjectWithTag("Item_Manager").GetComponent<ItemManager>();
             if (!gameObject.GetComponent<Potion>())
             {
-                if (_itemManager.allItemObjectsList.Count < 50)
+                if (_itemManager.allItemObjectsList.Count < 100)
                 {
                     _itemManager.allItemObjectsList.Add(gameObject);
                 }

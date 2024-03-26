@@ -13,6 +13,7 @@ public class PotionEffects : MonoBehaviour
    public PowerManager powerManager;
    public DayManager dayManager;
    public DynamicMoveProvider dynamicMoveProvider;
+   private bool canEffect;
 
    private void Start()
    {
@@ -20,6 +21,12 @@ public class PotionEffects : MonoBehaviour
       powerManager = player.gameObject.GetComponentInChildren<PowerManager>();
       dynamicMoveProvider = player.gameObject.GetComponentInChildren<DynamicMoveProvider>();
       dayManager = GameObject.FindGameObjectWithTag("Day_Manager").GetComponent<DayManager>();
+      canEffect = false;
+   }
+
+   private void Update()
+   {
+      StartEffect(potionEffectsEnum);
    }
 
    //Checks to see if potion hit the ground, destroys after checking for effects
@@ -31,9 +38,8 @@ public class PotionEffects : MonoBehaviour
          Debug.Log("POTION EFFECT: GROUND HIT, PLAYER DISTANCE IS " + playerDistance);
          if (playerDistance <= 50)
          {
-            StartEffect(potionEffectsEnum);
+            canEffect = true;
          }
-         Destroy(gameObject);
       }
       
    }
@@ -49,30 +55,35 @@ public class PotionEffects : MonoBehaviour
    
    private void StartEffect(PotionEffectsEnum potionEffectsEnum)
    {
-      switch (potionEffectsEnum)
+      if (canEffect)
       {
-         case PotionEffectsEnum.manaRestore:
+         switch (potionEffectsEnum)
          {
-            ManaRestore();
-            break;
-         }
-         case PotionEffectsEnum.timeBackwards:
-         {
-            TimeBackwards();
-            break;
-         }
-         case PotionEffectsEnum.speed:
-         {
-            StartCoroutine(SpeedBoost());
-            break;
+            case PotionEffectsEnum.manaRestore:
+            {
+               ManaRestore();
+               break;
+            }
+            case PotionEffectsEnum.timeBackwards:
+            {
+               TimeBackwards();
+               break;
+            }
+            case PotionEffectsEnum.speed:
+            {
+               StartCoroutine(SpeedBoost());
+               break;
+            }
          }
       }
+     
    }
    
    private void ManaRestore()
    {
       powerManager.RestoreMana(750);
       Debug.Log("Mana Restored Called.");
+      Destroy(gameObject);
       
    }
 
@@ -80,20 +91,17 @@ public class PotionEffects : MonoBehaviour
    {
       dayManager.AddTime(120);
       Debug.Log("Time Backwards Called.");
+      Destroy(gameObject);
    }
 
    private IEnumerator SpeedBoost()
    {
       dynamicMoveProvider.moveSpeed = 5;
-      float timer = new float();
-      timer += Time.deltaTime;
-      while (timer < 10.0)
-      {
-         Debug.Log(timer + " seconds left of speed");
-      }
+      transform.localScale = Vector3.zero;
+      yield return new WaitForSeconds(10f);
       dynamicMoveProvider.moveSpeed = 3;
-      Debug.Log("PLAYER SPEED SHOULDVE RETURNED");
-      yield break;
+      Debug.Log("MOVE SPEED DECREASED HOPEFULLY");
+      Destroy(gameObject);
    }
    
 }
