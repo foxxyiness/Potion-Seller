@@ -5,4 +5,5 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     public List<GameObject> allItemObjectsList;
+    public List<GameObject> currentEnabledCrops;
 }

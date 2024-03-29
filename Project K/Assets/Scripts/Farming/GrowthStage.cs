@@ -10,6 +10,8 @@ public class GrowthStage : MonoBehaviour
 {
     [Header("Time & Random Time")]
     [SerializeField] private DayManager _dayManager;
+
+    [SerializeField] private ItemManager itemManager;
     [SerializeField] private int minValue, maxValue;
 
     [Header("Growth Numbers")] 
@@ -24,6 +26,7 @@ public class GrowthStage : MonoBehaviour
     public AudioClip FinishedSound;
     public Transform[] stages;
     public List<Transform> crops = new List<Transform>();
+    public bool isCropEnabled;
 
 
     // Start is called before the first frame update
@@ -50,15 +53,31 @@ public class GrowthStage : MonoBehaviour
 
     private void Growth()
     {
-        currentTimeBeforeStage -= Time.deltaTime;
-        if (currentTimeBeforeStage <= 0.0f)
+        if (isCropEnabled)
         {
-            SelectRandomTimeBetweenGrowth();
-            Progression();
+            currentTimeBeforeStage -= Time.deltaTime;
+            if (currentTimeBeforeStage <= 0.0f)
+            {
+                SelectRandomTimeBetweenGrowth();
+                Progression();
+            }
         }
       
     }
-    
+
+    public void EnableCrop()
+    {
+        if (isCropEnabled)
+        {
+            isCropEnabled = false;
+            itemManager.currentEnabledCrops.Remove(gameObject);
+        }
+        else if (!isCropEnabled)
+        {
+            isCropEnabled = true;
+            itemManager.currentEnabledCrops.Add(gameObject);
+        }
+    }
     private void Progression()
     {
         currentProgression++;
