@@ -17,6 +17,8 @@ TagManager:
   - book
   - Day_Manager
   - Item_Manager
+  - Player_Rig
+  - Crop_Sign
   layers:
   - Default
   - TransparentFX

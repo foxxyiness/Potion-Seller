@@ -13,6 +13,7 @@ public class PotionEffects : MonoBehaviour
    public PowerManager powerManager;
    public DayManager dayManager;
    public DynamicMoveProvider dynamicMoveProvider;
+   [SerializeField] private AudioSource audioSource;
    private bool canEffect;
 
    private void Start()
@@ -83,6 +84,7 @@ public class PotionEffects : MonoBehaviour
    {
       powerManager.RestoreMana(750);
       Debug.Log("Mana Restored Called.");
+      audioSource.Play();
       Destroy(gameObject);
       
    }
@@ -91,12 +93,14 @@ public class PotionEffects : MonoBehaviour
    {
       dayManager.AddTime(120);
       Debug.Log("Time Backwards Called.");
+      audioSource.Play();
       Destroy(gameObject);
    }
 
    private IEnumerator SpeedBoost()
    {
       dynamicMoveProvider.moveSpeed = 5;
+      audioSource.Play();
       transform.localScale = Vector3.zero;
       yield return new WaitForSeconds(10f);
       dynamicMoveProvider.moveSpeed = 3;

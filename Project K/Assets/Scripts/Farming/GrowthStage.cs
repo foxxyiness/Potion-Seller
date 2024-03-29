@@ -70,12 +70,12 @@ public class GrowthStage : MonoBehaviour
         if (isCropEnabled)
         {
             isCropEnabled = false;
-            itemManager.currentEnabledCrops.Remove(gameObject);
+            //itemManager.currentEnabledCrops.Remove(gameObject);
         }
         else if (!isCropEnabled)
         {
             isCropEnabled = true;
-            itemManager.currentEnabledCrops.Add(gameObject);
+            //itemManager.currentEnabledCrops.Add(gameObject);
         }
     }
     private void Progression()
