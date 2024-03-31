@@ -77,12 +77,12 @@ public class EnableCrop : MonoBehaviour
         if (_isCropEnabled)
         {
             _isCropEnabled = false;
-            textImage.color = Color.HSVToRGB(233, 53, 100);
+            textImage.color = new Color(119, 136, 255);
         }
         else if (!_isCropEnabled)
         {
             _isCropEnabled = true;
-            textImage.color = Color.HSVToRGB(44, 100, 100);
+            textImage.color = new Color(255, 187, 0);
         }
             
     }
