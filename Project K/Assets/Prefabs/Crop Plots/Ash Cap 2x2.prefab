@@ -48,13 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 4991187210854926717, guid: 0690078256f943940a5816c6f053bf19, type: 3}
+  crop: {fileID: 4805414480342061768, guid: 644e3ab86d52b6e478fef3bc4dfcd370, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -62,6 +63,7 @@ MonoBehaviour:
   - {fileID: 180858166884800949}
   - {fileID: 6053564130779909060}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &3358582192204933740
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,13 +112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 4991187210854926717, guid: 0690078256f943940a5816c6f053bf19, type: 3}
+  crop: {fileID: 4805414480342061768, guid: 644e3ab86d52b6e478fef3bc4dfcd370, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -124,6 +127,7 @@ MonoBehaviour:
   - {fileID: 4534005663936392958}
   - {fileID: 8144407215877743109}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &4611220688913802793
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,13 +176,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 4991187210854926717, guid: 0690078256f943940a5816c6f053bf19, type: 3}
+  crop: {fileID: 4805414480342061768, guid: 644e3ab86d52b6e478fef3bc4dfcd370, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -186,6 +191,7 @@ MonoBehaviour:
   - {fileID: 8205914509987202089}
   - {fileID: 2894390001461193419}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &5938030573258786939
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,13 +275,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 4991187210854926717, guid: 0690078256f943940a5816c6f053bf19, type: 3}
+  crop: {fileID: 4805414480342061768, guid: 644e3ab86d52b6e478fef3bc4dfcd370, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -283,6 +290,7 @@ MonoBehaviour:
   - {fileID: 8996213867067871198}
   - {fileID: 9179902745250109396}
   crops: []
+  isCropEnabled: 0
 --- !u!1001 &362593603548675678
 PrefabInstance:
   m_ObjectHideFlags: 0

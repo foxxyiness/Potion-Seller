@@ -88,13 +88,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -102,6 +103,7 @@ MonoBehaviour:
   - {fileID: 8927680610179885127}
   - {fileID: 6037092393055868769}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &2865738337429149073
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,13 +152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -164,6 +167,7 @@ MonoBehaviour:
   - {fileID: 74817398128052332}
   - {fileID: 7669376399495257577}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &3662452459118988689
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,13 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -226,6 +231,7 @@ MonoBehaviour:
   - {fileID: 3025067620013738797}
   - {fileID: 7510466066898046461}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &5638697458996436276
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,13 +280,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -288,6 +295,7 @@ MonoBehaviour:
   - {fileID: 7539144314934418139}
   - {fileID: 3459154770661887680}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &5909665437762678538
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,13 +344,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -350,6 +359,7 @@ MonoBehaviour:
   - {fileID: 1024481266757041251}
   - {fileID: 2951061882365805242}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &7007986417073209951
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,13 +408,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -412,6 +423,7 @@ MonoBehaviour:
   - {fileID: 3967918052999277983}
   - {fileID: 3542195277589978272}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &7715665143999210405
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,13 +472,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -474,6 +487,7 @@ MonoBehaviour:
   - {fileID: 5573474218761379591}
   - {fileID: 7783875752851443477}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &8434020211637241222
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,13 +536,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -536,6 +551,7 @@ MonoBehaviour:
   - {fileID: 4352882237854492978}
   - {fileID: 3152623591780005044}
   crops: []
+  isCropEnabled: 0
 --- !u!1 &9198766501089059351
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,13 +600,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayManager: {fileID: 0}
+  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
   currentTimeBeforeStage: 0
   timeBetweenGrowths: 180
   maxGrowth: 3
-  crop: {fileID: 8025863006473692601, guid: 84b42adc1d1bbfd428d6736a306fa6c5, type: 3}
+  crop: {fileID: 4190766496698403514, guid: 4bf43b2a62e7ebe42ab7371446b845bc, type: 3}
   audioSource: {fileID: 0}
   FinishedSound: {fileID: 0}
   stages:
@@ -598,6 +615,7 @@ MonoBehaviour:
   - {fileID: 7594150600943880762}
   - {fileID: 3920742418639551940}
   crops: []
+  isCropEnabled: 0
 --- !u!1001 &469350158636445575
 PrefabInstance:
   m_ObjectHideFlags: 0
