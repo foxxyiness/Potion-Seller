@@ -23,8 +23,8 @@ public class DayManager : MonoBehaviour
     private void Awake()
     {
         totalMin = 1440;
-        //Makes day cycle 6 minutes
-        timerTick = .25f;
+        //Makes day cycle 9 minutes
+        timerTick = .375f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
