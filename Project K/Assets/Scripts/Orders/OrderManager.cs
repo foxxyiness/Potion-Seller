@@ -60,6 +60,8 @@ namespace Orders
         {
             if (itemsOnOrder.Count > 0)
             {
+                //Quickly find Day Manager to turn off timer tick
+                GameObject.FindGameObjectWithTag("Day_Manager").GetComponent<DayManager>().timerTick = 0;
                 StartCoroutine(Death());
                 itemsOnOrder.Clear();
                 yield break;
