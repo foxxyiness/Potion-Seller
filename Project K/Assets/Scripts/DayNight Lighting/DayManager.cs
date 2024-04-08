@@ -23,8 +23,8 @@ public class DayManager : MonoBehaviour
     private void Awake()
     {
         totalMin = 1440;
-        //Makes day cycle 6 minutes
-        timerTick = .25f;
+        //Makes day cycle 9 minutes
+        timerTick = .375f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -73,20 +73,41 @@ public class DayManager : MonoBehaviour
     //Checks and Plays *NOT QUARTERLY* BELL
     private void CheckQuarterBell()
     {
-        if (totalMin == 960)
-            StartCoroutine(PlayBellChime(1));
-        else if (totalMin == 480)
-            StartCoroutine(PlayBellChime(2));
-
+        switch (totalMin)
+        {
+            case 1439:
+                StartCoroutine(PlayBellChime(1));
+                break;
+            case 960:
+                StartCoroutine(PlayBellChime(2));
+                break;
+            case 480:
+                StartCoroutine(PlayBellChime(3));
+                break;
+        }
     }
 
     private IEnumerator PlayBellChime(int gameStageNumber)
     {
-        float tempTime;
-        audioSource.Play();
-        if (gameStageNumber != 2) yield break;
-        yield return new WaitForSeconds(4f);  
-        audioSource.Play();
+        switch (gameStageNumber)
+        {
+            case 1:
+                audioSource.Play();
+                break;
+            case 2:
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                break;
+            case 3:
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                break;
+        }
+        
     }
     private void DayTime()
     {

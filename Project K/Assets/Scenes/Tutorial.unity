@@ -1181,6 +1181,9 @@ MonoBehaviour:
   textContent: {fileID: 2768040870960423727, guid: a87301472d064d340bdac13d58693cc4, type: 3}
   nextButton: {fileID: 257770063}
   orderUIContent: {fileID: 7671956463449687947}
+  cauldron: {fileID: 0}
+  icepepperCrop: {fileID: 3263225732769373673, guid: 141d5c75be81f4139a9943919eae6873, type: 3}
+  stormvineCrop: {fileID: 8409826368640337733, guid: 608a8711b5c2445a981ea5e8fcd8ad8b, type: 3}
 --- !u!4 &1403960449
 Transform:
   m_ObjectHideFlags: 0
