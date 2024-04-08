@@ -61,22 +61,6 @@ namespace Player
          SetMana();
          
       }
-      public void SetFireTrue()
-      {
-         if (canFire)
-            canFire = false;
-
-         if (!canFire)
-            canFire = true;
-      }
-      public void SetSunTrue()
-      {
-         if (sunPower)
-            sunPower = false;
-
-         if (!sunPower)
-            sunPower = true;
-      }
 
       public short GetManaLevel()
       {
