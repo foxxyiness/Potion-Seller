@@ -14,10 +14,11 @@ using Random = System.Random;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private PowerManager powerManager;
-    [SerializeField] private int currentState;
+    [SerializeField] private TutorialPowerManager tutorialPowerManager;
+    [SerializeField] public int currentState;
     private string contentString;
     [SerializeField] private TextMeshProUGUI textContent;
+    [FormerlySerializedAs("nextButton")] [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject orderUIContent;
     
@@ -27,15 +28,16 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject stormvineCrop;
     
     
-    TextMeshProUGUI text; 
+    public TextMeshProUGUI text; 
     void Start()
     {
         currentState = 0;
         UpdateState();
+        playButton.SetActive(false);
         nextButton.SetActive(false);
     }
 
-    void AddState()
+    public void AddState()
     {
         currentState++;
         UpdateState();
@@ -50,11 +52,11 @@ public class TutorialManager : MonoBehaviour
 
     void CheckPlayerMovement()
     {
-        var playerStart = powerManager.gameObject.transform.position;
+        var playerStart = tutorialPowerManager.gameObject.transform.position;
         
          void Update()
         {
-            var player = powerManager.gameObject.transform.position;
+            var player = tutorialPowerManager.gameObject.transform.position;
             if (playerStart != player)
             {
                 textContent.text = "Great!";
@@ -92,16 +94,18 @@ public class TutorialManager : MonoBehaviour
             }
             case 3:
             {
+                tutorialPowerManager.initialFire = true;
+                tutorialPowerManager.RestoreMana(2000);
                 contentString =
                     "You've been born with godly abilities, meaning you are a god. Now, lets try your fire ability.\n Lift your right hand, " +
                     "hold the grip button, and tap the trigger.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
             case 4:
             {
+                tutorialPowerManager.initialFire = false;
                 contentString = "Great, you'll be able to toast certain potions with that ability.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
@@ -110,17 +114,18 @@ public class TutorialManager : MonoBehaviour
             }
             case 5:
             {
+                tutorialPowerManager.initialSun = true;
+                tutorialPowerManager.RestoreMana(2000);
                 contentString =
                     "Lets try your Sun power, harnessing the laws of photosynthesis.\n Lift your left hand, " +
                     "hold the grip button, and tap the trigger.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
             case 6:
             {
-
+                tutorialPowerManager.initialSun = false;
                 contentString = "Great, you'll be able to use this ability to promote growth on your crops.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
@@ -129,17 +134,18 @@ public class TutorialManager : MonoBehaviour
             }
             case 7:
             {
+                nextButton.SetActive(true);
                 contentString = "You can make a potion by putting the correct combination into the cauldron. \n " +
                                 "For each potion, you must include 1 base orb, 1 flavor orb, and 1 strength orb.";
                 //contentString = "Lets try making a potion.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
 
             case 8:
             {
+                nextButton.SetActive(false);
                 contentString =
                     "Try it for yourself. Grab the water orb and put it into the Cauldron.";
                 textContent.text = contentString;
@@ -192,6 +198,7 @@ public class TutorialManager : MonoBehaviour
             
             case 13:
             {
+                nextButton.SetActive(true);
                 contentString =
                     "Your farm will contains the necessary ingredients to make all potions, " +
                     "but worldly constraints prevent are preventing them from growing.";
@@ -220,6 +227,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 16:
             {
+                tutorialPowerManager.RestoreMana(2000);
                 contentString =
                     "You sun ability is used to grow crops faster. Now try it out. Shoot one of the crops with the power of the sun.";
                 textContent.text = contentString;
@@ -303,6 +311,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 25:
             {
+                tutorialPowerManager.RestoreMana(2000);
                 contentString =
                     "Now, Shoot the lost page with your fire ability.";
                 textContent.text = contentString;
@@ -341,10 +350,11 @@ public class TutorialManager : MonoBehaviour
             
             default:
             {
+                nextButton.SetActive(false);
                 contentString = "You Earth-Bound contract begins now. Don't fail us.";
                 textContent.text = contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
-                nextButton.SetActive(true);
+                playButton.SetActive(true);
                 break;
             }
             
