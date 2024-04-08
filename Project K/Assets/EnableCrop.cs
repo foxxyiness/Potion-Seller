@@ -68,7 +68,6 @@ public class EnableCrop : MonoBehaviour
         {
             _enableCrop = false;
             turnTemp = true;
-            LeftHandManaStatus.fillAmount = 0f;
         }
     } 
     

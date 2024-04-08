@@ -29,6 +29,7 @@ namespace Player
 
       [Header("Mana UI")] 
       public Image rightHandManaStatus;
+      public Image leftHandManaStatus;
 
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
@@ -166,10 +167,12 @@ namespace Player
                Debug.Log(hitInfo.collider.name);
                leftController.SendHapticImpulse(1, .25f);
                StartCoroutine(SunPowerSoundCoroutine());
+               leftHandManaStatus.fillAmount = 1;
                powerAmount--;
                SetMana();
             }
             yield return new WaitForSeconds(sunDelay);
+            leftHandManaStatus.fillAmount = 0f;
          }
          audioSource.Stop();
       }
