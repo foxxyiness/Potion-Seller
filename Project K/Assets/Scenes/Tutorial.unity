@@ -1207,6 +1207,94 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!1001 &1072403027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1620603702}
+    m_Modifications:
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.05999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.443066
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2160002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.70620567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5419513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.84041
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131321441057507203, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+      propertyPath: m_Name
+      value: Potion_Spawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+--- !u!4 &1072403028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5862226935186888591, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+  m_PrefabInstance: {fileID: 1072403027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1072403029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2261315656426634360, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+  m_PrefabInstance: {fileID: 1072403027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1072403030 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6889755525022305745, guid: 68346429955e54d7fb423c5175b3ef0e, type: 3}
+  m_PrefabInstance: {fileID: 1072403027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1403960447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,12 +1325,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPowerManager: {fileID: 9157994962181213628}
+  tutorialCauldron: {fileID: 1620603704}
   currentState: 0
   textContent: {fileID: 2768040870960423727, guid: a87301472d064d340bdac13d58693cc4, type: 3}
   playButton: {fileID: 257770063}
   nextButton: {fileID: 906121042}
   orderUIContent: {fileID: 7671956463449687947}
-  cauldron: {fileID: 0}
+  cauldron: {fileID: 1620603701}
   icepepperCrop: {fileID: 3263225732769373673, guid: 141d5c75be81f4139a9943919eae6873, type: 3}
   stormvineCrop: {fileID: 8409826368640337733, guid: 608a8711b5c2445a981ea5e8fcd8ad8b, type: 3}
   text: {fileID: 0}
@@ -1367,6 +1456,137 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &1620603700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2277603996781856631, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.23370905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277603996781856631, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23370905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277603996781856631, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.66736805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277603996781856631, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.66736805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277603996781856631, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 141.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1870365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4324994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.977477
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.21104215
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -24.367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450954750250383330, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_Name
+      value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: potionSpawnPoint
+      value: 
+      objectReference: {fileID: 1072403029}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: potionSpawnParticleSystem
+      value: 
+      objectReference: {fileID: 1072403030}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1072403028}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5473719204594790640, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1620603704}
+  m_SourcePrefab: {fileID: 100100000, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+--- !u!1 &1620603701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8450954750250383330, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+  m_PrefabInstance: {fileID: 1620603700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1620603702 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4822242920835410827, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+  m_PrefabInstance: {fileID: 1620603700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1620603703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5473719204594790640, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+  m_PrefabInstance: {fileID: 1620603700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620603704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620603703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5c03ca01e924eb7b5930cd0a90e905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowBase: 0
+  allowFlavor: 0
+  allowStrength: 0
+  potionFound: 0
+  tutorialManager: {fileID: 0}
+  audioSource: {fileID: 0}
+  itemList: []
+  recipes: []
+  recipeResults: []
+  potionSpawnPoint: {fileID: 0}
+  potionSpawnParticleSystem: {fileID: 0}
+  cauldronParticleSystem: {fileID: 0}
+  initialPotionOfLight: 0
 --- !u!1 &1794495884
 GameObject:
   m_ObjectHideFlags: 0
@@ -9700,3 +9920,4 @@ SceneRoots:
   - {fileID: 1616650117}
   - {fileID: 5135131741527236494}
   - {fileID: 47336817}
+  - {fileID: 1620603700}
