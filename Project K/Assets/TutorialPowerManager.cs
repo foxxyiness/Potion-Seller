@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 namespace Player
 {
-   public class PowerManager : MonoBehaviour
+   public class TutorialPowerManager : MonoBehaviour
    {
       [Header("Power Input Action Map")]
       [SerializeField] private InputActionMap inputAction;
 
       //private XRIDefaultInputActions _defaultAction;
       [Header("References for Game Objects")]
-      [SerializeField] private DayManager dayManager;
+      [SerializeField] private TutorialManager tutorialManager;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
@@ -29,7 +29,6 @@ namespace Player
 
       [Header("Mana UI")] 
       public Image rightHandManaStatus;
-      public Image leftHandManaStatus;
 
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
@@ -48,7 +47,7 @@ namespace Player
       public bool canFire;
       private Camera _camera;
       private bool _isCameraNotNull;
-
+      public bool initialFire, initialSun;
       private void Awake()
       {
          _isCameraNotNull = _camera != null;
@@ -61,7 +60,6 @@ namespace Player
          SetMana();
          
       }
-
       public short GetManaLevel()
       {
          return powerAmount;
@@ -133,30 +131,60 @@ namespace Player
       {
          if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
          {
-            audioSource.clip = sunPowerSound;
-            var position = leftPowerSpawnPoint.position;
-            if (_isCameraNotNull)
+            if (initialSun)
             {
-               Ray ray = _camera.ScreenPointToRay(position);
-            }
+               audioSource.clip = sunPowerSound;
+               var position = leftPowerSpawnPoint.position;
+               if (_isCameraNotNull)
+               {
+                  Ray ray = _camera.ScreenPointToRay(position);
+               }
 
-            if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
-                   out RaycastHit hitInfo, 20f))
+               if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
+                      out RaycastHit hitInfo, 20f))
+               {
+                  GameObject laser = Instantiate(sunBeam, hitInfo.point, quaternion.identity);
+                  //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
+
+                  Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
+                     Color.red, 2f);
+                  Debug.Log(hitInfo.collider.name);
+                  leftController.SendHapticImpulse(1, .25f);
+                  StartCoroutine(SunPowerSoundCoroutine());
+                  powerAmount--;
+                  SetMana();
+                  Destroy(tutorialManager.text.gameObject);
+                  tutorialManager.currentState = 6;
+                  tutorialManager.UpdateState();
+                  initialSun = false;
+               }
+               yield return new WaitForSeconds(sunDelay);
+            }
+            else
             {
-               GameObject laser = Instantiate(sunBeam, hitInfo.point, quaternion.identity);
-               //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
+               audioSource.clip = sunPowerSound;
+               var position = leftPowerSpawnPoint.position;
+               if (_isCameraNotNull)
+               {
+                  Ray ray = _camera.ScreenPointToRay(position);
+               }
 
-               Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
-                  Color.red, 2f);
-               Debug.Log(hitInfo.collider.name);
-               leftController.SendHapticImpulse(1, .25f);
-               StartCoroutine(SunPowerSoundCoroutine());
-               leftHandManaStatus.fillAmount = 1;
-               powerAmount--;
-               SetMana();
+               if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
+                      out RaycastHit hitInfo, 20f))
+               {
+                  GameObject laser = Instantiate(sunBeam, hitInfo.point, quaternion.identity);
+                  //laser.GetComponent<Sunbeam>().MoveTowards(hitInfo.point, speed);
+
+                  Debug.DrawRay(position, leftPowerSpawnPoint.TransformDirection(Vector3.forward) * hitInfo.distance,
+                     Color.red, 2f);
+                  Debug.Log(hitInfo.collider.name);
+                  leftController.SendHapticImpulse(1, .25f);
+                  StartCoroutine(SunPowerSoundCoroutine());
+                  powerAmount--;
+                  SetMana();
+               }
+               yield return new WaitForSeconds(sunDelay);
             }
-            yield return new WaitForSeconds(sunDelay);
-            leftHandManaStatus.fillAmount = 0f;
          }
          audioSource.Stop();
       }
@@ -191,15 +219,35 @@ namespace Player
       {
          if ( context.performed && !_rightItemGrabbed && canFire)
          {
-            canFire = false;
-            Debug.Log("FIRE");
-            TriggerHaptic(rightController);
-            GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
-            fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
-            powerAmount -= 30;
-            SetMana();
-            yield return new WaitForSeconds(1);
-            canFire = true;
+            //Initial Check Function for First Fireball shot
+            if (initialFire)
+            {
+               canFire = false;
+               Debug.Log("FIRE");
+               TriggerHaptic(rightController);
+               GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
+               fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
+               powerAmount -= 30;
+               SetMana();
+               yield return new WaitForSeconds(1);
+               canFire = true;
+               Destroy(tutorialManager.text.gameObject);
+               tutorialManager.currentState = 4;
+               tutorialManager.UpdateState();
+            }
+            //To be called after the tutorial Fireball shot
+            else
+            {
+                  canFire = false;
+                  Debug.Log("FIRE");
+                  TriggerHaptic(rightController);
+                  GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
+                  fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
+                  powerAmount -= 30;
+                  SetMana();
+                  yield return new WaitForSeconds(1);
+                  canFire = true;
+            }
          }
       }
 
@@ -213,7 +261,6 @@ namespace Player
             rightController.SendHapticImpulse(1, 10);
             yield return new WaitForSeconds(3);
             //Reference to enable DayManager Time forward
-            dayManager.doFastForward = true;
          }
       }
       
