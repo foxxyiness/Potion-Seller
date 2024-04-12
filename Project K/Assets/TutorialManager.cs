@@ -6,6 +6,7 @@ using Pages;
 using Player;
 using TMPro;
 using UI___Menu;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -29,10 +30,12 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject cauldron;
     [SerializeField] private GameObject icepepperCrop;
     [SerializeField] private GameObject stormvineCrop;
+    [SerializeField] private GameObject waterOrb, sunOrb, hairOrb, deliveryBox, darknessPotion;
     [SerializeField] private GameObject book;
     [SerializeField] private GameObject lostPage;
     [SerializeField] private AudioSource bellAudioSource;
     [SerializeField] private AudioClip bellClip, distantChime;
+    [SerializeField] private Transform orbSpawnpoint;
     private string _contentString;
     
     
@@ -48,6 +51,7 @@ public class TutorialManager : MonoBehaviour
         stormvineCrop.SetActive(false);
         book.SetActive(false);
         lostPage.SetActive(false);
+        deliveryBox.SetActive(false);
     }
 
     public void AddState()
@@ -160,6 +164,7 @@ public class TutorialManager : MonoBehaviour
             case 8:
             {
                 nextButton.SetActive(false);
+                Instantiate(waterOrb, orbSpawnpoint.position, quaternion.identity);
                 _contentString =
                     "Try it for yourself. Grab the water orb and put it into the Cauldron.";
                 textContent.text = _contentString;
@@ -170,6 +175,7 @@ public class TutorialManager : MonoBehaviour
             
             case 9:
             {
+                Instantiate(sunOrb, orbSpawnpoint.position, quaternion.identity);
                 _contentString =
                     "Great. Water orbs is the base of all potions. Every potion needs water. Now grab the sun orb and put it into the Cauldron.";
                 textContent.text = _contentString;
@@ -180,6 +186,7 @@ public class TutorialManager : MonoBehaviour
 
             case 10:
             {
+                Instantiate(hairOrb, orbSpawnpoint.position, quaternion.identity);
                 _contentString =
                     "Great. Sun orbs is the strength component of potions. Different strength ingredients are grown from your crops. \n " +
                     "Now grab the hair orb and put it into the Cauldron.";
@@ -278,6 +285,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 19:
             {
+                Instantiate(waterOrb, orbSpawnpoint.position, quaternion.identity);
                 _contentString =
                     "Now add a Water Orb into the Cauldron.";
                 textContent.text = _contentString;
@@ -287,6 +295,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 20:
             {
+                deliveryBox.SetActive(true);
                 nextButton.SetActive(false);
                 _contentString =
                     "You have now created a Potion of Darkness. Now put it into the box to the left.";
@@ -298,6 +307,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 21:
             {
+                Instantiate(darknessPotion, orbSpawnpoint.position, quaternion.identity);
                 _contentString =
                     "This is how you will deposit the potions you make that are on order. " +
                     "\n Now, lets try making that Potion of Darkness into Coffee";
@@ -305,6 +315,7 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
+                StartCoroutine(TimeDelay());
                 break;
             }
             case 22:
@@ -314,11 +325,13 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
+                StartCoroutine(TimeDelay());
                 break;
             }
             case 23:
             {
                 book.SetActive(true);
+                nextButton.SetActive(true);
                 _contentString =
                     "Now look towards your right for your recipe book. There you'll find your found potion recipes.";
                 textContent.text = _contentString;

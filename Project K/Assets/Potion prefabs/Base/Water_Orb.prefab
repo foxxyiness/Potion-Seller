@@ -296,8 +296,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  itemName: 
+  itemName: water
   description: 
   price: 0
   cost: 1000
+  velocityLimit: 0
+  currentVelocity: 0
+  previousPosition: {x: 0, y: 0, z: 0}
   difficulty: 0
