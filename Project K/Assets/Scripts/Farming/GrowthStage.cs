@@ -9,9 +9,9 @@ using Random = System.Random;
 public class GrowthStage : MonoBehaviour
 {
     [Header("Time & Random Time")]
-    [SerializeField] private DayManager _dayManager;
+    //[SerializeField] private DayManager _dayManager;
 
-    [SerializeField] private ItemManager itemManager;
+    //[SerializeField] private ItemManager itemManager;
     [SerializeField] private int minValue, maxValue;
 
     [Header("Growth Numbers")] 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Items
 {
@@ -18,21 +19,24 @@ namespace Items
         [SerializeField] private int cost;
         [SerializeField] private float velocityLimit;
         [SerializeField] private float currentVelocity;
-        [SerializeField]private Vector3 previousPosition;
+        [SerializeField] private Vector3 previousPosition;
         [SerializeField] private Difficulty difficulty;
         
         private void Start()
         {
-            _itemManager = GameObject.FindGameObjectWithTag("Item_Manager").GetComponent<ItemManager>();
-            if (!gameObject.GetComponent<Potion>())
+            if (SceneManager.GetActiveScene().name != "Tutorial")
             {
-                if (_itemManager.allItemObjectsList.Count < 100)
+                _itemManager = GameObject.FindGameObjectWithTag("Item_Manager").GetComponent<ItemManager>();
+                if (!gameObject.GetComponent<Potion>())
                 {
-                    _itemManager.allItemObjectsList.Add(gameObject);
-                }
-                else
-                {
-                    Destroy(gameObject);
+                    if (_itemManager.allItemObjectsList.Count < 100)
+                    {
+                        _itemManager.allItemObjectsList.Add(gameObject);
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
             
