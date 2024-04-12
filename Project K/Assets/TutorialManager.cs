@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Items;
+using Pages;
 using Player;
 using TMPro;
 using UI___Menu;
@@ -28,6 +29,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject cauldron;
     [SerializeField] private GameObject icepepperCrop;
     [SerializeField] private GameObject stormvineCrop;
+    [SerializeField] private GameObject book;
+    [SerializeField] private GameObject lostPage;
+    [SerializeField] private AudioSource bellAudioSource;
+    [SerializeField] private AudioClip bellClip, distantChime;
     private string _contentString;
     
     
@@ -38,6 +43,11 @@ public class TutorialManager : MonoBehaviour
         UpdateState();
         playButton.SetActive(false);
         nextButton.SetActive(false);
+        cauldron.SetActive(false);
+        icepepperCrop.SetActive(false);
+        stormvineCrop.SetActive(false);
+        book.SetActive(false);
+        lostPage.SetActive(false);
     }
 
     public void AddState()
@@ -142,6 +152,7 @@ public class TutorialManager : MonoBehaviour
                                 "For each potion, you must include 1 base orb, 1 flavor orb, and 1 strength orb.";
                 //contentString = "Lets try making a potion.";
                 textContent.text = _contentString;
+                cauldron.SetActive(true);
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
                 break;
             }
@@ -193,6 +204,8 @@ public class TutorialManager : MonoBehaviour
             
             case 12:
             {
+                icepepperCrop.SetActive(true);
+                stormvineCrop.SetActive(true);
                 _contentString =
                     "Excellent! Now look behind you to find your crops.";
                 textContent.text = _contentString;
@@ -305,6 +318,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 23:
             {
+                book.SetActive(true);
                 _contentString =
                     "Now look towards your right for your recipe book. There you'll find your found potion recipes.";
                 textContent.text = _contentString;
@@ -314,6 +328,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 24:
             {
+                lostPage.SetActive(true);
                 _contentString =
                     "If you see a potion on order that you've never seen before, you must find the lost page.";
                 textContent.text = _contentString;
@@ -342,6 +357,8 @@ public class TutorialManager : MonoBehaviour
             }
             case 27:
             {
+                bellAudioSource.clip = bellClip;
+                bellAudioSource.Play();
                 _contentString =
                     "Remember this bell, it rings only 3 times a day. If you complete all orders, \n " +
                     "you will hear the single bell ring at the start of the day.";
@@ -352,6 +369,8 @@ public class TutorialManager : MonoBehaviour
             }
             case 28:
             {
+                bellAudioSource.clip = distantChime;
+                bellAudioSource.Play();
                 _contentString =
                     "If you hear this bell, you have failed to complete all orders, and your Earthly contract will be voided.";
                 textContent.text = _contentString;
