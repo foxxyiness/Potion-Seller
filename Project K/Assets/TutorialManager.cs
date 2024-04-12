@@ -338,6 +338,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 25:
             {
+                nextButton.SetActive(false);
                 tutorialPowerManager.RestoreMana(2000);
                 _contentString =
                     "Now, Shoot the lost page with your fire ability.";
@@ -348,6 +349,7 @@ public class TutorialManager : MonoBehaviour
             }
             case 26:
             {
+                nextButton.SetActive(true);
                 _contentString =
                     "Once shot, the lost page will added to your recipe book.";
                 textContent.text = _contentString;
@@ -365,6 +367,7 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
+                StartCoroutine(TimeDelay());
                 break;
             }
             case 28:
@@ -376,6 +379,7 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
+                StartCoroutine(TimeDelay());
                 break;
             }
             
