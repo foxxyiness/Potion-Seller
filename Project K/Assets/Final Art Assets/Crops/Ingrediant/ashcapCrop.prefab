@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 7341991432915120762}
   - component: {fileID: 2639523817895167705}
   - component: {fileID: 1132830862637789701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ashcapCrop
-  m_TagString: Untagged
+  m_TagString: Strength
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 7679850143098568182}
   - component: {fileID: 383494733748201061}
   - component: {fileID: 6754159495390942976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PixiecabbageCrop
-  m_TagString: Untagged
+  m_TagString: Flavor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

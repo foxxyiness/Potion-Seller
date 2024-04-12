@@ -27755,6 +27755,10 @@ PrefabInstance:
       propertyPath: _dayManager
       value: 
       objectReference: {fileID: 65670740}
+    - target: {fileID: 8415026917663680293, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8476529316260561158, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
       propertyPath: _dayManager
       value: 
