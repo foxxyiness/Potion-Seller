@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 133158650}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,6 +858,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61db7d2b87f2fab499fb0be1c0cefd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &667435911 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2167138330794490613, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+  m_PrefabInstance: {fileID: 1620603700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &746690879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPowerManager: {fileID: 9157994962181213628}
   tutorialCauldron: {fileID: 1620603704}
-  currentState: 0
+  currentState: 6
   textContent: {fileID: 2768040870960423727, guid: a87301472d064d340bdac13d58693cc4, type: 3}
   playButton: {fileID: 257770063}
   nextButton: {fileID: 906121042}
@@ -1859,6 +1864,10 @@ PrefabInstance:
       value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
       propertyPath: potionSpawnPoint
       value: 
       objectReference: {fileID: 1072403029}
@@ -1908,15 +1917,68 @@ MonoBehaviour:
   allowFlavor: 0
   allowStrength: 0
   potionFound: 0
-  tutorialManager: {fileID: 0}
-  audioSource: {fileID: 0}
+  tutorialManager: {fileID: 1403960448}
+  audioSource: {fileID: 1620603706}
   itemList: []
-  recipes: []
-  recipeResults: []
-  potionSpawnPoint: {fileID: 0}
-  potionSpawnParticleSystem: {fileID: 0}
-  cauldronParticleSystem: {fileID: 0}
+  recipes:
+  - watersunhair
+  - waterstormvineicepepper
+  - watersunpixiecabbage
+  - waterstormvinepixiecabbage
+  - watersunpixiecabbage
+  - waterpheonixberrypixiecabbage
+  - waterashcapmushroompixiecabbage
+  - watergoblinleafpixiecabbage
+  - waterstormvinebarbedbamboo
+  - watersunbarbedbamboo
+  - waterpheonixberrybarbedbamboo
+  - waterashcapmushroombarbedbamboo
+  - watergoblinleafbarbedbamboo
+  - waterstormvineeagleblossom
+  - watersuneagleblossom
+  - waterpheonixberryeagleblossom
+  - waterashcapmushroomeagleblossom
+  - watergoblinleafeageleblossom
+  - waterpheonixberryicepepper
+  - waterashcapmushroomicepepper
+  - watergoblinleaficepepper
+  - waterpheonixberryhair
+  - waterashcapmushroomhair
+  - watergoblinleafhair
+  recipeResults:
+  - {fileID: -7716074044304417584, guid: 62bf33648ac48dc4692dbf320e19a112, type: 3}
+  - {fileID: -7716074044304417584, guid: da125627693dfcb4bad8739c1a609e2d, type: 3}
+  - {fileID: 8312003310105155461, guid: 443e45c4a6a892444b75d3604ba117fe, type: 3}
+  - {fileID: 8312003310105155461, guid: 36e4ca09bcedbe24c8162dfa59c35684, type: 3}
+  - {fileID: 8312003310105155461, guid: 13bb1ed72aeac484985625ed4188f939, type: 3}
+  - {fileID: 8312003310105155461, guid: a3d8c80266df26349bbd4591b4049c79, type: 3}
+  - {fileID: 8312003310105155461, guid: ebc538ef153914e4697e2d5fa5323e34, type: 3}
+  - {fileID: 8312003310105155461, guid: 8ef964cd3cc01f747913e11f81d6af12, type: 3}
+  - {fileID: 8312003310105155461, guid: ed105b93e4903fc4bb7cb3b7e56b1508, type: 3}
+  - {fileID: 8312003310105155461, guid: 5d5c6775c4861ca459f5bc23c7af96d7, type: 3}
+  - {fileID: 8312003310105155461, guid: 46467afe1e270674a88ef23055823107, type: 3}
+  - {fileID: 8312003310105155461, guid: 5cfa23ed44b411e439c42538cf9b172b, type: 3}
+  - {fileID: 8312003310105155461, guid: 7af2765f9b3e74a4493d0df9011883d7, type: 3}
+  - {fileID: 8312003310105155461, guid: 656e60ff9977e2a44a12f597c5ea812f, type: 3}
+  - {fileID: 8312003310105155461, guid: 22ed5673260ca0344be660717dbc5191, type: 3}
+  - {fileID: 8312003310105155461, guid: 144b58fa8b84d74409215e1fa4154f0d, type: 3}
+  - {fileID: 8312003310105155461, guid: 1f0c42048e034b44bb7404995199a9d3, type: 3}
+  - {fileID: 8312003310105155461, guid: 023e5306dd740564c92a19d89e30137f, type: 3}
+  - {fileID: 8312003310105155461, guid: aa0865cef710c1a48bd89c5783f1358c, type: 3}
+  - {fileID: 8312003310105155461, guid: a0fbd153e3da50e45bbbf740ac9002fb, type: 3}
+  - {fileID: 8312003310105155461, guid: 0f1b1a8c912c4f8439f346286a33b381, type: 3}
+  - {fileID: 8312003310105155461, guid: 43962b5158dd4884faa4f5c361919f55, type: 3}
+  - {fileID: 8312003310105155461, guid: 32ad34ffa3aca424eb6e2482028273e9, type: 3}
+  - {fileID: 8312003310105155461, guid: f34bc8bee5f381e4e994d54717e6f5db, type: 3}
+  potionSpawnPoint: {fileID: 1072403029}
+  potionSpawnParticleSystem: {fileID: 1072403030}
+  cauldronParticleSystem: {fileID: 667435911}
   initialPotionOfLight: 0
+--- !u!82 &1620603706 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2794079462235315776, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+  m_PrefabInstance: {fileID: 1620603700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1794495884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,8 +3001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -3996,8 +4056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -5009,8 +5067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -6776,8 +6832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -7358,8 +7412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -8037,8 +8089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -9553,8 +9603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -9790,8 +9838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -10764,8 +10810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -11823,8 +11867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -12479,8 +12521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -13153,8 +13193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -14330,8 +14368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -14619,8 +14655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -15765,8 +15799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -16278,8 +16310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -17648,8 +17678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0
@@ -18315,8 +18343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aec1e9964750d4c81606a7b0771994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayManager: {fileID: 0}
-  itemManager: {fileID: 0}
   minValue: 0
   maxValue: 0
   currentProgression: 0

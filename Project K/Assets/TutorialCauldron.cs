@@ -23,6 +23,7 @@ namespace Items
         private string _currentRecipe;
         private void Start()
         {
+            initialPotionOfLight = true;
             allowBase = true;
             allowFlavor = true;
             allowStrength = true;
@@ -154,6 +155,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.blue)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 9;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowBase = false;
@@ -171,6 +173,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.green)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 11;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowFlavor = false;
@@ -186,6 +189,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.yellow)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 10;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowStrength = false;

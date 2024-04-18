@@ -21,7 +21,16 @@ public class PotionEffects : MonoBehaviour
       player = GameObject.FindGameObjectWithTag("Player");
       powerManager = player.gameObject.GetComponentInChildren<PowerManager>();
       dynamicMoveProvider = player.gameObject.GetComponentInChildren<DynamicMoveProvider>();
-      dayManager = GameObject.FindGameObjectWithTag("Day_Manager").GetComponent<DayManager>();
+     
+      try
+      {
+         dayManager = GameObject.FindGameObjectWithTag("Day_Manager").GetComponent<DayManager>();
+      }
+      catch (Exception e)
+      {
+         Debug.Log("CATCH: DAYMANAGER NOT FOUND. SCENE LOADED IS NOT MAIN SCENE");
+         Console.WriteLine(e);
+      }
       canEffect = false;
    }
 
@@ -62,7 +71,7 @@ public class PotionEffects : MonoBehaviour
          {
             case PotionEffectsEnum.manaRestore:
             {
-               ManaRestore();
+               StartCoroutine(ManaRestore());
                break;
             }
             case PotionEffectsEnum.timeBackwards:
@@ -80,11 +89,13 @@ public class PotionEffects : MonoBehaviour
      
    }
    
-   private void ManaRestore()
+   private IEnumerator ManaRestore()
    {
       powerManager.RestoreMana(750);
       Debug.Log("Mana Restored Called.");
       audioSource.Play();
+      transform.localScale = Vector3.zero;
+      yield return new WaitForSeconds(1.5f);
       Destroy(gameObject);
       
    }
