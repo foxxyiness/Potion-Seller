@@ -70,7 +70,7 @@ namespace Items
         {
             foreach (var itemSpawnGameObject in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.transform.position, Quaternion.identity)))
             {
-                itemSpawnGameObject.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                //itemSpawnGameObject.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
                 itemSpawnGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
             
