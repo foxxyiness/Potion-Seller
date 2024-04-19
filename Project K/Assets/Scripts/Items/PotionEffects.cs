@@ -72,16 +72,19 @@ public class PotionEffects : MonoBehaviour
             case PotionEffectsEnum.manaRestore:
             {
                StartCoroutine(ManaRestore());
+               canEffect = false;
                break;
             }
             case PotionEffectsEnum.timeBackwards:
             {
                TimeBackwards();
+               canEffect = false;
                break;
             }
             case PotionEffectsEnum.speed:
             {
                StartCoroutine(SpeedBoost());
+               canEffect = false;
                break;
             }
          }

@@ -11,6 +11,7 @@ public class TutorialLostPage : MonoBehaviour
         if (other.gameObject.CompareTag("Fire"))
         {
             tutorialManager.currentState = 26;
+            Destroy(tutorialManager.text.gameObject);
             tutorialManager.UpdateState();
             Debug.Log("Lost Page Hit");
             Destroy(gameObject);
