@@ -25395,6 +25395,159 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2304190085531106409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 723953884270145197, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_Name
+      value: FarmPlots
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062121471429910028, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 1062121471429910028, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 1062121471429910028, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 119.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665780406969123146, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460802911389066068, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 3460802911389066068, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 3460802911389066068, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 4801850507025816827, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 4801850507025816827, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 4801850507025816827, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 5088438381999816624, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 5088438381999816624, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 5088438381999816624, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 5783465560130437572, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 5783465560130437572, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 5783465560130437572, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 6790236867840543844, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 6790236867840543844, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 6790236867840543844, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 7491642339481625774, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 7491642339481625774, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 7491642339481625774, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    - target: {fileID: 7638281900426537491, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 917720226}
+    - target: {fileID: 7638281900426537491, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1502414200}
+    - target: {fileID: 7638281900426537491, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: LeftHandManaStatus
+      value: 
+      objectReference: {fileID: 1166212913}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
 --- !u!1001 &2310241466420176713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25403,6 +25556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1132830862637789701, guid: 5783b0d0938edf347bef43f1cac5ae0b, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5014742700651681623, guid: 5783b0d0938edf347bef43f1cac5ae0b, type: 3}
       propertyPath: m_Name
       value: ashcapCrop
@@ -27364,17 +27521,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23020c92410fee4ab7e73bf1b0e610d, type: 3}
---- !u!114 &7097345106026483397 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5708505374484771537, guid: d23020c92410fee4ab7e73bf1b0e610d, type: 3}
-  m_PrefabInstance: {fileID: 7097345106026483396}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a814043c6df71c846a7b353affcb5e92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &7184643454459213540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27909,467 +28055,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 40
---- !u!1001 &8225085832617867091
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 120101570507513443, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 161292759079185651, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 210103825558705515, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 254000284751903305, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 385328965162589515, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 119.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439478498997242722, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 567056055605580303, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 702043815401386479, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 702043815401386479, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 714590381977063742, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 714590381977063742, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 714590381977063742, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 906703656609741061, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1015839325556170765, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1101356187348189014, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1126378898217026904, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1382812757028448640, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1386108845924591930, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1483804028257681738, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1580701654912604530, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1653500617577816890, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1819598268529416716, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 1952366514674414970, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 2489329789179547034, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 2642945079106692046, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 2642945079106692046, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 2667462512864059132, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 2675937207803725233, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 2828014054946744427, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3086406784501769148, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3360606942373769315, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3472730890660591567, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3472730890660591567, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 3516833541406121630, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3680838990385579215, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3748442578630793271, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 3748442578630793271, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 3748442578630793271, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 3771842711564151626, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 3881987326387875567, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 3881987326387875567, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 3881987326387875567, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 3994760201530447358, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4016851894293625944, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4163460007396121370, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4239311525846202355, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4258974154608113637, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 4258974154608113637, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 4258974154608113637, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 4298701175563673740, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4298701175563673740, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 4321356135820646862, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4361309965795135755, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4416306705728219613, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_Name
-      value: FarmPlots
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635529073231609438, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4635529073231609438, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 4702300676107281495, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 4886493410838758282, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5140793835733713538, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5271285689988875117, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5601285061668077343, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 5601285061668077343, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 5601285061668077343, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 5686452118335500435, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5691385440591776482, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5709295439007772053, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 5926735181066927302, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 5926735181066927302, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 5926735181066927302, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 5996344440042917784, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 6372234859467454622, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 6669157842045684978, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 6827011094115057100, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 6835987819300236705, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 6835987819300236705, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 6835987819300236705, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 6931532076737764111, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7034891190905611501, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7039054828148193480, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7039054828148193480, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 7299151653651925505, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7463769807223018047, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7463769807223018047, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 7764532845079837190, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7813607971032151687, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 7886983767682973467, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8001174108405366759, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8102319092530605923, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8296535878792239542, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8413102521570179519, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8415026917663680293, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476529316260561158, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8476529316260561158, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    - target: {fileID: 8980437739397027537, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 8993456048376638456, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 9012681575861125924, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 9044312319941056778, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 9075271799058422929, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 9145179672058265661, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 917720226}
-    - target: {fileID: 9145179672058265661, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: leftHand
-      value: 
-      objectReference: {fileID: 1502414200}
-    - target: {fileID: 9145179672058265661, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: LeftHandManaStatus
-      value: 
-      objectReference: {fileID: 1166212913}
-    - target: {fileID: 9155018172388071245, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: _dayManager
-      value: 
-      objectReference: {fileID: 65670740}
-    - target: {fileID: 9155018172388071245, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 7097345106026483397}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c0b1d1a76f191f5479144514b1443cad, type: 3}
 --- !u!1 &8288664280068871271
 GameObject:
   m_ObjectHideFlags: 0
@@ -29042,7 +28727,7 @@ SceneRoots:
   - {fileID: 1132465206}
   - {fileID: 7097345106026483396}
   - {fileID: 3245361349364980435}
-  - {fileID: 8225085832617867091}
+  - {fileID: 2304190085531106409}
   - {fileID: 136655099}
   - {fileID: 1942558909}
   - {fileID: 1515763691}
