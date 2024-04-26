@@ -1,7 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class Sunbeam : MonoBehaviour
 {
+   [SerializeField] private ParticleSystem sunParticleSystem;
+   
+   //Delay for Particle System
+   private IEnumerator ParticleDelay()
+   {
+      sunParticleSystem.Play();
+      yield return new WaitForSeconds(1f);
+   }
+   
+
    private void OnCollisionEnter(Collision other)
    {
       
@@ -9,6 +20,7 @@ public class Sunbeam : MonoBehaviour
       {
          var otherObject = other.collider.GetComponentInChildren<GrowthStage>();
          otherObject.currentTimeBeforeStage--;
+         StartCoroutine(ParticleDelay());
          Destroy(this.gameObject);
          Debug.Log("CROP HIT");
       }
@@ -18,6 +30,7 @@ public class Sunbeam : MonoBehaviour
       }
       else
       {
+         StartCoroutine(ParticleDelay());
          Destroy(this.gameObject);
       }
    }
