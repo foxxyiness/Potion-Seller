@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 154615530}
   - component: {fileID: 154615529}
   m_Layer: 0
-  m_Name: Postprocessing STuff
+  m_Name: Postprocessing Stuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6107,69 +6107,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4179118298844994210, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217135656128406322, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5137868570522882944, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
       propertyPath: m_Name
       value: Sunbeam
       objectReference: {fileID: 0}
     - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ShapeModule.type
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.enabled
+      propertyPath: lengthInSec
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime1
-      value: 25829
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.8307333
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001291607047619316, guid: 7e1d286d7efaa470a9bd3451d24e2701, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
-      value: 0
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31689,6 +31637,10 @@ PrefabInstance:
       propertyPath: potionSpawnPoint
       value: 
       objectReference: {fileID: 1241968543}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: recipes.Array.data[2]
+      value: watersunicepepper
+      objectReference: {fileID: 0}
     - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
       propertyPath: potionSpawnParticleSystem
       value: 
