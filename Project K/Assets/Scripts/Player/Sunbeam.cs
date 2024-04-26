@@ -9,10 +9,9 @@ public class Sunbeam : MonoBehaviour
    private IEnumerator ParticleDelay()
    {
       sunParticleSystem.Play();
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(.6f);
    }
    
-
    private void OnCollisionEnter(Collision other)
    {
       
