@@ -71,6 +71,8 @@ namespace Player
          if (powerAmount > 2000)
             powerAmount = 2000;
          SetMana();
+         CheckPowerLevelForFire();
+         CheckPowerLevelForSun();
          Debug.Log("Mana Level: " + powerAmount);
       }
       void SetMana()
@@ -103,8 +105,8 @@ namespace Player
       private void Update()
       {
          SunPower();
-         CheckPowerLevelForFire();
-         CheckPowerLevelForSun();
+         //CheckPowerLevelForFire();
+         //CheckPowerLevelForSun();
          CheckRayInteractors();
       }
 
@@ -131,6 +133,7 @@ namespace Player
       {
          if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
          {
+            sunPower = false;
             if (initialSun)
             {
                audioSource.clip = sunPowerSound;
@@ -159,6 +162,7 @@ namespace Player
                   initialSun = false;
                }
                yield return new WaitForSeconds(sunDelay);
+               CheckPowerLevelForSun();
             }
             else
             {
@@ -184,6 +188,8 @@ namespace Player
                   SetMana();
                }
                yield return new WaitForSeconds(sunDelay);
+               sunPower = true;
+               CheckPowerLevelForSun();
             }
          }
          audioSource.Stop();
@@ -231,6 +237,7 @@ namespace Player
                SetMana();
                yield return new WaitForSeconds(1);
                canFire = true;
+               CheckPowerLevelForFire();
                Destroy(tutorialManager.text.gameObject);
                tutorialManager.currentState = 4;
                tutorialManager.UpdateState();
@@ -247,6 +254,7 @@ namespace Player
                   SetMana();
                   yield return new WaitForSeconds(1);
                   canFire = true;
+                  CheckPowerLevelForFire();
             }
          }
       }
