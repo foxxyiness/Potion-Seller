@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -19,6 +20,8 @@ namespace Items
         [SerializeField] private Transform potionSpawnPoint;
         [SerializeField] private ParticleSystem potionSpawnParticleSystem;
         [SerializeField] private ParticleSystem cauldronParticleSystem;
+        [SerializeField] private AudioClip successSound;
+        [SerializeField] private AudioClip fireSwoosh;
 
         private string _currentRecipe;
         private void Start()
@@ -84,6 +87,7 @@ namespace Items
         private IEnumerator SpawnPotion(int recipeIndex)
         {
             //Plays Fire Swoosh and spawns in potion after swoosh
+            audioSource.clip = fireSwoosh;
             audioSource.Play();
             potionSpawnParticleSystem.Play();
             yield return new WaitForSeconds(2.25F);
@@ -153,6 +157,8 @@ namespace Items
         {
             if (collision.collider.CompareTag("BaseFlavor") && allowBase)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //baseFlavor = collision.gameObject;
                 Debug.Log("Base Flavor Found");
                 ingredientScale[0] = collision.gameObject.transform.localScale;
@@ -168,6 +174,8 @@ namespace Items
             }
             else if (collision.collider.CompareTag("Flavor") && allowFlavor)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //flavor = collision.gameObject;
                 Debug.Log("Flavor Found");
                 ingredientScale[2] = collision.gameObject.transform.localScale;
@@ -181,6 +189,8 @@ namespace Items
             }
             else if (collision.collider.CompareTag("Strength") && allowStrength)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //strength = collision.gameObject;
                 Debug.Log("Strength Found");
                 ingredientScale[1] = collision.gameObject.transform.localScale;

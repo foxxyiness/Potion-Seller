@@ -31417,7 +31417,8 @@ PrefabInstance:
       value: Player_Rig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7135537144254834508, guid: 769bb0901bd788e49a6348b98fdcdb83, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769bb0901bd788e49a6348b98fdcdb83, type: 3}
@@ -32696,6 +32697,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: fireSwoosh
+      value: 
+      objectReference: {fileID: 8300000, guid: e1931c659c45a401e8be4629bf62d088, type: 3}
+    - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
+      propertyPath: successSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d55b2854f78b264f8251bced13ff8d2, type: 3}
     - target: {fileID: 9187430360640310134, guid: 69576e502997746d4982a403fe8e9931, type: 3}
       propertyPath: potionSpawnPoint
       value: 
