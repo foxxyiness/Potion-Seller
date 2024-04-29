@@ -34,7 +34,7 @@ public class Wallet : MonoBehaviour
     }
     private void UpdateBalance()
     {
-        balance = playerWallet.GetBalance();
+       // balance = playerWallet.GetBalance();
         balanceText.text = balance.ToString();
     }
 

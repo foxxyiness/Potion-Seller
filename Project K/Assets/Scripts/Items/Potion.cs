@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Items;
 
@@ -6,36 +7,64 @@ public class Potion : MonoBehaviour
     [SerializeField] private GameObject toastedUpgrade;
     [SerializeField] private bool toastable;
     [SerializeField] private int roastLevel;
+    [SerializeField] private string archetype;
     [SerializeField] private string baseText;
     [SerializeField] private string strengthText;
     [SerializeField] private string flavorText;
+    [SerializeField] private Archetype archeType;
     [SerializeField] private Base baseType;
     [SerializeField] private Strength strengthType;
     [SerializeField] private Flavor flavorType;
+    private Rigidbody rb;
+    private bool isBreakable;
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         GetComponent<Item>();
         roastLevel = 2;
     }
+    
 
+    private enum Archetype
+    {
+        Light,
+        Darkness,
+        Harmony,
+        Chaos,
+        Coffee
+    }
     private enum Base
     {
         Water,
         Light,
-        Darkness
+        Darkness,
+        Harmony,
+        Chaos,
+        Coffee
         
     }
     private enum Strength
     {
         Sun,
         StormVine,
-        Fireshot
+        PhoenixBerry,
+        AshCapMushroom,
+        GoblinLeaf,
+        Shoot
     }
     private enum Flavor
     {
         Hair,
         IcePepper,
-        Toasted
+        BarbedBamboo,
+        PixieCabbage,
+        EagleBlossom,
+        Fire
+    }
+
+    public string GetArchetype()
+    {
+        return archetype.ToString();
     }
     public string GetToastable()
     {
@@ -62,7 +91,7 @@ public class Potion : MonoBehaviour
             CheckRoast();
         }
     }
-
+    
     private void CheckRoast()
     {
         if (roastLevel == 0)
@@ -71,4 +100,5 @@ public class Potion : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
 }

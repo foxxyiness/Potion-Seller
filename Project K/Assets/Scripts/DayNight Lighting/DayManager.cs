@@ -2,36 +2,32 @@ using System.Collections;
 using Orders;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //[ExecuteInEditMode]
 public class DayManager : MonoBehaviour
 {
-    [SerializeField] 
-    private OrderManager orderManager;
-
-    [SerializeField]
-    private int totalMin;
-
-    [SerializeField]
-    private float timer;
-
-    [SerializeField]
-    private float hour, clampHour;
-    [SerializeField]
-    private int min;
-
-    private int _totalDays;
+    [SerializeField] private OrderManager orderManager;
+    [SerializeField] private int totalMin;
+    [SerializeField] private float timer;
+    [SerializeField] private float hour, clampHour;
+    [SerializeField] private int min;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bellChime;
+    [SerializeField] private int totalDays;
+    public bool dayContinue;
     public float timerTick;
-    public int getTotalDays => _totalDays;
+    public int getTotalDays => totalDays;
     public float getClampHour => clampHour;
 
     public bool doFastForward;
     // Start is called before the first frame update
     private void Awake()
     {
+        dayContinue = true;
         totalMin = 1440;
-        //Makes day cycle 6 minutes
-        timerTick = .25f;
+        //Makes day cycle 9 minutes
+        timerTick = .75f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -56,7 +52,7 @@ public class DayManager : MonoBehaviour
             timerTick = 0.01f;
         }
         yield return new  WaitUntil(() => totalMin < 10);
-        timerTick = 0.25f;
+        timerTick = 0.75f;
         doFastForward = false;
         
     }
@@ -64,6 +60,7 @@ public class DayManager : MonoBehaviour
     private void Timer()
     {
         //Timer cycle for Day
+        if (!dayContinue) return;
         timer += Time.deltaTime;
         while (timer >= timerTick)
         {
@@ -74,6 +71,48 @@ public class DayManager : MonoBehaviour
             hour = Mathf.Floor(clampHour);
         }
         DayTime();
+        CheckQuarterBell();
+    }
+
+    //Checks and Plays *NOT QUARTERLY* BELL
+    private void CheckQuarterBell()
+    {
+        switch (totalMin)
+        {
+            case 1439:
+                StartCoroutine(PlayBellChime(1));
+                break;
+            case 960:
+                StartCoroutine(PlayBellChime(2));
+                break;
+            case 480:
+                StartCoroutine(PlayBellChime(3));
+                break;
+        }
+    }
+
+    private IEnumerator PlayBellChime(int gameStageNumber)
+    {
+        audioSource.clip = bellChime;
+        switch (gameStageNumber)
+        {
+            case 1:
+                audioSource.Play();
+                break;
+            case 2:
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                break;
+            case 3:
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                yield return new WaitForSeconds(4f);  
+                audioSource.Play();
+                break;
+        }
+        
     }
     private void DayTime()
     {
@@ -92,15 +131,23 @@ public class DayManager : MonoBehaviour
         }
       
     }
+    
 
     private void AddDay()
     {
         //Adds day and checks and iterates difficulty
-        _totalDays++;
-        if (_totalDays % 3 == 0 && orderManager.getCurrentState != OrderManager.Difficulty.VeryHard)
+        totalDays++;
+        if (totalDays % 3 == 0 && orderManager.getCurrentState != OrderManager.Difficulty.VeryHard)
         {
             orderManager.AddDifficulty();
         }
         StartCoroutine(orderManager.StartOfDay());
+    }
+
+    public void AddTime(int x)
+    {
+        totalMin += x;
+        if (totalMin > 1440)
+            totalDays = 1440;
     }
 }

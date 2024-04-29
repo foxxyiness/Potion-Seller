@@ -14,6 +14,12 @@ TagManager:
   - Fire
   - Sun_Beam
   - Crop
+  - book
+  - Day_Manager
+  - Item_Manager
+  - Player_Rig
+  - Crop_Sign
+  - TimeForward
   layers:
   - Default
   - TransparentFX

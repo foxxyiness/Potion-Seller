@@ -298,4 +298,9 @@ MonoBehaviour:
   type: 1
   itemName: icepepper
   description: 
+  price: 0
+  cost: 0
+  velocityLimit: 0
+  currentVelocity: 0
+  previousPosition: {x: 0, y: 0, z: 0}
   difficulty: 0

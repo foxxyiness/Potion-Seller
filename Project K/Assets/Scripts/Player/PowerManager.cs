@@ -1,8 +1,10 @@
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -14,7 +16,6 @@ namespace Player
       //private XRIDefaultInputActions _defaultAction;
       [Header("References for Game Objects")]
       [SerializeField] private DayManager dayManager;
-      //[SerializeField] private GameMenuManager gameMenuManager;
       [SerializeField] private XRBaseController leftController;
       [SerializeField] private XRBaseController rightController;
       [SerializeField] private GameObject fireBall;
@@ -23,9 +24,16 @@ namespace Player
       [SerializeField] private Transform leftPowerSpawnPoint;
       [SerializeField] private XRRayInteractor rightRayInteractor;
       [SerializeField] private XRRayInteractor leftRayInteractor;
+      [SerializeField] private AudioSource audioSource;
+      [SerializeField] private AudioClip sunPowerSound;
+
+      [Header("Mana UI")] 
+      public Image rightHandManaStatus;
+      public Image leftHandManaStatus;
 
       [Header("Power Amount & Level")]
       [SerializeField] private short powerAmount = 2000;
+      [SerializeField] private short totalPowerAmount = 2000;
       [Header("Float Values ")] 
       [SerializeField] private float sunDelay = 1.0f;
       [SerializeField] private float intensity = 0.5f; 
@@ -34,57 +42,56 @@ namespace Player
 
       [Header("State Check Booleans")]
       public bool timePower;
-      private bool leftItemGrabbed;
-      private bool rightItemGrabbed;
+      private bool _leftItemGrabbed;
+      private bool _rightItemGrabbed;
       public bool sunPower;
       public bool canFire;
-      private Camera camera;
-      private bool isCameraNotNull;
+      private Camera _camera;
+      private bool _isCameraNotNull;
 
       private void Awake()
       {
-         isCameraNotNull = camera != null;
-         camera = Camera.main;
+         _isCameraNotNull = _camera != null;
+         _camera = Camera.main;
          canFire = true;
          sunPower = true;
-         timePower = false;
          inputAction["Fire_Power"].performed += Fire;
-         inputAction["Time_Power"].performed += TimeForward;
-         //inputAction["Sun_Power"].performed += SunPower;
-         /*_defaultAction = new XRIDefaultInputActions();
-         _defaultAction.XRIPower.Fire_Power.performed += Fire;
-         _defaultAction.XRIPower.Time_Power.performed += TimeForward;*/
+         SetMana();
+         
       }
-      public void SetFireTrue()
-      {
-         if (canFire)
-            canFire = false;
 
-         if (!canFire)
-            canFire = true;
-      }
-      public void SetSunTrue()
+      public short GetManaLevel()
       {
-         if (sunPower)
-            sunPower = false;
-
-         if (!sunPower)
-            sunPower = true;
+         return powerAmount;
       }
-     
+
+      public void RestoreMana(short x)
+      {
+         powerAmount += x;
+         if (powerAmount > 2000)
+            powerAmount = 2000;
+         SetMana();
+         CheckPowerLevelForFire();
+         CheckPowerLevelForSun();
+         Debug.Log("Mana Level: " + powerAmount);
+      }
+      void SetMana()
+      {
+         rightHandManaStatus.fillAmount = (float)powerAmount / totalPowerAmount;
+      }
       /****************************************************************************************************************/
       //Functions for Direct Interactors
       public void SetRightItemGrabTrue()
-      { rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
+      { _rightItemGrabbed = true; canFire = false; Debug.Log("ITEM GRABBED");}
 
       public void SetRightItemGrabFalse()
-      { rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
+      { _rightItemGrabbed = false; canFire = true; Debug.Log("ITEM DROPPED");}
       
       public void SetLeftItemGrabTrue()
-      { leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
+      { _leftItemGrabbed = true; sunPower = false; Debug.Log("ITEM GRABBED");}
 
       public void SetLeftItemGrabFalse()
-      { leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
+      { _leftItemGrabbed = false; sunPower = true; Debug.Log("ITEM DROPPED");}
       
       /****************************************************************************************************************/
 
@@ -98,8 +105,8 @@ namespace Player
       private void Update()
       {
          SunPower();
-         CheckPowerLevelForFire();
-         CheckPowerLevelForSun();
+         //CheckPowerLevelForFire();
+         //CheckPowerLevelForSun();
          CheckRayInteractors();
       }
 
@@ -124,12 +131,14 @@ namespace Player
 
       private IEnumerator SunPowerCoroutine()
       {
-         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !leftItemGrabbed)
+         if ( inputAction["Sun_Power"].IsInProgress()  && sunPower && !_leftItemGrabbed)
          {
+            sunPower = false;
+            audioSource.clip = sunPowerSound;
             var position = leftPowerSpawnPoint.position;
-            if (isCameraNotNull)
+            if (_isCameraNotNull)
             {
-               Ray ray = camera.ScreenPointToRay(position);
+               Ray ray = _camera.ScreenPointToRay(position);
             }
 
             if (Physics.Raycast(position, leftPowerSpawnPoint.transform.forward,
@@ -142,20 +151,35 @@ namespace Player
                   Color.red, 2f);
                Debug.Log(hitInfo.collider.name);
                leftController.SendHapticImpulse(1, .25f);
+               StartCoroutine(SunPowerSoundCoroutine());
+               leftHandManaStatus.fillAmount = 1;
                powerAmount--;
+               SetMana();
             }
             yield return new WaitForSeconds(sunDelay);
+            sunPower = true;
+            leftHandManaStatus.fillAmount = 0f;
+            CheckPowerLevelForSun();
          }
+         audioSource.Stop();
+      }
+
+      private IEnumerator SunPowerSoundCoroutine()
+      {
+         if (audioSource.isPlaying)
+         {
+            audioSource.Stop();
+            yield return new WaitForSeconds(1F);
+         }
+         audioSource.Play();
+         yield return new WaitForSeconds(1F);
+
       }
       private void Fire(InputAction.CallbackContext context)
       {
          StartCoroutine(FireCoroutine(context));
       }
-
-      private void TimeForward(InputAction.CallbackContext context)
-      {
-         StartCoroutine(TimeForwardCoroutine(context));
-      }
+      
       private void OnDisable()
       {
          inputAction.Disable();
@@ -164,7 +188,7 @@ namespace Player
 
       private IEnumerator FireCoroutine(InputAction.CallbackContext context)
       {
-         if ( context.performed && !rightItemGrabbed && canFire)
+         if ( context.performed && !_rightItemGrabbed && canFire)
          {
             canFire = false;
             Debug.Log("FIRE");
@@ -172,23 +196,22 @@ namespace Player
             GameObject fireBallShot = Instantiate(fireBall, rightPowerSpawnPoint.position, Quaternion.identity);
             fireBallShot.GetComponent<Rigidbody>().AddForce(rightPowerSpawnPoint.transform.forward * shootForce, ForceMode.Impulse);
             powerAmount -= 30;
+            SetMana();
             yield return new WaitForSeconds(1);
             canFire = true;
+            CheckPowerLevelForFire();
          }
       }
 
       //Time Power
-      private IEnumerator TimeForwardCoroutine(InputAction.CallbackContext context)
+      public IEnumerator TimeForwardCoroutine()
       {
-         if (context.performed && timePower)
-         {
             Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
             leftController.SendHapticImpulse(1, 10);
             rightController.SendHapticImpulse(1, 10);
             yield return new WaitForSeconds(3);
             //Reference to enable DayManager Time forward
             dayManager.doFastForward = true;
-         }
       }
       
       private void TriggerHaptic(XRBaseController controller)
