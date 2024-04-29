@@ -14,7 +14,15 @@ namespace Player
 
         private void OnCollisionEnter(Collision other)
         {
-            Destroy(this.gameObject);
+            if (other.collider.CompareTag("TimeForward"))
+            {
+                other.gameObject.GetComponent<TimeForward>().DoTimeForward();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

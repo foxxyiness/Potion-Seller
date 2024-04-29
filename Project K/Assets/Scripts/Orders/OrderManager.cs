@@ -12,6 +12,7 @@ namespace Orders
     public class OrderManager : MonoBehaviour
     {
         [SerializeField] private MenuManager menuManager;
+        [SerializeField] private DayManager dayManager;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private AudioSource orderManagerAudio;
         [SerializeField] private AudioClip deathChime;
@@ -40,7 +41,8 @@ namespace Orders
         {
             foreach (Item item in itemsOnOrder)
             {
-                TextMeshProUGUI text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation, orderUIContent.transform);
+                TextMeshProUGUI text = Instantiate(textContent, orderUIContent.transform.position,
+                    orderUIContent.transform.rotation, orderUIContent.transform);
                 text.text = item.GetName();
                 //text.transform.SetParent(orderUIContent.transform);
                 text.autoSizeTextContainer = true;
@@ -52,7 +54,7 @@ namespace Orders
         private void Start()
         {
             StartCoroutine(StartOfDay());
-            orderManagerAudio.clip = deathChime;
+            //orderManagerAudio.clip = deathChime;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -79,6 +81,8 @@ namespace Orders
         //Death Coroutine. Runs When day is complete but not all orders were complete. Starts Chime and loads Scene ****
         private IEnumerator Death()
         {
+            dayManager.dayContinue = false;
+            orderManagerAudio.clip = deathChime;
             orderManagerAudio.Play();
             DontDestroyOnLoad(orderManagerAudio);
             if (orderManagerAudio.isPlaying)

@@ -13,7 +13,9 @@ public class DayManager : MonoBehaviour
     [SerializeField] private float hour, clampHour;
     [SerializeField] private int min;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bellChime;
     [SerializeField] private int totalDays;
+    public bool dayContinue;
     public float timerTick;
     public int getTotalDays => totalDays;
     public float getClampHour => clampHour;
@@ -22,9 +24,10 @@ public class DayManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        dayContinue = true;
         totalMin = 1440;
         //Makes day cycle 9 minutes
-        timerTick = .375f;
+        timerTick = .75f;
     }
     //for every 1.5 seconds, subtract 1 from _totalMin
 
@@ -49,7 +52,7 @@ public class DayManager : MonoBehaviour
             timerTick = 0.01f;
         }
         yield return new  WaitUntil(() => totalMin < 10);
-        timerTick = 0.25f;
+        timerTick = 0.75f;
         doFastForward = false;
         
     }
@@ -57,6 +60,7 @@ public class DayManager : MonoBehaviour
     private void Timer()
     {
         //Timer cycle for Day
+        if (!dayContinue) return;
         timer += Time.deltaTime;
         while (timer >= timerTick)
         {
@@ -89,6 +93,7 @@ public class DayManager : MonoBehaviour
 
     private IEnumerator PlayBellChime(int gameStageNumber)
     {
+        audioSource.clip = bellChime;
         switch (gameStageNumber)
         {
             case 1:

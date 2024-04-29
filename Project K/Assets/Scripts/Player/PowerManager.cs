@@ -55,9 +55,7 @@ namespace Player
          _camera = Camera.main;
          canFire = true;
          sunPower = true;
-         timePower = false;
          inputAction["Fire_Power"].performed += Fire;
-         inputAction["Time_Power"].performed += TimeForward;
          SetMana();
          
       }
@@ -181,11 +179,7 @@ namespace Player
       {
          StartCoroutine(FireCoroutine(context));
       }
-
-      private void TimeForward(InputAction.CallbackContext context)
-      {
-         StartCoroutine(TimeForwardCoroutine(context));
-      }
+      
       private void OnDisable()
       {
          inputAction.Disable();
@@ -210,17 +204,14 @@ namespace Player
       }
 
       //Time Power
-      private IEnumerator TimeForwardCoroutine(InputAction.CallbackContext context)
+      public IEnumerator TimeForwardCoroutine()
       {
-         if (context.performed && timePower)
-         {
             Debug.Log("RAH RHA RAH RAH RAH ARHA RAH ");
             leftController.SendHapticImpulse(1, 10);
             rightController.SendHapticImpulse(1, 10);
             yield return new WaitForSeconds(3);
             //Reference to enable DayManager Time forward
             dayManager.doFastForward = true;
-         }
       }
       
       private void TriggerHaptic(XRBaseController controller)

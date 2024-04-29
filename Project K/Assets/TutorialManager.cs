@@ -1,18 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Items;
-using Pages;
 using Player;
 using TMPro;
-using UI___Menu;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
-using Random = System.Random;
+
 
 public class TutorialManager : MonoBehaviour
 {
