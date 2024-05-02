@@ -30235,6 +30235,10 @@ PrefabInstance:
       value: Crop
       objectReference: {fileID: 0}
     - target: {fileID: 3955806855817604974, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
+      propertyPath: m_text
+      value: Phoenix Berry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955806855817604974, guid: de499c878d1704ac4b5a5a245ff4ab40, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 4d91c75780bd53c4e9a15ab738d7c1ec, type: 2}
