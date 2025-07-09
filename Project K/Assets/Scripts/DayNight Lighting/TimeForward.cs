@@ -8,19 +8,9 @@ public class TimeForward : MonoBehaviour
     [FormerlySerializedAs("_dayManager")] [SerializeField] private DayManager dayManager;
     [SerializeField] private PowerManager powerManager;
 
-    private void OnTriggerEnter(Collider other)
+    public void DoTimeForward()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            powerManager.timePower = true;
-        }
+        StartCoroutine(powerManager.TimeForwardCoroutine());
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            powerManager.timePower = false;
-        }
-    }
 }

@@ -106,6 +106,9 @@ MonoBehaviour:
   description: Darkness potion that promotes death
   price: 500
   cost: 0
+  velocityLimit: 0
+  currentVelocity: 0
+  previousPosition: {x: 0, y: 0, z: 0}
   difficulty: 0
 --- !u!54 &-1081773039998263840
 Rigidbody:
@@ -327,6 +330,3 @@ MonoBehaviour:
   baseType: 0
   strengthType: 1
   flavorType: 1
-  speed: 0
-  velocityLimit: 0
-  currentVelocity: 0

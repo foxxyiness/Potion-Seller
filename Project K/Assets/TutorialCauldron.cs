@@ -19,10 +19,13 @@ namespace Items
         [SerializeField] private Transform potionSpawnPoint;
         [SerializeField] private ParticleSystem potionSpawnParticleSystem;
         [SerializeField] private ParticleSystem cauldronParticleSystem;
+        [SerializeField] private AudioClip successSound;
+        [SerializeField] private AudioClip fireSwoosh;
         public bool initialPotionOfLight;
         private string _currentRecipe;
         private void Start()
         {
+            initialPotionOfLight = true;
             allowBase = true;
             allowFlavor = true;
             allowStrength = true;
@@ -81,6 +84,7 @@ namespace Items
         private IEnumerator SpawnPotion(int recipeIndex)
         {
             //Plays Fire Swoosh and spawns in potion after swoosh
+            audioSource.clip = fireSwoosh;
             audioSource.Play();
             potionSpawnParticleSystem.Play();
             yield return new WaitForSeconds(2.25F);
@@ -147,6 +151,8 @@ namespace Items
                 if (collision.collider.CompareTag("BaseFlavor") && allowBase)
                 {
                     //baseFlavor = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Base Flavor Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -154,6 +160,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.blue)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 9;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowBase = false;
@@ -164,6 +171,8 @@ namespace Items
                 else if (collision.collider.CompareTag("Flavor") && allowFlavor)
                 {
                     //flavor = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Flavor Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -171,6 +180,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.green)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 11;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowFlavor = false;
@@ -179,6 +189,8 @@ namespace Items
                 else if (collision.collider.CompareTag("Strength") && allowStrength)
                 {
                     //strength = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Strength Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -186,6 +198,7 @@ namespace Items
                     StartCoroutine(
                         CauldronSmoke(Color.yellow)); //*************************************TEMP*****************//
                     tutorialManager.currentState = 10;
+                    Destroy(tutorialManager.text.gameObject);
                     tutorialManager.UpdateState();
                     //itemList.Add(collision.gameObject.GetComponent<Item>());
                     allowStrength = false;
@@ -203,6 +216,8 @@ namespace Items
                 if (collision.collider.CompareTag("BaseFlavor") && allowBase)
                 {
                     //baseFlavor = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Base Flavor Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -218,6 +233,8 @@ namespace Items
                 else if (collision.collider.CompareTag("Flavor") && allowFlavor)
                 {
                     //flavor = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Flavor Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -231,6 +248,8 @@ namespace Items
                 else if (collision.collider.CompareTag("Strength") && allowStrength)
                 {
                     //strength = collision.gameObject;
+                    audioSource.clip = successSound;
+                    audioSource.Play();
                     Debug.Log("Strength Found");
                     collision.gameObject.transform.localScale = Vector3.zero;
                     collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;

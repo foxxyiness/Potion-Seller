@@ -1,18 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Items;
-using Pages;
 using Player;
 using TMPro;
-using UI___Menu;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
-using Random = System.Random;
+
 
 public class TutorialManager : MonoBehaviour
 {
@@ -42,7 +34,6 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI text; 
     void Start()
     {
-        currentState = 0;
         UpdateState();
         playButton.SetActive(false);
         nextButton.SetActive(false);
@@ -56,6 +47,7 @@ public class TutorialManager : MonoBehaviour
 
     public void AddState()
     {
+        Destroy(text.gameObject);
         currentState++;
         UpdateState();
     }
@@ -63,7 +55,6 @@ public class TutorialManager : MonoBehaviour
     IEnumerator TimeDelay()
     {
         yield return new WaitForSeconds(10);
-        Destroy(text.gameObject);
         AddState();
     }
 
@@ -240,7 +231,6 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
             case 15:
@@ -250,7 +240,6 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
             case 16:
@@ -261,14 +250,13 @@ public class TutorialManager : MonoBehaviour
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
-                StartCoroutine(TimeDelay());
                 break;
             }
             case 17:
             {
                 nextButton.SetActive(true);
                 _contentString =
-                    "Great, this ingredient, known as Ice Pepper. Now grab it and put it into the potion.";
+                    "Great, this ingredient, known as Ice Pepper. Now grab it and put it into the cauldron.";
                 textContent.text = _contentString;
                 text = Instantiate(textContent, orderUIContent.transform.position, orderUIContent.transform.rotation,
                     orderUIContent.transform);
@@ -307,7 +295,8 @@ public class TutorialManager : MonoBehaviour
             }
             case 21:
             {
-                Instantiate(darknessPotion, orbSpawnpoint.position, quaternion.identity);
+                var potion = Instantiate(darknessPotion, orbSpawnpoint.position, quaternion.identity);
+                potion.transform.localScale = new Vector3(5f, 5f, 5f);
                 _contentString =
                     "This is how you will deposit the potions you make that are on order. " +
                     "\n Now, lets try making that Potion of Darkness into Coffee";

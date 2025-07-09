@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
@@ -13,11 +14,14 @@ namespace Items
 
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Item> itemList;
+        [SerializeField] private List<Vector3> ingredientScale;
         [SerializeField] private string[] recipes;
         [SerializeField] private Item[] recipeResults;
         [SerializeField] private Transform potionSpawnPoint;
         [SerializeField] private ParticleSystem potionSpawnParticleSystem;
         [SerializeField] private ParticleSystem cauldronParticleSystem;
+        [SerializeField] private AudioClip successSound;
+        [SerializeField] private AudioClip fireSwoosh;
 
         private string _currentRecipe;
         private void Start()
@@ -27,6 +31,7 @@ namespace Items
             allowStrength = true;
             potionFound = false;
             itemList = new List<Item> {null, null, null};
+            ingredientScale = new List<Vector3> { Vector3.zero, Vector3.zero, Vector3.zero };
         }
         private void CheckForCompleteRecipe()
         {
@@ -68,10 +73,12 @@ namespace Items
         //Returns All items in Items List, Calls Clear List to destroy the items in Cauldron and List
         private void ReturnItems()
         {
+            int temp = 0;
             foreach (var itemSpawnGameObject in itemList.Select(item => Instantiate(item.gameObject, potionSpawnPoint.transform.position, Quaternion.identity)))
             {
-                itemSpawnGameObject.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                itemSpawnGameObject.transform.localScale = ingredientScale[temp];
                 itemSpawnGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                temp++;
             }
             
             StartCoroutine(ClearList());
@@ -80,6 +87,7 @@ namespace Items
         private IEnumerator SpawnPotion(int recipeIndex)
         {
             //Plays Fire Swoosh and spawns in potion after swoosh
+            audioSource.clip = fireSwoosh;
             audioSource.Play();
             potionSpawnParticleSystem.Play();
             yield return new WaitForSeconds(2.25F);
@@ -98,6 +106,7 @@ namespace Items
             {
                 Destroy(item.gameObject);
             }
+            ingredientScale.Clear();
             itemList.Clear();
             SetBoolFalse();
             _currentRecipe = String.Empty;
@@ -108,6 +117,7 @@ namespace Items
         {
             yield return new WaitForSeconds(.5F);
             itemList = new List<Item> {null, null, null};
+            ingredientScale = new List<Vector3> { Vector3.zero, Vector3.zero, Vector3.zero };
         }
 
         private IEnumerator CauldronSmoke(Color color)
@@ -128,6 +138,10 @@ namespace Items
                 itemList.RemoveAll(item => item == null);
                 CheckForCompleteRecipe();
             }
+            if (ingredientScale.Count == 6)
+            {
+                ingredientScale.RemoveAll(vector3 => vector3 == Vector3.zero);
+            }
             //CheckForCompleteRecipe();
         }
 
@@ -143,8 +157,11 @@ namespace Items
         {
             if (collision.collider.CompareTag("BaseFlavor") && allowBase)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //baseFlavor = collision.gameObject;
                 Debug.Log("Base Flavor Found");
+                ingredientScale[0] = collision.gameObject.transform.localScale;
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(0,collision.gameObject.GetComponent<Item>());
@@ -157,8 +174,11 @@ namespace Items
             }
             else if (collision.collider.CompareTag("Flavor") && allowFlavor)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //flavor = collision.gameObject;
                 Debug.Log("Flavor Found");
+                ingredientScale[2] = collision.gameObject.transform.localScale;
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(2, collision.gameObject.GetComponent<Item>());
@@ -169,8 +189,11 @@ namespace Items
             }
             else if (collision.collider.CompareTag("Strength") && allowStrength)
             {
+                audioSource.clip = successSound;
+                audioSource.Play();
                 //strength = collision.gameObject;
                 Debug.Log("Strength Found");
+                ingredientScale[1] = collision.gameObject.transform.localScale;
                 collision.gameObject.transform.localScale = Vector3.zero;
                 collision.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 itemList.Insert(1,collision.gameObject.GetComponent<Item>());

@@ -19,6 +19,7 @@ TagManager:
   - Item_Manager
   - Player_Rig
   - Crop_Sign
+  - TimeForward
   layers:
   - Default
   - TransparentFX

@@ -1,24 +1,27 @@
+using System;
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Sunbeam : MonoBehaviour
 {
+   [SerializeField] private ParticleSystem sunParticleSystem;
+   
+   
    private void OnCollisionEnter(Collision other)
    {
-      
       if (other.collider.CompareTag("Crop"))
       {
          var otherObject = other.collider.GetComponentInChildren<GrowthStage>();
-         otherObject.currentTimeBeforeStage--;
-         Destroy(this.gameObject);
+         otherObject.currentTimeBeforeStage -= 20;
+         Instantiate(sunParticleSystem, transform.position, quaternion.identity);
+         Destroy(gameObject);
          Debug.Log("CROP HIT");
-      }
-      else if (other.collider.CompareTag("Crop_Sign"))
-      {
-         other.collider.GetComponent<EnableCrop>().StartCrop();
       }
       else
       {
-         Destroy(this.gameObject);
+        Instantiate(sunParticleSystem, transform.position, quaternion.identity); 
+        Destroy(gameObject);
       }
    }
 }

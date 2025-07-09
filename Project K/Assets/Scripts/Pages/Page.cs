@@ -20,12 +20,13 @@ namespace UI___Menu
         [SerializeField] private TextMeshProUGUI strengthText;
         [SerializeField] private TextMeshProUGUI flavorText;
         [SerializeField] private TextMeshProUGUI toastyText;
+        [SerializeField] private ParticleSystem fireParticleSystem;
         [FormerlySerializedAs("_potion")] public Potion potion;
 
         private void Start()
         {
             _gameManager = GameObject.FindWithTag("Order_Manager").GetComponent<GameManager>();
-            
+
         }
 
         //Changes the UI Text references to show current "Page"
@@ -36,17 +37,25 @@ namespace UI___Menu
             strengthText.text = potion.GetStrengthText();
             flavorText.text = potion.GetFlavorText();
             toastyText.text = potion.GetToastable();
-          //  pageNumber.text = (1 + _bookIndex).ToString();
+            //  pageNumber.text = (1 + _bookIndex).ToString();
         }
 
-        //If Page is found and destroyed by fire, page will be destroyed and added to the book of spells
+        //Coroutine for Fire Effect and Destroying Lost Page
+        private IEnumerator DestroyPage()
+        {
+            fireParticleSystem.Play();
+            yield return new WaitForSeconds(1f);
+            Destroy(gameObject);
+        }
+
+    //If Page is found and destroyed by fire, page will be destroyed and added to the book of spells
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Fire"))
             {
                 _gameManager.PageFound(potion.gameObject.GetComponent<Item>());
                 Debug.Log("Lost Page Hit");
-                Destroy(gameObject);
+                StartCoroutine(DestroyPage());
             }
         }
         

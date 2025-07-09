@@ -60,14 +60,16 @@ public class GameMenuManager : MonoBehaviour
             isMenuActive = true;
             menu.SetActive(true);
             powerManager.canFire = false;
+            powerManager.sunPower = false;
             //menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
-            
+
         }
         else if (context.performed && isMenuActive)
         {
             isMenuActive = false;
             menu.SetActive(false);
             powerManager.canFire = true;
+            powerManager.sunPower = true;
         }
         /*menu.transform.LookAt(new Vector3(head.position.x, menu.transform.position.y, head.position.y));
         menu.transform.rotation = quaternion.RotateY(180);*/
